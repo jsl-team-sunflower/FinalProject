@@ -1,0 +1,39 @@
+body{
+    height:2000px;
+}
+.index__nav{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px -4px;
+    position: fixed;
+    left: 0;
+    right:0;
+}
+.index__logo{
+    width:200px;
+}
+ul{
+    margin:0;
+    padding-left:0;
+}
+li{
+    list-style: none;
+}
+.index__nav-mid{
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+}
+.index__nav-mid li{
+    margin: 0 10px;
+}
+.index__nav-right{
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+}
+.index__nav-right li{
+    margin: 0 10px;
+}
