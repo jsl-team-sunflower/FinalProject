@@ -1,0 +1,458 @@
+@charset "UTF-8";
+
+/*footer*/
+#footer {
+	position : relative;
+	width: 100%;
+	padding: 40px;
+	background: #fff;
+	color: #000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#footer .footer_wrap {
+	/* width: 1200px;
+	height: 120px; */
+	flex-shrink: 0;
+	font-size: 12px;
+	height : auto;
+  	min-height: 100%;
+}
+
+.footerlogo img {
+	height: 50%;
+}
+/* //footer */
+
+/*header*/
+.navbar-default{
+background-color: #fff; 
+border-color: #fff;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: -24px;
+}
+
+.container-fluid{
+width: 1200px;
+height: 120px;
+flex-shrink: 0;
+}
+
+.navbar-nav{
+margin: 20px;
+}
+
+.navbar-nav .active{
+background-color: #fff;
+}
+
+.navbar-nav>li>#AuctionNav:hover{
+	font-weight: bolder;
+}
+
+.navbar-right{
+margin: 20px;
+}
+
+.navbar-right .glyphicon-shopping-cart{
+	line-height: 16px;
+	font-size: 17px;
+}
+
+.navbar-right .glyphicon-user{
+	line-height: 18px;
+}
+
+.navbar-form .form-group{
+	margin: 4px 4px;
+}
+
+.navbar-form .form-group .form-control{
+	margin-right: 4px;
+}
+.glyphicon-search{
+display: contents;
+}
+
+.dropdown-right{
+padding-top: 2px;
+}
+
+
+.nav-tabs {
+    border-bottom: 0 none;
+    background:#333;
+    margin-bottom:20px;
+}
+.nav-tabs>li>a {
+    margin-right: 0;
+    line-height: 1.42857143;
+    border: 0 none;
+    border-radius:0;
+    color:#fff;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #fff;
+    cursor: default;
+    background-color: #ff8300;
+    border: 0 none;
+    border-bottom-color: transparent;
+}
+.nav-tabs>li>a:hover {
+    border:0 none;
+    color: #333;
+}
+.idimg {
+	width:52px; height:52px; border-radius:26px;
+	background:url(../images/p1.jpg) no-repeat center center;
+	background-size:cover;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+}
+.navbar-default .navbar-nav>li>a:hover {
+	border: 2px;
+}
+/*//header*/
+
+/* main content-fluid */
+.mainClass{
+	padding-bottom: 40px;
+	border-bottom: 1px solid #dcdcdc;
+}
+/* //main content-fluid */
+
+/* main 이미지 컨트롤 */
+#left-control {
+    margin: 20px 0 0 calc(50% - 160px);
+    position: relative;
+    width: 28px;
+    float: left;
+    height: 28px;
+    background-image: url(https://public.seoulauction.io/resources/assets/images/common/ico-prev-gray_1.svg);
+}
+
+.carousel-control.left {
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .0001) 100%);
+}
+
+.carousel-control.right {
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .0001) 100%);
+}
+#right-control {
+    margin: 20px 0 0 265px;
+    position: relative;
+    width: 28px;
+    float: left;
+    height: 28px;
+    background-image: url(https://public.seoulauction.io/resources/assets/images/common/ico-next-gray_1.svg);
+}
+
+.carousel-indicators {
+    bottom: -58px;
+}
+
+.carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #000 \9;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+}
+
+.blank-height {
+    height: 20px;
+    clear: both;
+}
+/* //main 이미지 컨트롤 */
+
+/* 사이드바 */
+.sideBar{
+	position: sticky;
+	top:10%
+}
+
+.sideBar a{
+	color: #000;
+    text-decoration: none;
+}
+
+.sideBar .h2title{
+	margin-top: 20px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.sideBar .panel-group{
+	text-align: center;
+}
+
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #fff;
+    padding: 2px 23px;
+    height: 50px;
+    font-size: 18px;
+    border: none;
+    /* border-radius: 20px 40px 60px 80px; */
+}
+
+
+button {
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.panel-group .panel {
+    margin-bottom: -10px;
+    border: none;
+    box-shadow: none;
+    /* border-radius: 20px 40px 60px 80px; */
+}
+/* //사이드바 */
+
+/* 오른쪽 content 영역 */
+.thumbnail .caption #linkDetails{
+ 	margin-left: 202px;
+    margin-bottom: -6px;
+    border-radius: 5px;
+}
+
+.caption .productTiltle{
+	font-size: 20px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    margin-left: 12px;
+    font-weight: bolder;
+}
+
+.caption .close-date{
+	/* font-size: 12px;
+    margin: 0 0 10px;
+    margin-left: 8px;
+    background-color: #f7f7f7;
+    margin-right: 146px;
+    text-align: center; */
+    
+    font-size: 14px;
+    background-color: #f7f7f770;
+    color: #f00;
+    padding: 6px;
+    text-align: center;
+    border-radius:4px; 
+}
+
+.thumbnail>img {
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 4px;
+    object-fit: fill;
+}
+
+
+.mainContentSection .row{
+	margin-right: -15px;
+    margin-left: -15px;
+    padding-bottom: 60px;
+	
+}
+
+.mainContentSection .h2title{
+	padding-left: 8px;
+    padding-bottom: 8px;
+}
+
+.home-title-section .wrap-right {
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.home-title-section .wrap-right .title-total {
+    color: var(--black, #111);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -.28px;
+    margin-right: 10px;
+}
+
+.home-title-section .wrap-right svg {
+    transition: all .3s;
+}
+
+.thumbnail:hover img {
+    display: none;
+}
+
+.thumbnail:hover .info-img {
+	/* hover했을 때 상세내용 나오는 것 */
+    display: block;
+    /* height: 32%; */
+    height: 248px;
+}
+
+.thumbnail .info-img {
+    display: none;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+    border: 1px solid var(--grayscale-ccc, #ccc);
+    background: #ffffffe6;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    width: 100%;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.thumbnail .info-img .info-img_content {
+    margin: auto;
+    text-align: left;
+    padding: 5%;
+    overflow: hidden;
+}
+
+.thumbnail .info-img .info-img_content h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--grayscale-555, #555);
+    letter-spacing: -.28px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.thumbnail .info-img .info-img_content .info-detail {
+    font-weight: 400;
+    color: var(--grayscale-888, #888);
+    letter-spacing: -.28px;
+    margin-bottom: 12px;
+}
+
+.thumbnail .info-img .info-img_content .info-detail .texture {
+    margin-bottom: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-image: url(https://public.seoulauction.io/resources/assets/images/common/ico-size.svg);
+    background-repeat: no-repeat;
+    padding-left: 22px;
+}
+
+.thumbnail .info-img .info-img_content .info-detail .size {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-image: url(https://public.seoulauction.io/resources/assets/images/common/ico-texture.svg);
+    background-repeat: no-repeat;
+    padding-left: 22px;
+}
+
+.thumbnail .info-img .info-img_content .price {
+    color: var(--grayscale-555, #555);
+    letter-spacing: -.28px;
+    margin-top: 20px;
+}
+
+.thumbnail .info-img .info-img_content .price h5 {
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.thumbnail .info-img .info-img_content .price p {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+/* 상품 목록 css */
+.thumbnail .caption {
+    padding: 0px;
+}
+
+.thumbnail{
+	border: none;
+}
+
+img{
+	width: 100%;
+	height: 34%;
+	border-radius: 4px;
+}
+
+
+/* //오른쪽 content 영역 */
+
+/* 위로가기 스크롤 */
+.scroll_top-box{
+	float: right;
+}
+
+.move_back-box, .scroll_top-box {
+    position: fixed;
+    bottom: calc(64px + 52px);
+    margin-left: 92%;
+    width: 100%;
+    z-index: 4;
+    
+}
+.row .scroll_top-box .box-inner {
+    position: relative;
+    padding: 0 60px;
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+   
+}
+.move_back-box .btn-move_back.show, .scroll_top-box .btn-scroll_top.show {
+    opacity: 1;
+}
+.scroll_top-box .btn-scroll_top {
+    display: inline-block;
+    opacity: 0;
+    font-size: 0;
+    line-height: 0;
+    width: 53px;
+    height: 53px;
+    position: absolute;
+    background: url(https://www.seoulauction.com/images/common/ico-top-scroll.svg) no-repeat center center;
+    border-radius: 50%;
+    text-align: center;
+    transition: all 170ms;
+}
+/* //위로가기 스크롤 */
+
+/* onauction.jsp */
+.thumbnail-onauction{
+    padding: 4px;
+}
+
