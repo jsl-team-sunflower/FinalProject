@@ -16,19 +16,34 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequestMapping("/notice")
+@RequestMapping("/my")
 @RequiredArgsConstructor
-public class NoticeController {
+public class MyController {
 	
 	
-	//localhost:8067/notice/list
-	@GetMapping("/list")
-	public String noticeList(Model model) {
+	//localhost:8067/my/mypage
+	@GetMapping("/mypage")
+	public String myList(Model model) {
 		
-		return "/notice/notice";
+		return "/my/mypage";
 	}
 	
-
+	@GetMapping("/bidHistory")
+	public String bidList(Model model) {
+		
+		return "/my/bidHistory";
+	}
+	
+	@GetMapping("/payHistory")
+	public String payList(Model model) {
+		
+		return "/my/payHistory";
+	}
+	@GetMapping("/infoUpdate")
+	public String infoUpdateList(Model model) {
+		
+		return "/my/infoUpdate";
+	}
 	
 }
 
