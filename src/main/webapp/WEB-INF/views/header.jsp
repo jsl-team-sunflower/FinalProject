@@ -13,6 +13,14 @@
 <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
 <link rel="icon" href="/resources//images/favico.ico">
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
+<link href="/resources/css/login.css" rel='stylesheet'>
+<link href="/resources/css/signup.css" rel='stylesheet'>
+<link rel="stylesheet" href="/resources/css/admin.css" />
+<link href="/resources/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/resources/css/mypage.css" />
+
+    <link href="/resources/css/common.css" rel="stylesheet" />
+    <link href="/resources/css/layout.css" rel="stylesheet" />
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
 <title>HIMAWARI</title>
@@ -24,7 +32,7 @@
 		<div class="container-fluid">
 		
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/" style="height: 180px; margin-right: -30px; margin-top: 1px;"> 
+				<a class="navbar-brand" href="/" style=" margin-right: -30px; margin-top: 1px;"> 
 				<img alt="" src="/resources//images/HIMAWARI.png">
 				</a>
 				<button type="button" class="navbar-toggle collapsed"

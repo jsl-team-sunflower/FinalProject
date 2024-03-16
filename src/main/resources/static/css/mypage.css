@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  padding: 0 300px;
+}
+li {
+  list-style: none;
+}
+
+.mypage__sidebar {
+  width: 300px;
+}
+.mypage__main {
+  width: 100%;
+}
+.mypage__container {
+  display: flex;
+  padding: 40px 0;
+}
+.mypage__main__title {
+  padding-bottom: 20px;
+  border-bottom: 1px solid gray;
+  font-size:22px;
+  font-weight:bold;
+}
+.myform__main__list {
+  display: flex;
+}
+.myform__main__list li {
+  margin-right: 20px;
+}
+.myform__main__list li > span {
+  font-weight: bold;
+}
+.myform__main__list img {
+  width: 200px;
+  margin:15px 0;
+}
+.myform__main__list li > div:nth-of-type(1) {
+  margin-top: 5px;
+}
+.myform__main__list li div {
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+.myform__main__list__state {
+  background-color: lightgray;
+  color: white;
+  display: inline-block;
+  padding: 10px;
+}
+.myform__main__list__state--complete {
+  background-color: gray;
+  color: white;
+  display: inline-block;
+  padding: 10px;
+}
+.mypage__main__content {
+  padding-top: 30px;
+  padding-left: 30px;
+  margin: 0 auto;
+  width: 450px;
+}
+.mypage__main input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #bdbdbd;
+}
+
+.mypage__main__email {
+  display: flex;
+  justify-content: space-between;
+}
+.mypage__main__email > button {
+  width: 140px;
+  background-color: #f6f6f6;
+  border: 1px solid #bdbdbd;
+}
+.mypage__main__address {
+  display: flex;
+  justify-content: space-between;
+}
+.mypage__main__address > button {
+  width: 140px;
+  background-color: #f6f6f6;
+  border: 1px solid #bdbdbd;
+}
+
+.mypage__main div {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.accountUpdate__btn {
+  padding: 10px;
+  color: white;
+  background-color: orange;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+.accountUpdate__btnContainer {
+  text-align: center;
+  margin-top: 50px;
+}
