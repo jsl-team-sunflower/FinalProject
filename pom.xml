@@ -9,7 +9,7 @@
 		<version>3.2.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.hanulso</groupId>
+	<groupId>com.sunflower</groupId>
 	<artifactId>bootstudy14</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bootstudy14</name>
