@@ -13,6 +13,8 @@
 <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
 <link rel="icon" href="/resources//images/favico.ico">
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
+<link href="/resources/css/login.css" rel='stylesheet'>
+<link href="/resources/css/signup.css" rel='stylesheet'>
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
 <title>HIMAWARI</title>
