@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>상품 상세 설명</h1>
+	상품 명 : <span th:text="${itemDto.itemNm}"></span><br> <!-- thymeleaf는 반드시 태그 안에 th:text="${}"형식으로 해야한다 -->
+	삼품상세 설명 : <span th:text="${itemDto.itemDetail}"></span><br>
+	삼품등록일 : <span th:text="${itemDto.regTime}"></span><br>
+	삼품가격 : <span th:text="${itemDto.price}"></span>
+</body>
+</html>
