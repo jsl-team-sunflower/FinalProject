@@ -9,10 +9,9 @@
 <div id="carousel-example-generic" class="carousel slide"
 	data-ride="carousel">
 	<!-- Wrapper for slides -->
-	<div class="carousel-inner" role="listbox"
-		style="width: 100%; height: 460px; display: block; margin: 0 auto;">
+	<div class="carousel-inner" role="listbox">
 		<div class="item active">
-			<img src="/resources//images/mainImage1.jpg" alt="">
+			<img src="/resources//images/mainImage1.jpg" alt="" >
 		</div>
 		<div class="item">
 			<img src="/resources//images/mainImage2.jpg" alt="">
@@ -48,13 +47,14 @@
 <!-- 영상 스르릉 영역 끝 -->
 
 
-<div class="content-fluid mainClass">
-	<div class="container">
-		<div class="row">
+<div class="content-fluid HWAN_mainClass">
+	<div class="HWAN__container">
+		<div class="row HWAN__mainClassRow">
+		
 			<!-- 오른쪽 content 영역 -->
-			<div class="col-lg-10 ContentSection">
-				<div class="home-title-section ">
-					<h2 class="h2title" id="ongoingAuction">
+			<div class="col-lg-10 HWAN__ContentSection">
+				<div class="HWAN__home-title-section ">
+					<h2 class="HWAN__h2title" id="ongoingAuction">
 						진행경매 <a class="wrap-right" href="/auction/onauction"> <span
 							class="title-total">전체 작품보기</span> <svg width="18" height="18"
 								viewBox="0 0 18 18" fill="none"
@@ -68,12 +68,12 @@
 					</h2>
 				</div>
 
-				<div class="row">
+				<div class="row HWAN__ContentSectionRow">
 					<div class="col-sm-7 col-md-3">
 
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test10.jpg" alt="...">
+								<img src="/resources/images/test10.jpg" alt="..." id="index__img">
 							</div>
 							<a class="info-img" href="/auction/onauction">
 								<div class="info-img_content">
@@ -89,18 +89,17 @@
 								</div>
 							</a>
 						</div>
-						<div class="caption">
-							<div class="productTiltle">박소담</div>
-							<div class="productPrice"></div>
-							<div class="close-date glyphicon glyphicon-time">
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">박소담</div>
+							<div class="HWAN__close-date glyphicon glyphicon-time">
 	      					  D-3일 21:18:28</div>
 						</div>
 					</div>
 
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test4.jpg" alt="...">
+								<img src="/resources/images/test4.jpg" alt="..." id="index__img">
 							</div>
 							<a class="info-img" href="/">
 								<div class="info-img_content">
@@ -116,17 +115,17 @@
 								</div>
 							</a>
 						</div>
-						<div class="caption">
-							<div class="productTiltle">김선우</div>
-							<div class="close-date glyphicon glyphicon-time">
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">김선우</div>
+							<div class="HWAN__close-date glyphicon glyphicon-time">
 	      					  D-3일 21:18:28</div>
 						</div>
 					</div>
 
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test1.jpg" alt="...">
+								<img src="/resources/images/test1.jpg" alt="..." id="index__img">
 							</div>
 							<a class="info-img" href="/">
 								<div class="info-img_content">
@@ -142,17 +141,17 @@
 								</div>
 							</a>
 						</div>
-						<div class="caption">
-							<div class="productTiltle">이우한</div>
-							<div class="close-date glyphicon glyphicon-time">
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">이우한</div>
+							<div class="HWAN__close-date glyphicon glyphicon-time">
 	      					  D-3일 21:18:28</div>
 						</div>
 					</div>
 
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test5.jpg" alt="...">
+								<img src="/resources/images/test5.jpg" alt="..." id="index__img">
 							</div>
 							<a class="info-img" href="/">
 								<div class="info-img_content">
@@ -168,9 +167,9 @@
 								</div>
 							</a>
 						</div>
-						<div class="caption">
-							<div class="productTiltle">전지현</div>
-							<div class="close-date glyphicon glyphicon-time">
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">전지현</div>
+							<div class="HWAN__close-date glyphicon glyphicon-time">
 	      					  D-3일 21:18:28</div>
 						</div>
 					</div>
@@ -178,8 +177,8 @@
 				</div>
 				<!-- 진행경매 -->
 
-				<div class="home-title-section ">
-					<h2 class="h2title" id="scheduleAuction">
+				<div class="HWAN__home-title-section ">
+					<h2 class="HWAN__h2title" id="scheduleAuction">
 						상시경매 <a class="wrap-right" href="/auction/ScheduleAuction"> <span
 							class="title-total">전체 작품보기</span> <svg width="18" height="18"
 								viewBox="0 0 18 18" fill="none"
@@ -193,60 +192,60 @@
 					</h2>
 				</div>
 
-				<div class="row">
+				<div class="row HWAN__ContentSectionRow">
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test3.jpg" alt="...">
+								<img src="/resources/images/test3.jpg" alt="..." id="index__img">
 							</div>
 						</div>
-						<div class="caption">
-							<div class="productTiltle">박소담</div>
-							<div class="close-date">3일 21:18:28</div>
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">박소담</div>
+							<div class="HWAN__close-date">3일 21:18:28</div>
 						</div>
 					</div>
 
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test2.jpg" alt="...">
+								<img src="/resources/images/test2.jpg" alt="..." id="index__img">
 							</div>
 						</div>
-						<div class="caption">
-							<div class="productTiltle">김선우</div>
-							<div class="close-date">4일 01:18:28</div>
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">김선우</div>
+							<div class="HWAN__close-date">4일 01:18:28</div>
 						</div>
 					</div>
 
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test10.jpg" alt="...">
+								<img src="/resources/images/test10.jpg" alt="..." id="index__img">
 							</div>
 						</div>
-						<div class="caption">
-							<div class="productTiltle">이우한</div>
-							<div class="close-date">2일 10:24:28</div>
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">이우한</div>
+							<div class="HWAN__close-date">2일 10:24:28</div>
 						</div>
 					</div>
 
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test11.jpg" alt="...">
+								<img src="/resources/images/test11.jpg" alt="..." id="index__img">
 							</div>
 						</div>
-						<div class="caption">
-							<div class="productTiltle">전지현</div>
-							<div class="close-date">2일 10:24:28</div>
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">전지현</div>
+							<div class="HWAN__close-date">2일 10:24:28</div>
 						</div>
 					</div>
 
 				</div>
 				<!-- //예정경매 -->
 
-				<div class="home-title-section ">
-					<h2 class="h2title" id="ResultAuction">
+				<div class="HWAN__home-title-section ">
+					<h2 class="HWAN__h2title" id="ResultAuction">
 						경매결과 <a class="wrap-right" href="/auction/ResultAuction"> <span
 							class="title-total">전체 작품보기</span> <svg width="18" height="18"
 								viewBox="0 0 18 18" fill="none"
@@ -260,51 +259,51 @@
 					</h2>
 				</div>
 
-				<div class="row">
+				<div class="row HWAN__ContentSectionRow">
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test1.jpg" alt="...">
+								<img src="/resources/images/test1.jpg" alt="..." id="index__img">
 							</div>
-							<div class="caption">
-								<div class="productTiltle">박소담</div>
-								<div class="close-date">3일 21:18:28</div>
+							<div class="HWAN__caption">
+								<div class="HWAN__productTiltle">박소담</div>
+								<div class="HWAN__close-date">3일 21:18:28</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test2.jpg" alt="...">
+								<img src="/resources/images/test2.jpg" alt="..." id="index__img">
 							</div>
-							<div class="caption">
-								<div class="productTiltle">김선우</div>
-								<div class="close-date">4일 01:18:28</div>
+							<div class="HWAN__caption">
+								<div class="HWAN__productTiltle">김선우</div>
+								<div class="HWAN__close-date">4일 01:18:28</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test4.jpg" alt="...">
+								<img src="/resources/images/test4.jpg" alt="..." id="index__img">
 							</div>
-							<div class="caption">
-								<div class="productTiltle">이우한</div>
-								<div class="close-date">2일 10:24:28</div>
+							<div class="HWAN__caption">
+								<div class="HWAN__productTiltle">이우한</div>
+								<div class="HWAN__close-date">2일 10:24:28</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-sm-7 col-md-3">
-						<div class="thumbnail">
+						<div class="HWAN__thumbnail">
 							<div class="img-tab">
-								<img src="/resources/images/test3.jpg" alt="...">
+								<img src="/resources/images/test3.jpg" alt="..." id="index__img">
 							</div>
-							<div class="caption">
-								<div class="productTiltle">전지현</div>
-								<div class="close-date">2일 10:24:28</div>
+							<div class="HWAN__caption">
+								<div class="HWAN__productTiltle">전지현</div>
+								<div class="HWAN__close-date">2일 10:24:28</div>
 							</div>
 						</div>
 					</div>
@@ -315,28 +314,28 @@
 			<!-- //오른쪽 content 영역 -->
 
 			<!-- 왼쪽 사이드바 -->
-			<div class="col-lg-2 sideBar">
-				<h2 class="h2title">Category</h2>
+			<div class="col-lg-2 HWAN__sideBar">
+				<h2 class="HWAN__h2title">Category</h2>
 
-				<div class="panel-group" id="accordion" role="tablist"
+				<div class="HWAN__panel-group" id="accordion" role="tablist"
 					aria-multiselectable="true">
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingOne">
+					<div class="panel HWAN__panel-default">
+						<div class="HWAN__panel-heading" role="tab" id="headingOne">
 							<a type="button" class="__category-on" title="선택됨"
 								href="#ongoingAuction">
 								<p>진행경매</p>
 							</a>
 						</div>
 					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingTwo">
+					<div class="panel HWAN__panel-default">
+						<div class="HWAN__panel-heading" role="tab" id="headingTwo">
 							<a type="button" class="__category-on" href="#scheduleAuction">
 								<p>상시경매</p>
 							</a>
 						</div>
 					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingThree">
+					<div class="panel HWAN__panel-default">
+						<div class="HWAN__panel-heading" role="tab" id="headingThree">
 							<a type="button" class="__category-on" href="#ResultAuction">
 								<p>경매결과</p>
 							</a>

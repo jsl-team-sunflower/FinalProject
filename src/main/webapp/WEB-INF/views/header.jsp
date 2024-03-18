@@ -29,7 +29,7 @@
 
 </head>
 
-<body>
+<body style="padding: 0;">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 		

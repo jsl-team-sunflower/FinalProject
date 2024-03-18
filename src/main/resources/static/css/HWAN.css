@@ -1,5 +1,29 @@
 @charset "UTF-8";
 
+body{
+	padding: 0;
+}
+
+#index__img {
+	width: 100%;
+	height: 34%;
+	border-radius: 4px;
+}
+
+.HWAN__carousel-inner{
+ 	width: 100%;
+    height: 460px;
+    display: block;
+    margin: 0 auto;
+}
+
+button {
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
+
 /*footer*/
 #footer {
 	width: 100%;
@@ -16,588 +40,578 @@
 	height: 120px; */
 	flex-shrink: 0;
 	font-size: 12px;
-	height : auto;
-  	min-height: 100%;
+	height: auto;
+	min-height: 100%;
 }
 
-.footerlogo{
-    margin-right: -60px;
+.footerlogo {
+	margin-right: -60px;
 }
 
 .footerlogo #footer-img {
 	width: 64%;
-    margin-right: -30px;
-    margin-top: 12px;
+	margin-right: -30px;
+	margin-top: 12px;
 }
 /* //footer */
 
 /*header*/
-.navbar-brand #navbar-brand{
+.navbar-brand #navbar-brand {
 	width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-right: -30px;
-    margin-top: 4px;
+	height: auto;
+	border-radius: 4px;
+	margin-right: -30px;
+	margin-top: 4px;
 }
 
-.navbar-default{
-background-color: #fff; 
-border-color: #fff;
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: -24px;
+.navbar-default {
+	background-color: #fff;
+	border-color: #fff;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: -24px;
 }
 
-.container-fluid{
-width: 1280px;
-height: 120px;
-flex-shrink: 0;
+.container-fluid {
+	width: 1280px;
+	height: 120px;
+	flex-shrink: 0;
 }
 
-.navbar-nav{
-margin: 20px;
+.navbar-nav {
+	margin: 20px;
 }
 
-.navbar-nav .active{
-background-color: #fff;
+.navbar-nav .active {
+	background-color: #fff;
 }
 
-.navbar-nav>li>#AuctionNav:hover{
+.navbar-nav>li>#AuctionNav:hover {
 	font-weight: bolder;
 }
 
-.navbar-right{
-margin: 20px;
+.navbar-right {
+	margin: 20px;
 }
 
-.navbar-right .glyphicon-shopping-cart{
+.navbar-right .glyphicon-shopping-cart {
 	line-height: 16px;
 	font-size: 17px;
 }
 
-.navbar-right .glyphicon-user{
+.navbar-right .glyphicon-user {
 	line-height: 18px;
 }
 
-.navbar-form .form-group{
+.navbar-form .form-group {
 	margin: 4px 4px;
 }
 
-.navbar-form .form-group .form-control{
+.navbar-form .form-group .form-control {
 	margin-right: 4px;
 }
-.glyphicon-search{
-display: contents;
+
+.glyphicon-search {
+	display: contents;
 }
 
-.dropdown-right{
-padding-top: 2px;
+.dropdown-right {
+	padding-top: 2px;
 }
-
 
 .nav-tabs {
-    border-bottom: 0 none;
-    background:#333;
-    margin-bottom:20px;
-}
-.nav-tabs>li>a {
-    margin-right: 0;
-    line-height: 1.42857143;
-    border: 0 none;
-    border-radius:0;
-    color:#fff;
+	border-bottom: 0 none;
+	background: #333;
+	margin-bottom: 20px;
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    color: #fff;
-    cursor: default;
-    background-color: #ff8300;
-    border: 0 none;
-    border-bottom-color: transparent;
+.nav-tabs>li>a {
+	margin-right: 0;
+	line-height: 1.42857143;
+	border: 0 none;
+	border-radius: 0;
+	color: #fff;
 }
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
+	{
+	color: #fff;
+	cursor: default;
+	background-color: #ff8300;
+	border: 0 none;
+	border-bottom-color: transparent;
+}
+
 .nav-tabs>li>a:hover {
-    border:0 none;
-    color: #333;
+	border: 0 none;
+	color: #333;
 }
+
 .idimg {
-	width:52px; height:52px; border-radius:26px;
-	background:url(../images/p1.jpg) no-repeat center center;
-	background-size:cover;
+	width: 52px;
+	height: 52px;
+	border-radius: 26px;
+	background: url(../images/p1.jpg) no-repeat center center;
+	background-size: cover;
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #777;
+	color: #777;
 }
+
 .navbar-default .navbar-nav>li>a:hover {
 	border: 2px;
 }
 /*//header*/
 
-.container{
-	width: 1280px;
-}
-
-.ContentSection{
-	padding-right: 28px;
-}
-
-
-/* main content-fluid */
-.mainClass{
-	padding-bottom: 40px;
-	border-bottom: 1px solid #dcdcdc;
-    padding: 30px 120px 0;
-    max-width: 1920px;
-    margin: 0 auto;
-}
-/* //main content-fluid */
-
 /* main 이미지 컨트롤 */
 #left-control {
-    margin: 20px 0 0 calc(50% - 160px);
-    position: relative;
-    width: 28px;
-    float: left;
-    height: 28px;
-    background-image: url(https://public.seoulauction.io/resources/assets/images/common/ico-prev-gray_1.svg);
+	margin: 20px 0 0 calc(50% - 160px);
+	position: relative;
+	width: 28px;
+	float: left;
+	height: 28px;
+	background-image:
+		url(https://public.seoulauction.io/resources/assets/images/common/ico-prev-gray_1.svg);
 }
 
 .carousel-control.left {
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .0001) 100%);
+	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0,
+		rgba(0, 0, 0, .0001) 100%);
 }
 
 .carousel-control.right {
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .0001) 100%);
+	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0,
+		rgba(0, 0, 0, .0001) 100%);
 }
+
 #right-control {
-    margin: 20px 0 0 265px;
-    position: relative;
-    width: 28px;
-    float: left;
-    height: 28px;
-    background-image: url(https://public.seoulauction.io/resources/assets/images/common/ico-next-gray_1.svg);
+	margin: 20px 0 0 265px;
+	position: relative;
+	width: 28px;
+	float: left;
+	height: 28px;
+	background-image:
+		url(https://public.seoulauction.io/resources/assets/images/common/ico-next-gray_1.svg);
 }
 
 .carousel-indicators {
-    bottom: -58px;
+	bottom: -58px;
 }
 
 .carousel-indicators .active {
-    width: 12px;
-    height: 12px;
-    margin: 0;
-    background-color: #f7f7f7;
+	width: 12px;
+	height: 12px;
+	margin: 0;
+	background-color: #f7f7f7;
 }
 
 .carousel-indicators li {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 1px;
-    text-indent: -999px;
-    cursor: pointer;
-    background-color: #000 \9;
-    background-color: rgba(0, 0, 0, 0);
-    border: 1px solid #f7f7f7;
-    border-radius: 10px;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 1px;
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: #000 \9;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid #f7f7f7;
+	border-radius: 10px;
 }
 
 .blank-height {
-    height: 20px;
-    clear: both;
+	height: 20px;
+	clear: both;
 }
 /* //main 이미지 컨트롤 */
 
+/* main content-fluid */
+.HWAN_mainClass {
+	padding-bottom: 40px;
+	padding: 30px 120px 0;
+	max-width: 1920px;
+	margin: 0 auto;
+}
+/* //main content-fluid */
+
+/* HWAN__container */
+.HWAN__container{
+	width: 1280;
+    margin: 0 auto;
+}
+/* //HWAN__container */
+
 /* 사이드바 */
-.sideBar{
+.HWAN__sideBar {
 	position: sticky;
-	top:10%
+	top: 10%
 }
 
-.sideBar a{
+.HWAN__sideBar a {
 	color: #000;
-    text-decoration: none;
+	text-decoration: none;
 }
 
-.sideBar .h2title{
+.HWAN__sideBar .HWAN__h2title {
 	margin-top: 20px;
-    margin-bottom: 18px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-    text-align: left;
+	margin-bottom: 18px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+	text-align: left;
 }
 
-.sideBar .panel-group{
+.HWAN__sideBar .HWAN__panel-group {
 	text-align: center;
 }
 
-.panel-default>.panel-heading {
-    color: #333;
-    background-color: #fff;
-    padding: 2px 2px;
-    height: 50px;
-    font-size: 16px;
-    border: none;
-    text-align: left;
-    /* border-radius: 20px 40px 60px 80px; */
+.HWAN__panel-default>.HWAN__panel-heading {
+	color: #333;
+	background-color: #fff;
+	padding: 2px 2px;
+	height: 50px;
+	font-size: 16px;
+	border: none;
+	text-align: left;
 }
 
-
-button {
-    border: 0;
-    border-radius: 0;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.panel-group .panel {
-    margin-bottom: -10px;
-    border: none;
-    box-shadow: none;
-	text-align: left;   
+.HWAN__panel-group .panel {
+	margin-bottom: -10px;
+	border: none;
+	box-shadow: none;
+	text-align: left;
 }
 /* //사이드바 */
 
-/* 오른쪽 content 영역 */
-.thumbnail .caption #linkDetails{
- 	margin-left: 202px;
-    margin-bottom: -6px;
-    border-radius: 5px;
-}
-
-.caption .productTiltle{
-	font-size: 20px;
-    margin-top: 12px;
-    margin-bottom: 8px;
-    font-weight: bolder;
-}
-
-.caption .close-date{
-    font-size: 14px;
-    background-color: #eee;
-    color: #f00;
-    padding: 6px;
-    text-align: center;
-    border-radius:4px; 
-    width: 100%
-}
-
-.thumbnail>img {
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: 4px;
-    object-fit: fill;
-}
-
-
-.ContentSection .row{
-	margin-right: -15px;
-    margin-left: -15px;
-    padding-bottom: 60px;
-	
-}
-
-.ContentSection .h2title{
-	padding-left: 8px;
-    padding-bottom: 8px;
-}
-
-.home-title-section .wrap-right {
-    display: flex;
-    align-items: center;
-    float: right;
-}
-
-.home-title-section .wrap-right .title-total {
-    color: var(--black, #111);
-    text-align: center;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: -.28px;
-    margin-right: 10px;
-}
-
-.home-title-section .wrap-right svg {
-    transition: all .3s;
-}
-
-.thumbnail:hover img {
-    display: none;
-}
-
-.thumbnail:hover .info-img {
-	/* hover했을 때 상세내용 나오는 것 */
-    display: block;
-    height: 32%;
-   /*  height: 244px; */
-}
-
-.thumbnail .info-img {
-    display: none;
-    -webkit-transition: all .4s;
-    -moz-transition: all .4s;
-    -o-transition: all .4s;
-    transition: all .4s;
-    border: 1px solid var(--grayscale-ccc, #ccc);
-    background: #ffffffe6;
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-    width: 100%;
-    cursor: pointer;
-    font-size: 15px;
-    line-height: 18px;
-}
-
-.thumbnail .info-img .info-img_content {
-    margin: auto;
-    text-align: left;
-    padding: 5%;
-    overflow: hidden;
-}
-
-.thumbnail .info-img .info-img_content h4 {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--grayscale-555, #555);
-    letter-spacing: -.28px;
-    margin-bottom: 12px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.thumbnail .info-img .info-img_content .info-detail {
-    font-weight: 400;
-    color: var(--grayscale-888, #888);
-    letter-spacing: -.28px;
-    margin-bottom: 12px;
-}
-
-.thumbnail .info-img .info-img_content .info-detail .texture {
-    margin-bottom: 12px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-image: url(https://public.seoulauction.io/resources/assets/images/common/ico-size.svg);
-    background-repeat: no-repeat;
-    padding-left: 22px;
-}
-
-.thumbnail .info-img .info-img_content .info-detail .size {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-image: url(https://public.seoulauction.io/resources/assets/images/common/ico-texture.svg);
-    background-repeat: no-repeat;
-    padding-left: 22px;
-}
-
-.thumbnail .info-img .info-img_content .price {
-    color: var(--grayscale-555, #555);
-    letter-spacing: -.28px;
-    margin-top: 20px;
-}
-
-.thumbnail .info-img .info-img_content .price h5 {
-    font-weight: 400;
-    font-size: 13px;
-}
-
-.thumbnail .info-img .info-img_content .price p {
-    font-weight: 600;
-    font-size: 14px;
-}
-
-
-/* 상품 목록 css */
-.thumbnail .caption {
-    padding: 0px;
-}
-
-.thumbnail{
-	border: none;
-}
-
-.col-md-2{
-	width: 20%;	
-}
-
-
-/* //오른쪽 content 영역 */
-
 /* 위로가기 스크롤 */
 .move_back-box, .scroll_top-box {
-    position: fixed;
-    bottom: calc(64px + 52px);
-    z-index: 4;
-    left: 95%
+	position: fixed;
+	bottom: calc(64px + 52px);
+	z-index: 4;
+	left: 95%
 }
 
 .type-width_list .scroll_top-box .box-inner {
-    position: relative;
-    padding: 0 60px;
-    max-width: 1920px;
-    width: 100%;
-    margin: 0 auto;
-    text-align: right;
+	position: relative;
+	padding: 0 60px;
+	max-width: 1920px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: right;
 }
 
-.move_back-box .btn-move_back.show, .scroll_top-box .btn-scroll_top.show {
-    opacity: 1;
+.move_back-box .btn-move_back.show, .scroll_top-box .btn-scroll_top.show
+	{
+	opacity: 1;
 }
 
 .scroll_top-box .btn-scroll_top {
-    /* display: inline-block; */
-    opacity: 0;
-    font-size: 0;
-    line-height: 0;
-    width: 53px;
-    height: 53px;
-    position: absolute;
-    background: url(https://www.seoulauction.com/images/common/ico-top-scroll.svg) no-repeat center center;
-    border-radius: 50%;
-    text-align: center;
-    transition: all 170ms;
+	/* display: inline-block; */
+	opacity: 0;
+	font-size: 0;
+	line-height: 0;
+	width: 53px;
+	height: 53px;
+	position: absolute;
+	background:
+		url(https://www.seoulauction.com/images/common/ico-top-scroll.svg)
+		no-repeat center center;
+	border-radius: 50%;
+	text-align: center;
+	transition: all 170ms;
 }
 
 i.icon-scroll_top {
-    display: none;
+	display: none;
 }
-
 /* //위로가기 스크롤 */
 
-/* onauction.jsp */
-.thumbnail-onauction{
-    padding: 4px;
-    min-width: 40%;
+/* index content 영역 */
+.HWAN__caption .HWAN__productTiltle {
+	font-size: 20px;
+	margin-top: 12px;
+	margin-bottom: 8px;
+	font-weight: bolder;
 }
 
-.home-title-section #onauctionTitle{
+.HWAN__caption .HWAN__productContent {
+	font-size: 12px;
+	font-weight: lighter;
+}
+
+.HWAN__caption .HWAN__close-date {
+	font-size: 14px;
+	background-color: #eee;
+	color: #f00;
+	padding: 6px;
 	text-align: center;
-    margin-top: 40px;
-    margin-bottom: 80px;
+	border-radius: 4px;
+	width: 100%
 }
 
-.sideBar-list{
-	position: sticky;
-    top: 37%;
-    padding-left: 28px;
+.HWAN__thumbnail>img {
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 4px;
+	object-fit: fill;
 }
 
-.sideBar-list a{
-	color: #000;
-    text-decoration: none;
+.HWAN__thumbnail:hover img {
+	display: none;
 }
 
-.sideBar-list .h2title{
+.HWAN__thumbnail:hover .info-img {
+	/* hover했을 때 상세내용 나오는 것 */
+	display: block;
+	height: 34%;
+	border: 1px solid #ccc;
+}
+
+.HWAN__thumbnail .info-img {
+	display: none;
+	-webkit-transition: all .4s;
+	-moz-transition: all .4s;
+	-o-transition: all .4s;
+	transition: all .4s;
+	border: 1px solid var(- -grayscale-ccc, #ccc);
+	background: #ffffffe6;
+	-webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+	width: 100%;
+	cursor: pointer;
+	font-size: 15px;
+	line-height: 18px;
+}
+
+.HWAN__thumbnail .info-img .info-img_content {
+	margin: auto;
+	text-align: left;
+	padding: 5%;
+	overflow: hidden;
+}
+
+.HWAN__thumbnail .info-img .info-img_content h4 {
+	font-size: 16px;
+	font-weight: 500;
+	color: var(- -grayscale-555, #555);
+	letter-spacing: -.28px;
+	margin-bottom: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.HWAN__thumbnail .info-img .info-img_content .info-detail {
+	font-weight: 400;
+	color: var(- -grayscale-888, #888);
+	letter-spacing: -.28px;
+	margin-bottom: 12px;
+}
+
+.HWAN__thumbnail .info-img .info-img_content .info-detail .texture {
+	margin-bottom: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	background-image:
+		url(https://public.seoulauction.io/resources/assets/images/common/ico-size.svg);
+	background-repeat: no-repeat;
+	padding-left: 22px;
+}
+
+.HWAN__thumbnail .info-img .info-img_content .info-detail .size {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	background-image:
+		url(https://public.seoulauction.io/resources/assets/images/common/ico-texture.svg);
+	background-repeat: no-repeat;
+	padding-left: 22px;
+}
+
+.HWAN__thumbnail .info-img .info-img_content .price {
+	color: var(- -grayscale-555, #555);
+	letter-spacing: -.28px;
 	margin-top: 20px;
-    margin-bottom: 18px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-    text-align: left;
 }
 
-.sideBar-list .panel-group{
+.HWAN__thumbnail .info-img .info-img_content .price h5 {
+	font-weight: 400;
+	font-size: 13px;
+}
+
+.HWAN__thumbnail .info-img .info-img_content .price p {
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.HWAN__home-title-section .wrap-right {
+	display: flex;
+	align-items: center;
+	float: right;
+}
+
+.HWAN__home-title-section .wrap-right .title-total {
+	color: var(- -black, #111);
+	text-align: center;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+	letter-spacing: -.28px;
+	margin-right: 10px;
+}
+
+.HWAN__home-title-section .wrap-right svg {
+	transition: all .3s;
+}
+
+/* //index content 영역 */
+.HWAN__ContentSection {
+	padding-right: 28px;
+}
+
+.HWAN__ContentSection .HWAN__ContentSectionRow {
+	margin-right: -15px;
+	margin-left: -15px;
+	padding-bottom: 60px;
+}
+
+.HWAN__ContentSection .HWAN__h2title {
+	padding-left: 8px;
+	padding-bottom: 8px;
+}
+
+/* -------------------------index 끝------------------------------- */
+
+/* onauction.jsp */
+.HWAN__onauctionCol2 {
+	width: 20%;
+}
+
+.HWAN__thumbnail-onauction {
+	padding: 4px;
+	min-width: 40%;
+}
+
+.HWAN__home-title-section #onauctionTitle {
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 80px;
+}
+
+.HWAN__sideBar-list {
+	position: sticky;
+	top: 37%;
+	padding-left: 28px;
+}
+
+.HWAN__sideBar-list a {
+	color: #000;
+	text-decoration: none;
+}
+
+.HWAN__sideBar-list .HWAN__h2title {
+	margin-top: 20px;
+	margin-bottom: 18px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+	text-align: left;
+}
+
+.HWAN__sideBar-list .panel-group {
 	text-align: center;
 }
 
-.onauctionImg{
-    overflow: hidden; /* 내용이 부모 요소를 넘어갈 경우 숨기기 */
-    position: relative;
+.HWAN__auctionImg {
+	overflow: hidden; /* 내용이 부모 요소를 넘어갈 경우 숨기기 */
+	position: relative;
 }
 
-.onauctionImg:hover img{
+.HWAN__auctionImg:hover img {
 	transform: scale(1.2); /* hover 시 이미지 크기 확대 */
-    transition: transform 0.3s ease; /* 부드러운 애니메이션 적용 */
+	transition: transform 0.3s ease; /* 부드러운 애니메이션 적용 */
 }
 
-.onauctionImg #onauctionImg{
-    object-fit: cover; /* 이미지가 부모 요소에 맞게 조절되도록 설정 */
+.HWAN__auctionImg #HWAN__auctionImg {
+	object-fit: cover; /* 이미지가 부모 요소에 맞게 조절되도록 설정 */
+	height: 28%;
 }
 
-.productTiltle .productTiltle span {
+.HWAN__productTiltle  span {
 	color: #111;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.54px;
-    font-weight: bolder;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: -0.54px;
+	font-weight: bolder;
 }
 
-.btn_bid a{
+.HWAN__btn_bid a {
 	border: 1px solid #ccc;
 	color: #000;
 }
 
-.btn_bid a:hover {
+.HWAN__btn_bid a:hover {
 	border: 1px solid #000;
 	font-weight: bolder;
 }
 
-.caption .productContent{
-	font-size: 12px;
-    font-weight: lighter;
-}
-
 /* onauction sidebar */
-.auction-list_filter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 28px;
+.HWAN__auction-list_filter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 28px;
 }
 
-.auction-list_filter .left-title .title {
-    color: #111;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: -0.32px;
+.HWAN__auction-list_filter .left-title .title {
+	color: #111;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: -0.32px;
 }
 
-.auction-list_filter .left-title .number {
-    color: #39C3BC;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: -0.32px;
-    background-color: #39C3BC1F;
-    padding: 2px 8px;
-    border-radius: 100px;
-    margin-left: 5px;
-    min-width: 40px;
-    text-align: center;
-    height: 28px;
+.HWAN__auction-list_filter .left-title .number {
+	color: #39C3BC;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: -0.32px;
+	background-color: #39C3BC1F;
+	padding: 2px 8px;
+	border-radius: 100px;
+	margin-left: 5px;
+	min-width: 40px;
+	text-align: center;
+	height: 28px;
 }
 
-/* onauction sidebar search */
-.wrap-list_filter-input {
-    margin-top: 20px;
-}
-
-.auction-list_filter_search{
+.HWAN__auction-list_filter_search {
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 40px;
 	padding-bottom: 12px;
 }
 
-
-.auction-list_filter_search .auctionSearch{
-	border: none; 
-	width: 144px;
+.HWAN__auction-list_filter_search .auctionSearch {
+	border: none;
+	width: 130px;
 }
 
-.productWrite a{
+/* onauction sidebar search */
+.HWAN__wrap-list_filter-input {
+	margin-top: 20px;
+}
+
+.HWAN__productWrite a {
 	border: 1px solid #ccc;
 	color: #fff;
 	background-color: #ccc;
 }
 
-.productWrite a:hover {
+.HWAN__productWrite a:hover {
 	border: 1px solid #FDCC00;
 	font-weight: bolder;
 	background-color: #FDCC00;
@@ -605,84 +619,6 @@ i.icon-scroll_top {
 }
 
 /* ResultAuction.jsp*/
-.productPrice .endProductList{
-	color:#f00;
+.HWAN__productPrice .HWAN__endProductList {
+	color: #f00;
 }
-
-/* main 달력 영역*/
-.art-services-section {
-    margin: 0 auto;
-    max-width: 1920px;
-}
-
-.art-services-section .wrap-art_calendar .service-content {
-    width: 60%;
-    position: relative;
-}
-
-.art-services-section .wrap-art_calendar .main-calendar {
-    position: relative;
-    border-top: 1px solid #ccc;
-    padding-top: 12px;
-    width: 40%;
-}
-
- body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    .main-calendar {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .calendar-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .mantine-Calendar-month {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .mantine-Calendar-weekday,
-    .mantine-Calendar-day {
-        padding: 10px;
-        text-align: center;
-        border: 1px solid #ccc;
-    }
-
-    .mantine-Calendar-monthRow:nth-child(2) .mantine-Calendar-day,
-    .mantine-Calendar-monthRow:nth-child(3) .mantine-Calendar-day {
-        border-top: none;
-    }
-
-    .mantine-Calendar-day button {
-        width: 100%;
-        height: 100%;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    .mantine-Calendar-day:hover {
-        background-color: #f0f0f0;
-    }
-
-    .live {
-        color: red;
-        font-weight: bold;
-    }
-
-    .online {
-        color: blue;
-        font-weight: bold;
-    }
