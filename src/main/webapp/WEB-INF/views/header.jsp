@@ -31,9 +31,11 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 		
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/" style=" margin-right: -30px; margin-top: 1px;"> 
-				<img alt="" src="/resources//images/HIMAWARI.png">
+
+			<div class="navbar-header"style="margin-right: -40px;">
+				<a class="navbar-brand" href="/"> 
+				<img alt="" src="/resources//images/HIMAWARI.png" id="navbar-brand">
+
 				</a>
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -46,8 +48,8 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="/auction/onauction" id="AuctionNav">진행경매</a></li>
-					<li><a href="#" id="AuctionNav">예정경매</a></li>
-					<li><a href="#" id="AuctionNav">경매결과</a></li>
+					<li><a href="/auction/ScheduleAuction" id="AuctionNav">상시경매</a></li>
+					<li><a href="/auction/ResultAuction" id="AuctionNav">경매결과</a></li>
 					<li class="dropdown"><a href="#" id="AuctionNav" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">공지사항 <span class="caret"></span></a>

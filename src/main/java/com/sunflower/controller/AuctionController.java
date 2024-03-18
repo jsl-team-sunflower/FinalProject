@@ -21,5 +21,14 @@ public class AuctionController {
 		return "/Auction/onGoingAuction";
 	}
 	
-}
+	@GetMapping("/ScheduleAuction")
+	public String ScheduleAuction() { 
+		return "/Auction/ScheduleAuction";
+	}
 	
+	@GetMapping("/ResultAuction")
+	public String ResultAuction() { 
+		return "/Auction/ResultAuction";
+	}
+	
+}

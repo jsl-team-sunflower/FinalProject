@@ -10,9 +10,8 @@
    		<div class="container">
    			<div class="row">
    				<div class="home-title-section ">
-   					<h1 class="onauctionTitle" id="onauctionTitle">진행경매 </h1>
+   					<h1 class="onauctionTitle" id="onauctionTitle">경매결과 </h1>
    				</div>
-	   				
    				<!-- 오른쪽 content 영역 -->
    				<div class="col-lg-10 ContentSection">
    					<div class="row">
@@ -35,19 +34,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -69,19 +63,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -103,19 +92,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -137,19 +121,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -171,19 +150,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -210,19 +184,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -244,19 +213,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -278,19 +242,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -312,19 +271,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -346,19 +300,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -385,19 +334,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -419,19 +363,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -453,19 +392,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -487,19 +421,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -521,19 +450,14 @@
 						      		<dd><span>시작가</span></dd>
 						      		<dd><span>KRW 1,000,000</span></dd>	
 						      	</dl>
-						      	<dl class="presentProductList">
-						      		<dd><span>현재가</span></dd>
+						      	<dl class="endProductList">
+						      		<dd><span>종료가</span></dd>
 						      		<dd><strong>KRW 3,000,000</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  경매종료</div>
 	      					  <div class="blank-height"></div>
-	      					  	<div class="btn_bid">
-							      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-	        							<span>응찰</span>
-	      							</a>
-      							</div>
 					      </div>
 					  </div>
 					  
@@ -582,7 +506,7 @@
 					    </div>
 					  </div>
 					  <div class="blank-height"></div>
-					  	<div class="productWrite">
+					  <div class="productWrite">
 					      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
      							<span>위탁 신청</span>
    							</a>
@@ -594,16 +518,14 @@
    			</div> <!-- //row -->
    		
    		</div> <!-- //content  -->
-   		
-   			<!-- 맨 위로 가는 스크롤 -->
-   			<div class="scroll_top-box">
-				<div class="box-inner">
-					<a href="#" class="btn-scroll_top js-scroll_top show">
-						<i class="icon-scroll_top"></i>
-					</a>
-				</div>
-			</div>
-	 </div>
+   		<div class="scroll_top-box">
+   						<div class="box-inner">
+   							<a href="#" class="btn-scroll_top js-scroll_top show">
+   								<i class="icon-scroll_top"></i>
+   							</a>
+   						</div>
+   					</div>
+   </div>
 
 
 
