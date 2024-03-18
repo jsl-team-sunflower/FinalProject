@@ -1,0 +1,440 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: 0;
+}
+
+/* Nav bar, Header */
+
+.navbar-brand>img {
+    display: block;
+    margin-right:30px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #e7e7e7;
+    margin-left: 170px;
+    margin-top: 5px;
+}
+
+.navbar-brand {
+    float: left;
+    height: 0px;
+    padding: 0px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+header {
+	border-bottom:1px solid #ccc;
+}
+
+.dropdown {
+	position:relative;
+}
+
+.open>.dropdown-menu {
+    display: block;
+    right:0;
+    left:auto;
+    border:0 none;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 120px;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: center;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0 none;
+    -webkit-box-shadow: 0 6px 12px #F5EEE6;
+    box-shadow: 0 6px 12px #F5EEE6;
+}
+
+.navbar-default {
+	padding-top:20px;
+    background-color: white;
+    border-color: transparent;
+}
+
+/* nav 오른쪽 */
+
+.navbar-default .navbar-nav>.open>#navnone,
+.navbar-default .navbar-nav>.open>#navnone:focus,
+.navbar-default .navbar-nav>.open>#navnone:hover {
+    color: #777;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>#navnone:focus {
+    color: #777;
+    background-color: transparent;
+}
+
+#search-btn {
+    color: #777;
+    background-color: #fff;
+    border:0 none;
+    margin-top:4px;
+}
+
+#search-btn:hover, #search-btn:active {
+    color: #333;
+    background: #fff;
+    border:transparent;
+    border-radius:4px;
+}
+
+#search-btn:focus {
+	color: #333;
+	background:#fff;
+	border-radius:4px;
+	border:0 none;
+	outline:none;
+	box-shadow:none;
+}
+
+.dropdown-menu>li>a:hover {
+    color: #262626;
+    text-decoration: none;
+    background-color: transparent;
+    font-weight:bold;
+}
+
+/* nav 왼쪽 */
+.navbar-default .navbar-nav>.open>#navtag, .navbar-default .navbar-nav>.open>#navtag:focus {
+	color:#333;
+	font-weight:bold;
+	background-color: #FDCC00;
+	border-radius:4px;
+}
+
+.navbar-default .navbar-nav>li>#navtag:hover {
+    color: #333;
+ 	font-weight:bold;   
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>#navtag:active {
+    color: #333;
+	font-weight:bold;
+    background-color: #FDCC00;
+}
+
+.navbar-default .navbar-nav>li>#navtag:focus {
+    color: #333;
+    background:transparent;
+    outline:none;
+}
+
+
+/* Index */
+
+.index {
+	margin-top:50px;
+}
+
+.content {
+	margin:0 auto;
+	text-align:center;
+}
+
+.content img {
+	width:100%;
+	margin-top:20px;
+	padding:30px;
+}
+
+.image img {
+	width:100%;
+	height:370px;
+}
+
+.info p {
+	font-size:24px;
+	font-weight:bold;
+	margin-top:32px;
+	margin-left:20px;
+}
+
+.date {
+	width:400px;
+	height:130px;
+	margin:20px auto;
+	border:1px solid #FDCC00;
+	padding:20px;
+}
+
+.date .nowdate {
+	color:#FDCC00;
+}
+
+.date h2 {
+	font-size:44px;
+	font-weight:bold;
+	text-align:center;
+	color:#111;
+}
+
+.price {
+	font-size:24px;
+	padding-right:25px;
+	text-align:right;
+}
+
+.nowprice {
+	font-weight:bold;
+	font-size:18px;
+	color:#FDCC00;
+	margin-right:10px;
+}
+
+.tender {
+	padding-left:24px;
+	padding-top:28px;
+}
+
+.tender #tender {
+	width:400px;
+	height:40px;
+	font-size:18px;
+	border: 1px solid #F6EED1;
+	border-radius:3px;
+}
+
+.tender #tender:hover {
+	border: 1px solid #FDCC00;
+	background:transparent;
+}
+
+.tender #tender:focus {
+	background:transparent;
+	outline:0 none;
+}
+
+.tender #tender:active {
+	background:transparent;
+	box-shadow: none;
+}
+
+.tenderPrice {
+	padding:12px 0;
+	padding-right:24px;
+	float:right;
+	visibility: hidden;
+}
+
+#insertPrice {
+	border:1px solid #ccc;
+	height:36px;
+	border-radius:4px;
+	padding: 8px;
+}
+
+#tenderbtn {
+	width:50px;
+	height:30px;
+	font-size:16px;
+	color: #444;
+	border: 1px solid #F6EED1;
+	border-radius:4px;
+	padding-bottom: 28px;
+	margin-bottom: 2px;
+}
+
+.tender #tenderbtn:hover {
+	border: 1px solid #FDCC00;
+	background:transparent;
+}
+
+.tender #tenderbtn:focus {
+	background:transparent;
+	outline:0 none;
+}
+
+.tender #tenderbtn:active {
+	background:transparent;
+	box-shadow: none;
+}
+
+/* productView 이미지 부분 */
+
+section {
+    background: #F4F4F4;
+    padding: 50px 0;
+}
+
+.carousel {
+    display: block;
+    text-align: left;
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.carousel > input {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+.carousel > input:nth-of-type(6):checked ~ .carousel__slides .carousel__slide:first-of-type { margin-left: -500%; }
+.carousel > input:nth-of-type(5):checked ~ .carousel__slides .carousel__slide:first-of-type { margin-left: -400%; }
+.carousel > input:nth-of-type(4):checked ~ .carousel__slides .carousel__slide:first-of-type { margin-left: -300%; }
+.carousel > input:nth-of-type(3):checked ~ .carousel__slides .carousel__slide:first-of-type { margin-left: -200%; }
+.carousel > input:nth-of-type(2):checked ~ .carousel__slides .carousel__slide:first-of-type { margin-left: -100%; }
+.carousel > input:nth-of-type(1):checked ~ .carousel__slides .carousel__slide:first-of-type { margin-left: 0%; }
+
+.carousel > input:nth-of-type(1):checked ~ .carousel__thumbnails li:nth-of-type(1) { box-shadow: 0px 0px 0px 2px #FDCC00; }
+.carousel > input:nth-of-type(2):checked ~ .carousel__thumbnails li:nth-of-type(2) { box-shadow: 0px 0px 0px 2px #FDCC00; }
+.carousel > input:nth-of-type(3):checked ~ .carousel__thumbnails li:nth-of-type(3) { box-shadow: 0px 0px 0px 2px #FDCC00; }
+.carousel > input:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) { box-shadow: 0px 0px 0px 2px #FDCC00; }
+.carousel > input:nth-of-type(5):checked ~ .carousel__thumbnails li:nth-of-type(5) { box-shadow: 0px 0px 0px 2px #FDCC00; }
+.carousel > input:nth-of-type(6):checked ~ .carousel__thumbnails li:nth-of-type(6) { box-shadow: 0px 0px 0px 2px #FDCC00; }
+
+.carousel__slides {
+    position: relative;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.carousel__slide {
+    position: relative;
+    display: block;
+    flex: 1 0 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 300ms ease-out;
+    vertical-align: top;
+    box-sizing: border-box;
+    white-space: normal;
+}    
+.carousel__slide figure {
+    display: flex;
+    margin: 0;
+}
+    
+.carousel__slide div {
+    @include aspect-ratio(3, 2);
+    width: 100%;
+}
+    
+.carousel__slide img {
+    display: block;
+    flex: 1 1 auto;
+    object-fit: cover;
+}
+    
+.carousel__slide .credit {
+    margin-top: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    display: block;        
+} 
+.carousel__slide .credit .scrollable {
+    overflow-y: scroll;
+}
+
+.carousel__thumbnails {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    
+    margin: 0 -10px;
+    
+    .carousel__slides + & {
+        margin-top: 20px;
+    }
+    
+    li {        
+        flex: 1 1 auto;
+        height:50px;
+        max-width: calc((100% / 6) - 20px);  
+        margin: 0 10px;
+        transition: all 300ms ease-in-out;
+    }
+    
+    label {
+        display: block;
+        @include aspect-ratio(1,1);
+        
+                  
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            
+            img {
+                box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.25);
+                transition: all 300ms ease-in-out;
+            }
+        }
+    }
+    
+    img {
+        display: block;
+        width: 100%;
+        height: 50px;
+        object-fit: cover;
+    }
+}
+
+/* tender modal */
+#btnTender {
+	color: #111;
+	background: transparent;
+	border: 1px solid #FDCC00;
+}
+
+#tenderPrice {
+	width: 150px;
+}
+
+
+/* Notice */
+
+.sub-title {
+	margin: 70px auto;
+	text-align: center;
+}
+
+.table>colgroup+thead>tr:first-child>th, th {
+	text-align: center;
+}
+
+.table>tbody>tr:hover{
+	background:#fcf8e3;
+}
+
+#notice-date {
+	text-align: center;
+}
