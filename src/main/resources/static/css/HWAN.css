@@ -421,19 +421,6 @@ button {
 	border: none;
 }
 
-/* img 관련 css*/
-img{
-	width: 100%;
-	height: 32%;
-	border-radius: 4px;
-}
-
-.onauctionImg img{
-	width: 100%;
-	height: 26%;
-	border-radius: 4px;
-}
-
 .col-md-2{
 	width: 20%;	
 }
