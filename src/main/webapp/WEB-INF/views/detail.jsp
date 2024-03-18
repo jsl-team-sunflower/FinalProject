@@ -4,18 +4,18 @@
 
 <div class="content-fluid">
 	<div class="container">
-		<div class="row">
-			<div class="detail col-lg-12">
-				<div class="image col-md-7">
-					<div class="carousel">
+		<div class="hyeon__row">
+			<div class="hyeon__detail col-lg-12">
+				<div class="hyeon__image col-md-7">
+					<div class="hyeon__carousel">
 						<input type="radio" name="slides" checked="checked" id="slide-1">
 						<input type="radio" name="slides" id="slide-2"> <input
 							type="radio" name="slides" id="slide-3"> <input
 							type="radio" name="slides" id="slide-4"> <input
 							type="radio" name="slides" id="slide-5"> <input
 							type="radio" name="slides" id="slide-6">
-						<ul class="carousel__slides">
-							<li class="carousel__slide">
+						<ul class="hyeon__carousel__slides">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -24,7 +24,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -33,7 +33,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -42,7 +42,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -51,7 +51,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -60,7 +60,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -70,7 +70,7 @@
 								</figure>
 							</li>
 						</ul>
-						<ul class="carousel__thumbnails">
+						<ul class="hyeon__carousel__thumbnails">
 							<li><label for="slide-1"><img
 									src="https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 									alt=""></label></li>
@@ -92,22 +92,22 @@
 						</ul>
 					</div>
 				</div>
-				<div class="info col-md-5">
+				<div class="hyeon__info col-md-5">
 					<p>여기는 상품명</p>
-					<div class="date">
+					<div class="hyeon__date">
 						<h2>
-							D-<span class="nowdate">10</span>
+							D-<span class="hyeon__nowdate">10</span>
 						</h2>
 					</div>
-					<div class="price">
-						<span class="nowprice">현재 가격</span> 137,390원
+					<div class="hyeon__price">
+						<span class="hyeon__nowprice">현재 가격</span> 137,390원
 					</div>
-					<div class="line">
+					<div class="hyeon__line">
 					</div>
-					<div class="tender">
-						<div class="tenderPrice">
-							<input type="text" id="insertPrice" placeholder="입찰 금액 입력">
-							<button type="submit" class="btn btn-default" id="tenderbtn">
+					<div class="hyeon__tender">
+						<div class="hyeon__tenderPrice">
+							<input type="text" id="hyeon__insertPrice" placeholder="입찰 금액 입력">
+							<button type="submit" class="btn btn-default" id="hyeon__tenderbtn">
 								<i class="glyphicon glyphicon-usd"></i>
 							</button>
 						</div>
@@ -120,7 +120,7 @@
 
 <script>
 	/* 금액 ',' 구분자 넣기 */
-	const input = document.querySelector('#insertPrice');
+	const input = document.querySelector('#hyeon__insertPrice');
 
 	input.addEventListener('keyup', function(e) {
 		var value = e.target.value;
