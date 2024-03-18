@@ -1,0 +1,52 @@
+.pay__main__container {
+  width: 1000px;
+  margin: 0 auto;
+}
+.pay__main__table {
+  width: 100%;
+  
+}
+.pay__main__table th {
+  text-align: center;
+  padding:10px;
+}
+.pay__main__table tr {
+  border-bottom: 1px solid lightgray;
+}
+.pay__main__title {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid lightgray;
+  margin-top: 200px;
+  font-size:20px;
+  font-weight:bold;
+}
+.pay__table__box {
+  width: 700px;
+  margin: 0 auto;
+}
+.pay__table__box input[type="text"] {
+  width: 80%;
+}
+.pay__table__divider {
+  padding: 30px 0;
+}
+.pay__table__address--btn {
+  padding: 5px;
+  background-color: #f6f6f6;
+  border: 1px solid #bdbdbd;
+}
+.pay__main__table__title{
+	font-size:18px;
+  font-weight:bold;
+}
+.pay__bottom {
+  text-align: center;
+}
+.pay__bottom__btn {
+  margin-top: 50px;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #f6f6f6;
+  border: 1px solid #bdbdbd;
+}

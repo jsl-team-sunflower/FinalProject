@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="/resources/css/admin.css" />
 <link href="/resources/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/resources/css/mypage.css" />
+        <link rel="stylesheet" href="/resources/css/pay.css" />
+    
 
     <link href="/resources/css/common.css" rel="stylesheet" />
     <link href="/resources/css/layout.css" rel="stylesheet" />
