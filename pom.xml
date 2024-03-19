@@ -9,7 +9,7 @@
 		<version>3.2.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.hanulso</groupId>
+	<groupId>com.sunflower</groupId>
 	<artifactId>bootstudy14</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bootstudy14</name>
@@ -95,24 +95,23 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 		</dependency>
-		<!-- sec: 태그 사용하려면 -->
+		sec: 태그 사용하려면
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
-		</dependency>
+		</dependency> -->
 		<!-- 타임리프 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-			<version>3.2.3</version>
 		</dependency>
 
 	</dependencies>
