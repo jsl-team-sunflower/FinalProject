@@ -5,7 +5,12 @@
 <html>
 <head>
 <script>
+<<<<<<< HEAD
 function startTime() {    
+=======
+function startTime() {
+	    
+>>>>>>> branch 'feature_myPage' of https://github.com/jsl-team-sunflower/FinalProject.git
 	var today = new Date();    
 	var h = today.getHours()-12;    
 	var m = today.getMinutes();    
