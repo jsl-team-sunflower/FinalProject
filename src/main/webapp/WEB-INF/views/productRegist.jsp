@@ -13,9 +13,9 @@
 		</div>
 			<form name="product" method="post" enctype="multipart/form-data" action="/product/regist" onsubmit="return check()">
 				<div class="hyeon__productWrite">
-					<input type="text" name="productname" id="hyeon__productname" placeholder="상품명 입력">
-					<input type="text" id="hyeon__writer" name="productwriter" placeholder="의뢰인 입력">
-					<input type="text" id="hyeon__startprice" name="startprice" placeholder="시작가 입력">
+					<input type="text" id="hyeon__productname" name="productName" placeholder="상품명 입력">
+					<input type="text" id="hyeon__writer" name="productWriter" placeholder="의뢰인 입력">
+					<input type="text" id="hyeon__startprice" name="startPrice" placeholder="시작가 입력">
 					<span class="hyeon__pwrite">입력하지 않을 시 0원으로 시작합니다.</span>
 					<input type="file" name="uploadfile" id="hyeon__uploadfile" multiple="multiple">
 					<div class="hyeon__product-btn">
