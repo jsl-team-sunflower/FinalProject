@@ -14,13 +14,25 @@
       <div><input id="name" type="text" /></div>
       <div><label for="phone">휴대폰 번호</label></div>
       <div><input id="phone" type="text" /></div>
-      <div><label for="email"> 이메일</label></div>
-      <div class="signup__main__email">
-        <input id="email" type="text" /><button>인증번호 요청</button>
-      </div>
+		      <div><label for="email"> 이메일</label></div>
+      <div>
+	      <div class="signup__main__email" >
+	 	     <div class="col-lg-8 " style="padding:0;">
+		        <input id="email" type="text" />
+		     </div>
+		  	 <div class="col-lg-4" style="margin:0 auto; height:17px;" >    
+		        <button>인증번호 요청</button>
+	      	 </div>
+		  </div>    
+	  </div>    
       <div>주소</div>
       <div class="signup__main__address">
-        <input type="text" /><button>주소 검색</button>
+        <div class="col-lg-9 " style="padding:0;">
+        	<input type="text" />
+        </div>
+		<div class="col-lg-3" style="margin:0 auto; height:17px;" >	
+        	<button>주소 검색</button>
+        </div>	
       </div>
 
 		<div class="signup__main__line"></div>

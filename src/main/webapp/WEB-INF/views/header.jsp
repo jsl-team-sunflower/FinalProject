@@ -56,7 +56,7 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">공지사항 <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">QnA</a></li>
+							<li><a href="/qa/list">QnA</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
