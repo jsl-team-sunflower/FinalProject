@@ -10,7 +10,7 @@
 		insert into hm_comment (comNum, comContent, qnaNum) values (hm_comment_seq.nextval,#{comContent},#{qnaNum})
 	</insert>
 	<select id = "list" resultType="com.sunflower.domain.QaVO">
-		select * from hm_qna
+		select * from hm_qna order by qnaNum desc
 	</select>
 	
 	<select id="getVo" resultType="com.sunflower.domain.QaVO">
@@ -28,4 +28,14 @@
 		delete from hm_qna where qnaNum = #{qnaNum}
 	</delete>
 	
+	<select id="nextRecord" resultType="com.sunflower.domain.QaVO">
+	<![CDATA[
+		select * from hm_qna where qnaNum = (select min(qnaNum) from hm_qna where qnaNum > #{qnaNum})
+	]]>
+	</select>
+	<select id="prevRecord" resultType="com.sunflower.domain.QaVO">
+	<![CDATA[
+		select * from hm_qna where qnaNum = (select max(qnaNum) from hm_qna where qnaNum < #{qnaNum})
+	]]>
+	</select>
 </mapper>

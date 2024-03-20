@@ -13,8 +13,9 @@
 				<li class="btn_home">
 					<a href="index.html"><i class="fa fa-home btn_plus"></i></a>
 				</li>
+				<!-- 
 				<li class="dropdown">
-					<a href="">커뮤니티<i class="fa fa-plus btn_plus"></i></a>
+					<a href="#">커뮤니티<i class="fa fa-plus btn_plus"></i></a>
 					<div class="dropdown_menu">
 						<a href="gratings.html">공지사항</a>
 						<a href="allclass.html">학과및모집안내</a>
@@ -23,12 +24,11 @@
 						<a href="notice.html">커뮤니티</a>
 					</div>
 				</li>
+				 -->
 				<li class="dropdown">
-					<a href="">질문과답변<i class="fa fa-plus btn_plus"></i></a>
+					<a href="#">공지사항<i class="fa fa-plus btn_plus"></i></a>
 					<div class="dropdown_menu">
-						<a href="notice.html">공지사항</a>
-						<a href="qa.html">질문과답변</a>
-						<a href="faq.html">취업실적</a>
+						<a href="/qa/list">QnA</a>
 					</div>
 				</li>
 			</ul>
@@ -39,7 +39,8 @@
 	<div class="container">
 	  <div class="search_wrap">
 		<div class="record_group">
-			<p>총게시글<span>120</span>건</p>
+		<c:set var="listSize" value="${fn:length(list)}" />
+			<p>총 게시글<span>${listSize}</span>건</p>
 		</div>
 		<div class="search_group">
 			<form name="myform" action="">

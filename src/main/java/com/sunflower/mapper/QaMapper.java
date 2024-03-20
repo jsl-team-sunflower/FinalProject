@@ -15,6 +15,8 @@ public interface QaMapper {
 	public List<QaVO> list();
 
 	public QaVO getVo(int bno);
+	public QaVO nextRecord(int qnaNum);
+	public QaVO prevRecord(int qnaNum);
 
 	public void anRegister(AnVO vo);
 
@@ -22,5 +24,6 @@ public interface QaMapper {
 
 	public int setUpdate(int qbno);
 
-	public void deleteQuestion(int qnaNum);                              
+	public void deleteQuestion(int qnaNum);
+	
 }

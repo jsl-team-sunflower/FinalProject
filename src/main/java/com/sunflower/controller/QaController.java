@@ -51,6 +51,8 @@ private final QaService qaService;
 	public String qaVo(@RequestParam("qnaNum") int bno, Model model) {
 		QaVO vo = qaService.getVo(bno);
 		model.addAttribute("vo",vo);
+		model.addAttribute("nextRecord",qaService.nextRecord(bno));
+		model.addAttribute("prevRecord",qaService.prevRecord(bno));
 		return "/qna/view";
 	}
 	
@@ -58,7 +60,7 @@ private final QaService qaService;
     @ResponseBody
 	public Map<String, Object> getAnswer(@RequestBody AnVO vo) {
 		Map<String, Object> result = new HashMap<>();
-		int re = qaService.anRegister(vo); 
+		int re = qaService.anRegister(vo); // 질문의 Vo를 불러와서 
 		result.put("key", re);
 		return result;	 
 	}

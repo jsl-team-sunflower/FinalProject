@@ -41,4 +41,26 @@ public class QaService {
 	public void deleteQuestion(int qnaNum){ 
 		qaMapper.deleteQuestion(qnaNum); 
 	}
+	
+	public QaVO nextRecord(int qnaNum){ 
+		QaVO nextVo = qaMapper.nextRecord(qnaNum);	// 다음글 내용
+		if(nextVo != null) {
+			if (nextVo.getQnaState() == 1) { // 답변글
+				AnVO avo = qaMapper.getSelect(nextVo.getQnaNum());
+				nextVo.setAvo(avo);
+			}
+		}
+		return nextVo;
+	}
+	public QaVO prevRecord(int qnaNum){ 
+		
+		QaVO prevVo = qaMapper.prevRecord(qnaNum);
+		if(prevVo != null) {
+			if (prevVo.getQnaState() == 1) { // 답변글
+				AnVO avo = qaMapper.getSelect(prevVo.getQnaNum());
+				prevVo.setAvo(avo);
+			}
+		}
+		return prevVo;
+	}
 }
