@@ -38,11 +38,13 @@
 
 	<div class="container">
 		<div class="board_view">
+			<span>번호 :${vo.qnaNum }</span>
 			<h2>질문제목 : ${vo.qnaTitle }</h2>
 			<p class="info"><span class="user">질문자 : ${vo.qnaWriter }</span> | 등록일자 : <fmt:formatDate value="${vo.qnaRegdate}" pattern="yyyy-MM-dd"/> | <i class="fa fa-eye"></i>조회수 : ${vo.qnaViewcount}</p>
 			<div class="board_body">
 				<span style="text-align:left; font-size:18px; font-weight:bold;">질문내용</span> : ${vo.qnaContent }
 				<br><br><br><br><br>
+					<hr style="display:block;">
 				<div>
 					<p style="padding:20px 0; font-weight:bold; font-size:18px;">답변글 >>>>>></p>
 					<textarea rows="10" cols="10" style="width:100%; border: 1px solid #ccc;" name="comContent" id="comContent"></textarea>
@@ -106,7 +108,7 @@
 	      </div>
 	      <div class="modal-body">
 	        <strong><p>정말 삭제하실껀가요?</p></strong>
-	        <p>제목 : ${prevRecord.qnaTitle}</p>
+	        <p>제목 : ${vo.qnaTitle}</p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
