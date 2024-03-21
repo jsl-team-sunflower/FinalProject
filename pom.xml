@@ -95,19 +95,19 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency> -->
-		<!-- <dependency>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 		</dependency>
-		sec: 태그 사용하려면
+		<!-- sec: 태그 사용하려면  -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
-		</dependency> -->
+		</dependency>
 		<!-- 타임리프 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

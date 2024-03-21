@@ -1,41 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="/javascript/popup_2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <%@ include file="../header.jsp"%>
     <div class="signup__main">
       <h1 class="signup__main__title">회원가입</h1>
+      
+      <form name="member" method="post" action="signup?${_csrf.parameterName}=${_csrf.token}" 
+      id="member" enctype="multipart/form-data">
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+      
       <div><label for="id">아이디</label></div>
-      <div><input id="id" type="text" /></div>
+      
+      <div class="signup__main__id">
+      	<input id="id" type="text" name="id" class="w300"/>
+      	<input type="button" value="중복확인" id="idCheckBtn" class="btn- btn-default" onclick="checkLoginId();"/>
+      </div>
+      
       <div><label for="pw">비밀번호</label></div>
-      <div><input id="pw" type="text" /></div>
+      <div><input id="pw" type="password" name="pw" /></div>
       <div><label for="pwCheck">비밀번호 확인</label></div>
-      <div><input id="pwCheck" type="text" /></div>
+      <div><input id="pwCheck" type="password" /></div>
+      
       <div><label for="name">이름</label></div>
-      <div><input id="name" type="text" /></div>
+      <div><input id="name" type="text" name="name"/></div>
+      
       <div><label for="phone">휴대폰 번호</label></div>
-      <div><input id="phone" type="text" /></div>
+      <div><input id="phone" type="text" name="phone"/></div>
+      
       <div><label for="email"> 이메일</label></div>
       <div class="signup__main__email">
-        <input id="email" type="text" /><button>인증번호 요청</button>
+       <input id="mail" type="text" name="mail" class="w300"/>
+        <input type="button" class="btn-mail" id="btn-mail" value="인증번호 요청"/>
       </div>
-      <div>주소</div>
-      <div class="signup__main__address">
-        <input type="text" /><button>주소 검색</button>
+     <div class="signup__main__email">
+        <input id="checkNum" type="text" name="num" class="w300"
+        disabled="disabled" style="background-color: #f7f7f7"/>
+        <input type="button" class="btn-auth" id="btn-auth" value="인증번호 확인"/>
       </div>
+      
+      	<div><label class="address">주소</label></div>
+      <div class="group">
+	    <input type="button" onclick="sample6_execDaumPostcode()" class="button" value="우편번호 찾기" 
+	    style="margin-left: 69%; width: 139px;"><p></p>
+   		<input type="text" id="user_addressNumber" class="input" name="user_addressNumber" class="w300" placeholder="우편번호"><p></p>
+	    <input type="text" id="user_address1" name="user_address1" class="input" placeholder="주소"><p></p>
+	    <input type="text" id="user_address2" name="user_address2" class="input" placeholder="상세주소">
+	   </div>
 
+      
+	
+      <!-- ----------------------------------------------- -->
 		<div class="signup__main__line"></div>
+      <!-- ----------------------------------------------- -->
+      
+      <!-- 약관동의 -->
       <div>
-        <input id="all" type="checkbox" /><span
-          ><label for="all">모두 동의합니다.</label></span
+        <input id="all" type="checkbox" name="chkctrl"/>
+        <span><label for="all">모두 동의합니다.</label></span
         >
       </div>
       <ul>
         <li class="signup__main__agree">
-          <input id="agree1" type="checkbox" /><span
-            class="signup__main__required"
+          <input id="agree1" type="checkbox" name="agree" />
+          <span class="signup__main__required"
             >[필수]</span
-          ><span><label for="agree1">온라인 경매 약관 동의</label></span
-          ><a href="#" class="signup__main__agree--btn"
+          ><span><label for="agree1">온라인 경매 약관 동의</label>
+          </span><a href="#" class="signup__main__agree--btn"
             ><i class="fa-solid fa-chevron-down"></i
           ></a>
         </li>
@@ -772,7 +804,7 @@
           </div>
         </div>
         <li class="signup__main__agree">
-          <input id="agree2" type="checkbox" /><span
+          <input id="agree2" type="checkbox" name="agree"/><span
             class="signup__main__required"
             >[필수]</span
           ><span><label for="agree2"> 오프라인 경매 약관 동의</label></span
@@ -1521,7 +1553,7 @@
           </div>
         </div>
         <li class="signup__main__agree">
-          <input id="agree3" type="checkbox" /><span
+          <input id="agree3" type="checkbox" name="agree"/><span
             class="signup__main__required"
             >[필수]</span
           ><span><label for="agree3">개인정보 수집 및 이용 동의</label></span
@@ -1570,8 +1602,17 @@
             </p>
           </div>
         </div>
-      </ul>
-    </div>
+      </ul><!-- // 약관 -->
+      
+		<div class="btnArea Acenter pt60 pb100">
+		 	<a href="javascript:history.go(-1);" class="btn_round btn_large w180" style="background-color:#ccc; color:#000;"><b>취소</b></a>
+		 	<a href="javascript:void(0);" id="btn-ok" class="btn_round btn_large w180" style="background-color:#FDCC00; color:#000;"><b>회원등록</b></a>
+		</div>
+      </form>
+    </div> <!-- //signup__main -->
+    <!-- --------------------------------------------------------- -->
+    
+    <!-- 약관 script -->
     <script>
       let btn = document.querySelectorAll(".signup__main__agree--btn");
       let content = document.querySelectorAll(".signup__main__agree__content");
@@ -1607,9 +1648,261 @@
           allCheckbox.checked = allChecked;
         });
       });
+      
     </script>
+    <!-- //약관 script -->
+    
+    <!-- 약관에 필요한 기호 -->
     <script
       src="https://kit.fontawesome.com/9f59b2dab5.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous">
+    </script>
+    <!-- //약관에 필요한 기호 -->
+    
+    <!-- id 확인 script -->
+    <script>
+    var checkCount = false;
+    function checkLoginId() {
+      const form = document.getElementById("member"); //시험볼때 이거나옴
+      form.id.readonly = false;
+      const id = document.querySelector('#member input[name="id"]');
+      const count = getJson('/member-count', {id:id.value});
+      if(id.value === ''){
+    	  alert("아이디를 입력하세요");
+    	  id.focus();
+    	  return false;
+      }
+      if(count > 0) {
+         alert("이미 가입된 아이디가 있어요");
+         checkCount = false;
+         id.focus();
+         return false;
+      }
+      
+      if(confirm("사용 가능한 아이디 입니다. \n입력하신 아이디 사용하시겠습니까?")) { //confirm 확인과 취소 버튼 두개 나오는거
+         id.readOnly = true;
+         checkCount = true;
+         document.getElementById("idCheckBtn").disabled = true;
+      }
+   } 
+ 
+   
+   function getJson(uri, params) {
+      let json = {};
+      $.ajax({
+         url:uri,
+         type:'get',
+         data:params,
+         dataType:'json',
+         async:false,
+         success:function(response){
+            json = response;
+         },error:function() {
+            alert("통신에러");
+         }
+      })
+      return json;
+   }
+    </script>
+    <!-- //id 확인 script -->
+    
+    <!-- mail 인증확인 script-->
+    <script>
+    var code ="";
+	var incode = "";
+	var checkcode = false;
+	
+	$(function() {
+		$("#btn-mail").on("click", function() {
+			var regEmail = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[a-zA-Z0-9\-]+/;
+			if (!regEmail.test($("#mail").val())) {
+				alert("이메일 주소를 입력해 주세요.");
+				$("#mail").focus();
+				return false;
+			}
+
+			var mail = $("#mail").val();
+			$.ajax({
+				type : 'get',
+				url : "/mail.do?mail=" + mail,
+				success : function(data) {
+					alert("메일전송 완료");
+					code = data;
+					
+					$("#checkNum").attr("disabled",false);
+					$("#checkNum").css("background","#fff");
+					$("#mail").attr("readonly",true);
+					$("#btn-mail").attr("disabled",true);
+					$("#mail").css("background","#fff"); 
+				}
+
+			})
+		})
+		
+		$("#btn-auth").on("click",function(){
+			incode = $("#checkNum").val();
+			
+			if (code =="" || incode =="")	{
+				alert("인증번호를 입력해 주세요.");
+			}
+			else if(code == incode){
+				alert("인증되었습니다.");
+				checkcode = true;
+				$("#btn-auth").attr("disabled",true);
+				$("#checkNum").attr("disabled",true);
+			}  else { 
+				alert("인증번호를 확인해 주세요.");
+				
+			}
+			
+		})
+		
+	});
+	</script>
+    <!-- //mail 인증확인 script-->
+    
+    
+    <!-- 회원등록 버튼 눌렀을 때 각종 확인 -->
+    <script>
+    $(function() {
+        $(".location  .dropdown > a").on("click",function(e) {
+           e.preventDefault();
+           if($(this).next().is(":visible")) {
+              $(".location  .dropdown > a").next().hide();
+           } else {
+              $(".location  .dropdown > a").next().hide();
+              $(this).next().show();
+           }
+        });
+        
+        $("#btn-ok").on("click", function () {
+     	   // 1. 비밀번호 일치 여부 확인
+     	   if ($("#pw").val() !== $("#pwCheck").val()) {
+     	     alert("비밀번호가 일치하지 않습니다.");
+     	     $("#pw").focus();
+     	     return false;
+     	   }
+     	   
+     	   // 2. 빈칸 여부 확인
+     	   if (
+     	     $("#id").val() === "" ||
+     	     $("#pw").val() === "" ||
+     	     $("#pwCheck").val() === "" ||
+     	     $("#name").val() === "" ||
+     	     $("#phone").val() === "" ||
+     	     $("#mail").val() === "" ||
+     	     $("#checkNum").val() === "" ||
+     	     $("#user_addressNumber").val() === "" ||
+     	     $("#user_address1").val() === "" ||
+     	     $("#user_address2").val() === ""
+     	   ) {
+     	     alert("모두 입력해야 합니다.");
+     	     $("#id").focus();
+     	     return false;
+     	   }
+ 			
+     	   // 3. 회원가입 처리
+     	   if(checkCount == true){
+     		   $("#member").submit();
+     	   } else{
+     		   alert("중복체크가 필요합니다.");
+     	   }
+        });
+        
+            var chklist=$("input[name=agree]");
+            // input 태그 네임이 agree인 모든 태그를 변수에 담는다
+            $("#chkctrl").click(function(){
+               //id이름이 chkctrl클 클릭했을때
+               if($(this).is(":checked")){
+                  //자기자신이 체크상태이면
+                  chklist.prop("checked",true);
+                  //chlist에 담겨진 모든태그를 체크상태로 변경
+               }else {
+                  chklist.prop("checked",false);
+                  //attr() 함수는 html에 작성된 속성값을 문자열로 받아오고
+                  //prop() 함수는 자바스크립트의 프로퍼티를 가져온다
+               }
+            })
+         
+         
+         // 아래처럼하면 여러 이벤트함수를 처리할수 있다는 장점이 있음
+            $("#agree1, #agree2, #agree3").on("click", function() {
+               if($("#agree1").is(":checked") == true
+                      && $("#agree2").is(":checked") == true 
+                      && $("#agree3").is(":checked") == true) {
+                  $("#chkctrl").prop("checked", true);
+               }else{
+                  $("#chkctrl").prop("checked", false);
+               }
+            })
+          
+            $("#btn_ok").on("click", function() {
+              var chk = true;
+               for(var i=0; i<chklist.length; i++) {
+                  if(!chklist[i].checked) {
+                     chk = false
+                  }
+               }
+               if(!chk) {
+                  alert("모든 약관에 동의해 주세요");
+                  return false;
+               }else{
+            	   $("#member").submit();
+               }
+            })
+            
+    });
+    </script>
+    <!-- //회원등록 버튼 눌렀을 때 각종 확인 -->
+    
+    <!-- 주소 API -->
+    <script>
+ function sample6_execDaumPostcode() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+				// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				var addr = ''; // 주소 변수
+				var extraAddr = ''; // 참고항목 변수
+
+				//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+				if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+					addr = data.roadAddress;
+				} else { // 사용자가 지번 주소를 선택했을 경우(J)
+					addr = data.jibunAddress;
+				}
+
+				// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+				if(data.userSelectedType === 'R'){
+					// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+					// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+					if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+						extraAddr += data.bname;
+					}
+					// 건물명이 있고, 공동주택일 경우 추가한다.
+					if(data.buildingName !== '' && data.apartment === 'Y'){
+						extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+					}
+					// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+					if(extraAddr !== ''){
+						extraAddr = ' (' + extraAddr + ')';
+					}
+					// 조합된 참고항목을 해당 필드에 넣는다.
+					document.querySelector('#user_addressNumber').value = data.zonecode;
+					document.querySelector('#user_address1').value = addr;
+					document.querySelector('#user_address2').value = extraAddr;
+				} else {
+					document.querySelector('#user_addreuser_addressNumberss').value = '';
+					document.querySelector('#user_address1').value = '';
+					document.querySelector('#user_address2').value = '';
+				}
+			}
+		}).open();
+	}
+	</script>
+    
+    <!-- //주소 API -->
+    
 <%@ include file="../footer.jsp"%>
