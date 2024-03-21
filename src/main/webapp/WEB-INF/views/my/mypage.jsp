@@ -88,8 +88,6 @@ var endTime = document.querySelector(${item.productNum}).value
 
 
 function timeCalcul(){
-	
-
         // 두 개의 날짜 생성
         var date1 = new Date(); 
         var date2 = new Date(endTime); 
