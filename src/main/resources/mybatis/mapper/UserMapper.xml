@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunflower.mapper.UserMapper">
+
+	<sql id="memberColumns">
+	id,pw,name,mail,phone,address
+	</sql>
+	
+	<select id="countByLoginId" parameterType="string" resultType="int">
+		select count(*) from hm_user where id = #{value}
+	</select>
+	
+	<insert id="save">
+		insert into hm_user (
+			<include refid="memberColumns"/>
+		) values (
+			#{id},#{pw},#{name},#{mail},#{phone},#{address}
+		)
+	</insert>
+	
+	<!-- 회원 상세정보 조회 -->
+	<select id="findByLoginId" parameterType="string" resultType="com.sunflower.domain.UserVO">
+		select 
+			<include refid="memberColumns"/>
+		from
+			hm_user
+		where
+			id = #{value}
+	</select>
+	
+</mapper>
