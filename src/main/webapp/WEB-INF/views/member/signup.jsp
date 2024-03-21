@@ -44,9 +44,7 @@
       <div class="group">
 	    <input type="button" onclick="sample6_execDaumPostcode()" class="button" value="우편번호 찾기" 
 	    style="margin-left: 69%; width: 139px;"><p></p>
-   		<input type="text" id="user_addressNumber" class="input" name="user_addressNumber" class="w300" placeholder="우편번호"><p></p>
-	    <input type="text" id="user_address1" name="user_address1" class="input" placeholder="주소"><p></p>
-	    <input type="text" id="user_address2" name="user_address2" class="input" placeholder="상세주소">
+   		<input type="text" id="user_addressNumber" class="input" name="address" class="w300" placeholder="우편번호"><p></p>
 	   </div>
 
       
@@ -1824,6 +1822,7 @@
           
        	  if(checkcode == false){
        		  alert("인증번호를 확인하세요.");
+       		  return false;
        	  }else {
       	  		 $("#member").submit();
    			}
@@ -1867,13 +1866,9 @@
 						extraAddr = ' (' + extraAddr + ')';
 					}
 					// 조합된 참고항목을 해당 필드에 넣는다.
-					document.querySelector('#user_addressNumber').value = data.zonecode;
-					document.querySelector('#user_address1').value = addr;
-					document.querySelector('#user_address2').value = extraAddr;
+					document.querySelector('#user_addressNumber').value = data.zonecode+' '+addr+extraAddr;
 				} else {
 					document.querySelector('#user_addreuser_addressNumberss').value = '';
-					document.querySelector('#user_address1').value = '';
-					document.querySelector('#user_address2').value = '';
 				}
 			}
 		}).open();

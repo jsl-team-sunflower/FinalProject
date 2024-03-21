@@ -26,7 +26,6 @@ public class UserService {
 	@Transactional 
 	public String saveMember(UserVO vo) {
 		vo.setPw(passwordEncoder.encode(vo.getPw()));
-		vo.setAddress(vo.getUser_addressNumber() + vo.getUser_address1() + vo.getUser_address2());
 		userMapper.save(vo);
 		return vo.getId();
 	}

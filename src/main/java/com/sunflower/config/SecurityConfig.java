@@ -37,12 +37,15 @@ public class SecurityConfig {
 					.permitAll())
 			
 			//인증되지 않은 모든 페이지의 요청을 허락한다.
+			
+			
 			.formLogin((formLogin) -> formLogin
 					.usernameParameter("username") 
 					.passwordParameter("password") 
 					.loginPage("/login")
 					.defaultSuccessUrl("/"))
 			//로그인 요청 URL과 로그인 성공시 메인으로 이동한다
+			
 			.logout((logout) -> logout
 					.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
 					.invalidateHttpSession(true))

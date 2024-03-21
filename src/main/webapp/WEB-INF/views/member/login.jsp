@@ -13,14 +13,14 @@
 
 				<!-- 아이디 입력 -->
 				<div>
-					<label for="username">아이디:</label> <input
+					<label for="username">아이디</label> <input
 						class="login__main__input" type="text" id="username" name="username"
 						placeholder="아이디 입력하기" />
 				</div>
 
 				<!-- 비밀번호 입력 -->
 				<div>
-					<label for="password">비밀번호:</label> <input
+					<label for="password">비밀번호</label> <input
 						class="login__main__input" type="password" id="password" name="password"
 						placeholder="비밀번호 입력하기" />
 				</div>
@@ -33,8 +33,9 @@
 
 				<!-- 로그인 버튼 -->
 				<div class="login__main__btn">
-					<a class="btn_login btn_Blue" href="javascript:fn_login();" style="width: 100%;">
-						 <button type="submit" class=" btn_Blue btn_login">로그인</button>
+					<a class="btn_login btn_Blue" >
+						 <button type="submit" class=" btn_Blue btn_login" onclick="return fn_login();" 
+						 style="width: 100%; height: 5%;">로그인</button>
 					</a>
 				</div>
 			</form>
