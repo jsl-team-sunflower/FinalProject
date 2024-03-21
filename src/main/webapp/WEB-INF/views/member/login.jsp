@@ -5,22 +5,23 @@
 	<div class="login__main">
 		<h1 class="login__main__title">로그인</h1>
 		<div class="login__main__inputs">
-			<form id="login-form" method="post">
+		
+		
+			<form id="login" name="login" method="post">
 				<!-- CSRF 토큰 추가 -->
-				<input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}" />
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 				<!-- 아이디 입력 -->
 				<div>
 					<label for="username">아이디:</label> <input
-						class="login__main__input" type="text" id="id" name="id"
+						class="login__main__input" type="text" id="username" name="username"
 						placeholder="아이디 입력하기" />
 				</div>
 
 				<!-- 비밀번호 입력 -->
 				<div>
 					<label for="password">비밀번호:</label> <input
-						class="login__main__input" type="password" id="pw" name="pw"
+						class="login__main__input" type="password" id="password" name="password"
 						placeholder="비밀번호 입력하기" />
 				</div>
 
@@ -32,7 +33,9 @@
 
 				<!-- 로그인 버튼 -->
 				<div class="login__main__btn">
-					<button type="submit" style="width: 100%">로그인</button>
+					<a class="btn_login btn_Blue" href="javascript:fn_login();" style="width: 100%;">
+						 <button type="submit" class=" btn_Blue btn_login">로그인</button>
+					</a>
 				</div>
 			</form>
 
@@ -46,23 +49,30 @@
 </div>
 
 <script>
-	function fn_login() {
-		var id = document.getElementById("id").value;
-		var pw = document.getElementById("pw").value;
-		if (!id) {
-			alert("아이디를 입력하세요");
-			return false;
+		function fn_login() {
+			if(!login.username.value) {
+				alert("아이디 입력");
+				login.username.focus();
+				return false;
+			}
+			if(!login.password.value) {
+				alert("패스워드 입력");
+				login.password.focus();
+				return false;
+			}
+			// 자바스크립트로 form 태그 속성을 지정할 수 있다
+			var form = document.login;
+			form.method="post";
+			form.action="/login";
+			form.submit();
+			
+			var msg = "${ssg}"; //자바 속성값을 자바 변수에 저장할 수 있다
+			
+			if(msg) {
+				alert(msg);
+			}
 		}
-		if (!pw) {
-			alert("비밀번호를 입력하세요.");
-			return false;
-		}
-		
-		 var form = document.login;
-         form.method = "post";
-         form.action = "/login";
-         form.submit();
-	}
-</script>
+	</script>
+
 
 <%@ include file="../footer.jsp"%>

@@ -38,27 +38,26 @@ public class SecurityConfig {
 			
 			//인증되지 않은 모든 페이지의 요청을 허락한다.
 			.formLogin((formLogin) -> formLogin
-					.usernameParameter("id") 
-					.passwordParameter("pw") 
-					/*
-					 * .usernameParameter("id") //id를 내가 원하는 것으로 정할 수 있게 하는것
-					 * .passwordParameter("pw") //pw를 내가 원하는 것으로 정할 수 있게 하는것
-					 */					
+					.usernameParameter("username") 
+					.passwordParameter("password") 
 					.loginPage("/login")
-					.defaultSuccessUrl("/",true)
-					.permitAll())
+					.defaultSuccessUrl("/"))
 			//로그인 요청 URL과 로그인 성공시 메인으로 이동한다
 			.logout((logout) -> logout
 					.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
 					.invalidateHttpSession(true))
 			//로그아웃 사용자 URL주소와 로그아웃 성공시 메인으로 이동하고 세션을 제거한다
 			;
+		
+		http.exceptionHandling(authenticationManager -> authenticationManager
+                .authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
+		
 		return http.build();
-			
+		}			
 					
 					
 			
 			
-	}
+	
 	
 }

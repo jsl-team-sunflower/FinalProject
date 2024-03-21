@@ -1734,9 +1734,11 @@
 					$("#mail").attr("readonly",true);
 					$("#btn-mail").attr("disabled",true);
 					$("#mail").css("background","#fff"); 
+					
 				}
 
 			})
+			   
 		})
 		
 		$("#btn-auth").on("click",function(){
@@ -1752,7 +1754,6 @@
 				$("#checkNum").attr("disabled",true);
 			}  else { 
 				alert("인증번호를 확인해 주세요.");
-				
 			}
 			
 		})
@@ -1764,6 +1765,7 @@
     
     <!-- 회원등록 버튼 눌렀을 때 각종 확인 -->
     <script>
+    var chklist=$("input[name=agree]");
     $(function() {
         $(".location  .dropdown > a").on("click",function(e) {
            e.preventDefault();
@@ -1802,55 +1804,30 @@
      	   }
  			
      	   // 3. 회원가입 처리
-     	   if(checkCount == true){
-     		   $("#member").submit();
-     	   } else{
+     	   if(checkCount == false){
      		   alert("중복체크가 필요합니다.");
+     	   } else{
+     		  /*  $("#member").submit(); */
      	   }
-        });
-        
-            var chklist=$("input[name=agree]");
-            // input 태그 네임이 agree인 모든 태그를 변수에 담는다
-            $("#chkctrl").click(function(){
-               //id이름이 chkctrl클 클릭했을때
-               if($(this).is(":checked")){
-                  //자기자신이 체크상태이면
-                  chklist.prop("checked",true);
-                  //chlist에 담겨진 모든태그를 체크상태로 변경
-               }else {
-                  chklist.prop("checked",false);
-                  //attr() 함수는 html에 작성된 속성값을 문자열로 받아오고
-                  //prop() 함수는 자바스크립트의 프로퍼티를 가져온다
-               }
-            })
-         
-         
-         // 아래처럼하면 여러 이벤트함수를 처리할수 있다는 장점이 있음
-            $("#agree1, #agree2, #agree3").on("click", function() {
-               if($("#agree1").is(":checked") == true
-                      && $("#agree2").is(":checked") == true 
-                      && $("#agree3").is(":checked") == true) {
-                  $("#chkctrl").prop("checked", true);
-               }else{
-                  $("#chkctrl").prop("checked", false);
-               }
-            })
+     	   
+     	  var chk = true;
+          for(var i=0; i<chklist.length; i++) {
+             if(!chklist[i].checked) {
+                chk = false
+             }
+          }
           
-            $("#btn_ok").on("click", function() {
-              var chk = true;
-               for(var i=0; i<chklist.length; i++) {
-                  if(!chklist[i].checked) {
-                     chk = false
-                  }
-               }
-               if(!chk) {
-                  alert("모든 약관에 동의해 주세요");
-                  return false;
-               }else{
-            	   $("#member").submit();
-               }
-            })
-            
+          if(!chk) {
+             alert("모든 약관에 동의해 주세요");
+             return false;
+          }
+          
+       	  if(checkcode == false){
+       		  alert("인증번호를 확인하세요.");
+       	  }else {
+      	  		 $("#member").submit();
+   			}
+        });
     });
     </script>
     <!-- //회원등록 버튼 눌렀을 때 각종 확인 -->
