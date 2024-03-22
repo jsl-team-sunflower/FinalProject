@@ -1,22 +1,17 @@
 package com.sunflower.controller;
 
+import java.util.List;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sunflower.common.MailSenderRunner;
 import com.sunflower.domain.UserVO;
 import com.sunflower.service.UserService;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
