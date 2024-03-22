@@ -75,7 +75,7 @@ public class ProductService {
 	}//getResultTotal()
 	
 	//응찰
-	public void tenderPrice(String id, int productNum) {
-		productmapper.tenderPrice(id, productNum);
+	public void tenderPrice(ProductVO vo) {
+		productmapper.tenderPrice(vo);
 	}//tenderPrice()
 }

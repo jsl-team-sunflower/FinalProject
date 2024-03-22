@@ -1,7 +1,3 @@
-body {
-  margin: 0;
-  padding: 0 300px;
-}
 li {
   list-style: none;
 }
@@ -14,7 +10,7 @@ li {
 }
 .mypage__container {
   display: flex;
-  padding: 40px 0;
+  padding: 40px 300px;
 }
 .mypage__main__title {
   padding-bottom: 20px;

@@ -29,5 +29,6 @@ public interface ProductMapper {
 	public int getResultTotal(Criteria cri);
 	
 	//tender
-	public void tenderPrice(String id, int productNum);
+	public void tenderPrice(ProductVO vo);
+
 }
