@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.sunflower.common.Criteria;
 import com.sunflower.domain.AnVO;
 import com.sunflower.domain.QaVO;
 import com.sunflower.mapper.QaMapper;
@@ -26,6 +27,21 @@ public class QaService {
 		return result;
 	}
 
+	
+	
+	public List<QaVO> getList(Criteria cri) { //페이지처리 및 모든글 가져오기
+		List<QaVO> list = qaMapper.getListWithPaging(cri);
+		return list;
+	}
+	
+	public int getTotalCount(Criteria cri) {
+		return qaMapper.getTotalCount(cri);
+	}
+	
+	
+	
+	
+	
 	public List<QaVO> getList() {
 		return qaMapper.list();
 	}

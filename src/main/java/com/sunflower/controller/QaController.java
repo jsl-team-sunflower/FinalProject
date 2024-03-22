@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sunflower.common.Criteria;
+import com.sunflower.common.PageDTO;
 import com.sunflower.domain.AnVO;
 import com.sunflower.domain.QaVO;
 import com.sunflower.service.QaService;
@@ -26,13 +28,17 @@ public class QaController {
 	
 	
 private final QaService qaService;
-
+// private final FileUploadUtils fileUploadUtils; 
 	
 	//localhost:8066/qa/list
 	@GetMapping("/list")
-	public String qaList(Model model) {
+	public String qaList(Criteria cri, Model model) {
 		List<QaVO> list = qaService.getList();
+		
+		int total = qaService.getTotalCount(cri);
 		model.addAttribute("list",list);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		
 		return "/qna/qa";
 	}
 	
@@ -48,6 +54,7 @@ private final QaService qaService;
 		return "redirect:/qa/list";
 	}
 	
+	// board에선 /get
 	@GetMapping("/view")
 	public String qaVo(@RequestParam("qnaNum") int bno, Model model) {
 		QaVO vo = qaService.getVo(bno);

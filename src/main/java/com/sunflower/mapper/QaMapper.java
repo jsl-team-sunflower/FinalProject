@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.sunflower.common.Criteria;
 import com.sunflower.domain.AnVO;
 import com.sunflower.domain.QaVO;
 
@@ -25,5 +26,9 @@ public interface QaMapper {
 	public int setUpdate(int qbno);
 
 	public void deleteQuestion(int qnaNum);
+	
+	public List<QaVO> getListWithPaging(Criteria cri);
+	public int getTotalCount(Criteria cri);
+	
 	
 }
