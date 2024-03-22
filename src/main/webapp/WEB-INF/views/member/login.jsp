@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
+<div>
+	<c:forEach var="list" items="${list}">
+		<br> ${list.id} ${list.pw} ${list.mail }  
+	</c:forEach>
+</div>
+
 <div class="login__main__container">
 	<div class="login__main">
 		<h1 class="login__main__title">로그인</h1>

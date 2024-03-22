@@ -15,6 +15,7 @@
 <meta name="_csrf_header" content="${_csrf.headerName}">
 
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
 <link rel="icon" href="/resources//images/favico.ico">
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
@@ -62,7 +63,7 @@
 						aria-haspopup="true" aria-expanded="false">공지사항 <span
 							class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">QnA</a></li>
+							<li><a href="/qa/list">QnA</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

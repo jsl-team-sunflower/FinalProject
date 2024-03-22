@@ -1,22 +1,24 @@
 package com.sunflower.domain;
 
-
-
-import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
 @Data
 public class ProductVO {
-	private int productNum;
+		
+	private int productNum;//hm_product_seq
 	private String productName;
 	private String productWriter;
 	private String startPrice;
-	private String presentPrice;
-	private String endPrice;
-	private Date startTime;
-	private LocalDateTime endTime;
-	private int productViewcount;
-	private int productTenderCount;
+	private Date startTime; //default
+	private int state; //default
+	private int productViewcount; //default
+	private int productTenderCount; //default
+	private String tenderPrice; 
+	
+	
+	private List<AttachVO> attach;
+	
 }
