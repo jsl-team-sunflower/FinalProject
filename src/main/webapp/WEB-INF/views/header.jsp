@@ -21,6 +21,7 @@
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
 <link href="/resources/css/login.css" rel='stylesheet'>
 <link href="/resources/css/signup.css" rel='stylesheet'>
+<link href="/resources/css/hyeon.css" rel='stylesheet'>
 <link rel="stylesheet" href="/resources/css/admin.css" />
 <link href="/resources/css/font-awesome.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/css/mypage.css" />
