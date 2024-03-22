@@ -15,28 +15,35 @@
    				<!-- 오른쪽 content 영역 -->
    				<div class="col-lg-10 HWAN__ContentSection">
    					<div class="row HWAN__ContentSectionRow">
+   					<c:forEach var="list" items="${list}">
 					  <div class="col-sm-8 HWAN__onauctionCol2">
 					  
 					    <div class="HWAN__thumbnail-onauction">
-						    	<div class="HWAN__auctionImg">
-						      		<img src="/resources/images/test10.jpg" alt="..." id="HWAN__auctionImg">
-						      	</div>
+					    	<c:forEach var="imglist" items="${list.attach}" varStatus="status">
+						    	<c:choose>
+							    	<c:when test="${status.first}">
+							    	<div class="HWAN__auctionImg">
+							      		<img src="/photo/${imglist.uploadPath}/${imglist.uuid}_${imglist.uploadFile}" alt="..." id="HWAN__auctionImg">
+							      	</div>
+							      	</c:when>
+						      	</c:choose>
+						    </c:forEach>
 					    </div>
 					    <div class="HWAN__caption">
 						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
+						      	<span title="HWAN__productTiltle">${list.productName}</span>
 						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
+						      	<div class="HWAN__productContent">${list.productWriter}</div>
 						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
 						      <div class="blank-height"></div>
 						      <div class="HWAN__productPrice">
 						      	<dl class="HWAN__startPproduct">
 						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
+						      		<dd><span>KRW ${list.startPrice}</span></dd>	
 						      	</dl>
 						      	<dl class="HWAN__endProductList">
 						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
+						      		<dd><strong>KRW ${list.tenderPrice}</strong></dd>	
 						      	</dl>
 						      </div>
 	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
@@ -44,425 +51,8 @@
 	      					  <div class="blank-height"></div>
 					      </div>
 					  </div>
-					  
-					 <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test4.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test1.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test5.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test11.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					</div><!-- 진행경매 -->
-					
-					
-   					<div class="row HWAN__ContentSectionRow">
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					  
-					    <div class="HWAN__thumbnail-onauction">
-						    	<div class="HWAN__auctionImg">
-						      		<img src="/resources/images/test10.jpg" alt="..." id="HWAN__auctionImg">
-						      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					 <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test4.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test1.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test5.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test11.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					</div><!-- //예정경매 -->
-					
-					
-   					<div class="row HWAN__ContentSectionRow">
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					  
-					    <div class="HWAN__thumbnail-onauction">
-						    	<div class="HWAN__auctionImg">
-						      		<img src="/resources/images/test10.jpg" alt="..." id="HWAN__auctionImg">
-						      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					 <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test4.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test1.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test5.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					  <div class="col-sm-8 HWAN__onauctionCol2">
-					    <div class="HWAN__thumbnail-onauction">
-					      <div class="HWAN__auctionImg">
-					      		<img src="/resources/images/test11.jpg" alt="..." id="HWAN__auctionImg">
-					      	</div>
-					    </div>
-					    <div class="HWAN__caption">
-						      <div class="HWAN__productTiltle">
-						      	<span title="HWAN__productTiltle">박소담</span>
-						      </div>
-						      	<div class="HWAN__productContent">비싼 값을 하는 그림입니다.</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
-						      <div class="blank-height"></div>
-						      <div class="HWAN__productPrice">
-						      	<dl class="HWAN__startPproduct">
-						      		<dd><span>시작가</span></dd>
-						      		<dd><span>KRW 1,000,000</span></dd>	
-						      	</dl>
-						      	<dl class="HWAN__endProductList">
-						      		<dd><span>종료가</span></dd>
-						      		<dd><strong>KRW 3,000,000</strong></dd>	
-						      	</dl>
-						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  경매종료</div>
-	      					  <div class="blank-height"></div>
-					      </div>
-					  </div>
-					  
-					</div><!-- //경매결과 -->
-					
+					  </c:forEach>
+					</div>
    				</div>
    				<!-- //content 영역 -->
    				
@@ -473,13 +63,18 @@
    					<div class="HWAN__auction-list_filter">
    						<div class="left-title">
                             <span class="title">전체</span>
-                            <span class="number ng-binding">85</span>
+                            <span class="number ng-binding">${pageMaker.total}</span>
                         </div>
    					</div>
    					<div class="HWAN__wrap-list_filter-input">
                           <div class="search-box HWAN__auction-list_filter_search">
                               <i class="glyphicon glyphicon-search"></i>
-                              <input type="search" placeholder="작가, 작품명 검색" class="auctionSearch">
+                              <form name="search" method="get" action="/auction/ResultAuction">
+                              	<input type="hidden" name="pageNum" value="1">
+								<input type="hidden" name="amount" value="15">
+								<input type="hidden" name="type" value="product">
+                                <input onkeyup="enterkey();" type="search" name="keyword" placeholder="상품명 검색" class="auctionSearch" value="${pageMaker.cri.keyword}">
+                          	  </form>
                           </div>
                       </div>
    				
@@ -509,9 +104,13 @@
 					  </div>
 					  <div class="blank-height"></div>
 					  	<div class="HWAN__productWrite">
-					      	<a href="#" role="button" class="btn btn_default btn-block go-bid-btn">
-     							<span>위탁 신청</span>
-   							</a>
+					      	<c:choose>
+							  	<c:when test="${principal.username}">
+							      	<a href="/auction/regist" role="button" class="btn btn_default btn-block go-bid-btn">
+		     							<span>위탁 신청</span>
+		   							</a>
+		  						</c:when>
+	  						</c:choose>
 						</div>
 					</div>
    				</div>
@@ -529,6 +128,12 @@
    					</div>
    </div>
 
-
+<script>
+function enterkey() {
+	if (window.event.keyCode == 13) {
+		submit();
+	}
+}
+</script>
 
 <%@ include file="../footer.jsp"%>

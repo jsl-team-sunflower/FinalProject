@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunflower.mapper.ProductMapper">
+
+<sql id = "criteria">
+		<trim prefix="(" suffix=") and " prefixOverrides="OR"> <!-- 조건 중 OR이 붙으면 뒤에 거 버려라 -->
+			<!-- spring bean...?에 맞으면 호출되는 거라는데 20240213 IT 1 1시간 쯤~ -->
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'product'.toString()">
+							productName like '%'||#{keyword}||'%'
+						</when>
+						<!-- foreach문 때문에 TC도 알아서 인식함 -->
+					</choose>
+				</trim>
+		</trim>
+	</sql>
+
+<!-- 의뢰등록 -->
+<insert id="insertProduct">
+<selectKey keyProperty="productNum" order="BEFORE" resultType="int">
+	select hm_product_seq.nextval from dual
+</selectKey>
+	insert into hm_product (productNum, productName, productWriter, startPrice) values 
+	(#{productNum}, #{productName}, #{productWriter}, #{startPrice})
+</insert>
+
+<!-- 의뢰 등록시 tender -->
+<insert id="startTender">
+	<selectKey keyProperty="tenderNum" order="BEFORE" resultType="int">
+		select hm_tender_seq.nextval from dual
+	</selectKey>
+	insert into hm_tender (tenderNum, productNum, tenderPrice, id) values 
+	(#{tenderNum}, #{productNum}, #{startPrice}, #{productWriter})
+</insert>
+
+<!-- 상세정보 -->
+<select id="selectView" resultType="com.sunflower.domain.ProductVO">
+	SELECT *
+	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount, tn.tenderPrice, ROW_NUMBER() OVER (PARTITION BY pro.productNum ORDER BY tn.tenderNum DESC) AS rn_product
+	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount
+	FROM hm_product pro) pro
+	JOIN hm_tender tn ON pro.productNum = tn.productNum and pro.productNum=#{productNum})
+	WHERE rn_product = 1
+</select>
+
+<!-- 상세정보 조회수 -->
+<update id="productViewcount">
+	update hm_product set productViewCount=(productViewcount+1) where productNum=#{productNum}
+</update>
+
+<!-- 진행경매 리스트 -->
+<select id="onAuctionList" resultType="com.sunflower.domain.ProductVO">
+	SELECT *
+	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount, tn.tenderPrice as tenderPrice, ROW_NUMBER() OVER (PARTITION BY pro.productNum ORDER BY tn.tenderNum DESC) AS rn_product
+	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount
+	FROM hm_product pro where
+	
+	<include refid="criteria"></include>
+	
+	<![CDATA[
+	rownum <= #{pageNum} * #{amount}) pro 
+	JOIN hm_tender tn ON pro.productNum = tn.productNum and pro.state = 1)
+	where rn_product = 1 and rownum>((#{pageNum}-1) * #{amount})
+	]]>
+</select>
+
+<!-- 진행경매 수 -->
+<select id="getOnTotal" resultType="int">
+	select count(*) from hm_product
+	where productNum>0 and 
+	<include refid="criteria"></include>
+	state = 1
+</select>
+
+<!-- 경매결과 리스트 -->
+<select id="resultAuctionList" resultType="com.sunflower.domain.ProductVO">
+	SELECT *
+	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount, tn.tenderPrice as tenderPrice, ROW_NUMBER() OVER (PARTITION BY pro.productNum ORDER BY tn.tenderNum DESC) AS rn_product
+	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount
+	FROM hm_product pro where
+	
+	<include refid="criteria"></include>
+	
+	<![CDATA[
+	rownum <= #{pageNum} * #{amount}) pro 
+	JOIN hm_tender tn ON pro.productNum = tn.productNum and pro.state = 0)
+	where rn_product = 1 and rownum>((#{pageNum}-1) * #{amount})
+	]]>
+</select>
+
+<!-- 경매결과 수 -->
+<select id="getResultTotal" resultType="int">
+	select count(*) from hm_product
+	where productNum>0 and 
+	<include refid="criteria"></include>
+	state = 0
+</select>
+
+<!-- 응찰 -->
+<insert id="tenderPrice">
+	insert into hm_tender (tenderNum, productNum, tenderPrice, id) values 
+	(hm_tender_seq.nextval(), (select productNum from hm_product where productNum=#{productNum}), 
+	#{tenderPrice}, (select id from hm_user where id=#{id}))
+</insert>
+
+<select id="getList" resultType="com.sunflower.domain.ProductVO">
+		select  * from  hm_product
+	</select>
+
+</mapper>
