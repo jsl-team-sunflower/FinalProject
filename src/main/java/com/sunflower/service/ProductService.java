@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sunflower.common.Criteria;
 import com.sunflower.domain.AttachVO;
 import com.sunflower.domain.ProductVO;
+import com.sunflower.domain.TenderVO;
 import com.sunflower.mapper.AttachMapper;
 import com.sunflower.mapper.ProductMapper;
 
@@ -23,6 +24,7 @@ public class ProductService {
 	@Transactional //의뢰등록
 	public void regist(ProductVO vo) {
 		productmapper.insertProduct(vo);
+		productmapper.startTender(vo);
 		if(vo.getAttach()==null||vo.getAttach().size()<=0) {
 			return;
 		}else {
@@ -75,7 +77,7 @@ public class ProductService {
 	}//getResultTotal()
 	
 	//응찰
-	public void tenderPrice(ProductVO vo) {
+	public void tenderPrice(TenderVO vo) {
 		productmapper.tenderPrice(vo);
 	}//tenderPrice()
 	

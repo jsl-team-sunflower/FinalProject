@@ -17,6 +17,7 @@ import com.sunflower.common.FileUploadUtils;
 import com.sunflower.common.PageDTO;
 import com.sunflower.domain.AttachVO;
 import com.sunflower.domain.ProductVO;
+import com.sunflower.domain.TenderVO;
 import com.sunflower.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
@@ -79,8 +80,8 @@ public class ProductController {
 	
 	//입찰
 	@PostMapping("/tender")
-	public String tenderPrice(@RequestBody ProductVO vo, Principal principal) {
-		vo.setProductWriter(principal.getName());
+	public String tenderPrice(@RequestBody TenderVO vo, Principal principal) {
+		vo.setId(principal.getName());
 		productService.tenderPrice(vo);
 		return "Success";
 	}

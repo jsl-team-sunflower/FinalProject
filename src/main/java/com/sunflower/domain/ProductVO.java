@@ -18,6 +18,7 @@ public class ProductVO {
 	private int productTenderCount; //default
 	private String tenderPrice; 
 	
+	private int tenderNum;
 	
 	private List<AttachVO> attach;
 	

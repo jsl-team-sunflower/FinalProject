@@ -6,12 +6,14 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.sunflower.common.Criteria;
 import com.sunflower.domain.ProductVO;
+import com.sunflower.domain.TenderVO;
 
 @Mapper
 public interface ProductMapper {
 	
 	//의뢰 등록
 	public void insertProduct(ProductVO vo);
+	public void startTender(ProductVO vo);
 	
 	//상세 페이지 불러오기
 	public ProductVO selectView(int productNum);
@@ -29,7 +31,7 @@ public interface ProductMapper {
 	public int getResultTotal(Criteria cri);
 	
 	//tender
-	public void tenderPrice(ProductVO vo);
+	public void tenderPrice(TenderVO vo);
 	
 	public List<ProductVO> getList();
 }

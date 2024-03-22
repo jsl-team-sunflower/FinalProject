@@ -4,40 +4,42 @@
 
 <div class="container-fluid">
 	<div class="container">
-		<div class="productRegistTitle">
+		<div class="hyeon__productRegistTitle">
 			<h2>의뢰 신청</h2>
 		</div>
-		<div class="productForm col-lg-4">
-		<div class="productFormTitle">
+		<div class="hyeon__productForm col-lg-4">
+		<div class="hyeon__productFormTitle">
 			신청서
 		</div>
-			<form name="product" method="post" enctype="multipart/form-data" action="/product/regist" onsubmit="return check()">
-				<div class="productWrite">
-					<input type="text" name="productname" id="productname" placeholder="상품명 입력">
-					<input type="text" id="writer" name="writer" placeholder="의뢰인 입력">
-					<input tupe="text" id="startprice" name="startprice" placeholder="시작가 입력">
-					<input type="file" name="uploadfile" id="uploadfile" multiple="multiple">
-					<div class="product-btn">
-						<button type="button" class="regist btn_see">미리보기</button>&nbsp;&nbsp;
-						<input type="submit" value="저장" class="regist btn_ok">&nbsp;&nbsp;
+			<form name="product" method="post" enctype="multipart/form-data" action="/auction/regist" onsubmit="return check()">
+				<div class="hyeon__productWrite">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+					<input type="text" id="hyeon__productname" name="productName" placeholder="상품명 입력">
+					<input type="text" id="hyeon__writer" name="productWriter" value="${principal.username}" readonly>
+					<input type="text" id="hyeon__startprice" name="startPrice" placeholder="시작가 입력">
+					<span class="hyeon__pwrite">입력하지 않을 시 0원으로 시작합니다.</span>
+					<input type="file" name="uploadfile" id="hyeon__uploadfile" multiple="multiple">
+					<div class="hyeon__product-btn">
+						<button type="button" class="hyeon__regist btn_see">미리보기</button>&nbsp;&nbsp;
+						<input type="submit" value="저장" class="hyeon__regist btn_ok">&nbsp;&nbsp;
 					</div>
 				</div>
 			</form>
 		</div> <!-- 의뢰 신청 -->
-		<div class="preview col-lg-8">
-		<div class="preview-title">
+		<div class="hyeon__preview col-lg-8">
+		<div class="hyeon__preview-title">
 			미리보기
 		</div>
-		<div class="previewimage col-md-6">
-					<div class="carousel">
+		<div class="hyeon__previewimage col-md-6">
+					<div class="hyeon__carousel">
 						<input type="radio" name="slides" checked="checked" id="slide-1">
 						<input type="radio" name="slides" id="slide-2"> <input
 							type="radio" name="slides" id="slide-3"> <input
 							type="radio" name="slides" id="slide-4"> <input
 							type="radio" name="slides" id="slide-5"> <input
 							type="radio" name="slides" id="slide-6">
-						<ul class="carousel__slides">
-							<li class="carousel__slide">
+						<ul class="hyeon__carousel__slides">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -46,7 +48,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -55,7 +57,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -64,7 +66,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -73,7 +75,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -82,7 +84,7 @@
 									</div>
 								</figure>
 							</li>
-							<li class="carousel__slide">
+							<li class="hyeon__carousel__slide">
 								<figure>
 									<div>
 										<img
@@ -92,7 +94,7 @@
 								</figure>
 							</li>
 						</ul>
-						<ul class="carousel__thumbnails">
+						<ul class="hyeon__carousel__thumbnails">
 							<li><label for="slide-1"><img
 									src="https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 									alt=""></label></li>
@@ -114,22 +116,22 @@
 						</ul>
 					</div>
 				</div>
-				<div class="preview-info col-md-6">
+				<div class="hyeon__preview-info col-md-6">
 					<p>여기는 상품명</p>
-					<div class="preview-date">
+					<div class="hyeon__preview-date">
 						<h2>
-							D-<span class="preview-nowdate">10</span>
+							D-<span class="hyeon__preview-nowdate">10</span>
 						</h2>
 					</div>
-					<div class="preview-price">
-						<span class="preview-nowprice">현재 가격</span> 137,390원
+					<div class="hyeon__preview-price">
+						<span class="hyeon__preview-nowprice">현재 가격</span> 137,390원
 					</div>
-					<div class="preview-line">
+					<div class="hyeon__preview-line">
 					</div>
-					<div class="preview-tender">
-						<div class="preview-tenderPrice">
-							<input type="text" id="preview-insertPrice" placeholder="입찰 금액 입력" readonly>
-							<button type="submit" class="btn btn-default" id="preview-tenderbtn">
+					<div class="hyeon__preview-tender">
+						<div class="hyeon__preview-tenderPrice">
+							<input type="text" id="hyeon__preview-insertPrice" placeholder="입찰 금액 입력" readonly>
+							<button type="submit" class="btn btn-default" id="hyeon__preview-tenderbtn">
 								<i class="glyphicon glyphicon-usd"></i>
 							</button>
 						</div>
@@ -141,19 +143,6 @@
 
 
 <script>
-	const input = document.querySelector('#startprice');
-	
-	input.addEventListener('keyup', function(e) {
-		var value = e.target.value;
-		value = Number(value.replaceAll(',', ''));
-		if (isNaN(value)) {
-			input.value = 0;
-		} else {
-			const formatValue = value.toLocaleString('ko-KR');
-			input.value = formatValue;
-		}
-	})
-
 	function check() {
 
 		if (product.productname.value == "") {
@@ -193,4 +182,19 @@
 			}
 		})
 	});
+	
+	const input = document.querySelector('#hyeon__startprice');
+	
+	input.addEventListener('keyup', function(e) {
+		var value = e.target.value;
+		value = Number(value.replaceAll(',', ''));
+		if (isNaN(value)) {
+			input.value = 0;
+		} else {
+			const formatValue = value.toLocaleString('ko-KR');
+			input.value = formatValue;
+		}
+	});
 </script>
+
+<%@ include file="../footer.jsp" %>

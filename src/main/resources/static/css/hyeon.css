@@ -19,7 +19,7 @@
 /* detail */
 
 .hyeon__detail {
-	margin-top:50px;
+	margin-top:20px;
 }
 
 .hyeon__content {
@@ -93,7 +93,7 @@
 
 #hyeon__insertPrice {
 	border:1px solid #ccc;
-	height:36px;
+	height:30px;
 	border-radius:4px;
 	padding: 8px;
 }
@@ -103,10 +103,9 @@
 	height:30px;
 	font-size:16px;
 	color: #444;
-	border: 1px solid #F6EED1;
-	border-radius:20px;
+	border: 1px solid #ccc;
+	border-radius:4px;
 	text-align:center;
-	padding-bottom: 28px;
 	margin-bottom: 2px;
 }
 
@@ -300,9 +299,8 @@ section {
 }
 
 .hyeon__regist {
-	padding: 8px;
-    padding-bottom: 4px;
-    border: 1px solid #FDCC00;
+	padding: 4px;
+    border: 1px solid #ccc;
     background: transparent;
     border-radius: 4px;
     font-size: 14px;
@@ -365,7 +363,8 @@ input[type=file] {
 
 .hyeon__preview {
 	margin-top:8px;
-	padding-left:60px;
+	padding-left:60px !important;
+	display:inline-block;
 }
 
 .hyeon__previewimage .hyeon__carousel__slide {
@@ -448,7 +447,7 @@ input[type=file] {
 }
 
 .hyeon__preview-info {
-	width:268px;
+	width:268px !important;
 }
 
 .hyeon__preview-line {
@@ -504,11 +503,11 @@ input[type=file] {
 
 #hyeon__preview-tenderbtn {
 	width: 30px;
-    height: 30px;
+    height: 28px;
     font-size: 12px;
     color: #444;
-    border: 1px solid #F6EED1;
-    border-radius: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     text-align: center;
     padding-right: 24px
 }
@@ -516,6 +515,7 @@ input[type=file] {
 .hyeon__preview-tender #hyeon__preview-tenderbtn:hover {
 	font-weight: bold;
 	background: #FDCC00;
+	border: 1px solid transparent;
 }
 
 .hyeon__preview-tender #hyeon__preview-tenderbtn:focus {

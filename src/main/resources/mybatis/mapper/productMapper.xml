@@ -25,6 +25,15 @@
 	(#{productNum}, #{productName}, #{productWriter}, #{startPrice})
 </insert>
 
+<!-- 의뢰 등록시 tender -->
+<insert id="startTender">
+	<selectKey keyProperty="tenderNum" order="BEFORE" resultType="int">
+		select hm_tender_seq.nextval from dual
+	</selectKey>
+	insert into hm_tender (tenderNum, productNum, tenderPrice, id) values 
+	(#{tenderNum}, #{productNum}, #{startPrice}, #{productWriter})
+</insert>
+
 <!-- 상세정보 -->
 <select id="selectView" resultType="com.sunflower.domain.ProductVO">
 	SELECT *
