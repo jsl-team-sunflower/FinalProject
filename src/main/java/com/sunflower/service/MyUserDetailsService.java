@@ -25,15 +25,15 @@ public class MyUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 	    	// 1. 회원 정보 및 비밀번호 조회
-	       UserVO member = userMapper.findByLoginId(username);
+	       UserVO vo = userMapper.findByLoginId(username);
 	       //String encodedPassword = (member == null) ? "" : member.getPassword();
-	        if (member == null) {
+	        if (vo == null) {
 	             throw new UsernameNotFoundException(username);
 	        }
 	       
 	 return User.builder()
-			 .username(member.getId())
-			 .password(member.getPw())
+			 .username(vo.getId())
+			 .password(vo.getPw())
 			 .build();
 	}
 
