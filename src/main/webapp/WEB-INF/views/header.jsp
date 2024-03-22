@@ -85,7 +85,7 @@
 							<sec:authentication property="principal" var="principal" />
 							<li class="first">${principal.username}님</li>
 							<li><a href="/user/logout">로그아웃</a></li>
-							<li><a href="mypage.do">마이페이지</a></li>
+							<li><a href="/my/mypage">마이페이지</a></li>
 							</sec:authorize>
 						</ul>
 					</li>	

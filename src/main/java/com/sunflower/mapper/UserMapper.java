@@ -13,6 +13,10 @@ public interface UserMapper {
 	
 	void save(UserVO vo); // 저장하는 거
 	
+	void update(UserVO vo);
+	
 	UserVO findByLoginId(String id); // 아이디 비번 중복 확인하는 거
+	
+	UserVO findUserInfo(String id);
 	
 }

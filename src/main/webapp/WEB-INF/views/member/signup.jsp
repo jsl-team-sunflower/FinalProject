@@ -45,8 +45,6 @@
 	    <input type="button" onclick="sample6_execDaumPostcode()" class="button" value="우편번호 찾기" 
 	    style="margin-left: 69%; width: 139px;"><p></p>
    		<input type="text" id="user_addressNumber" class="input" name="user_addressNumber" class="w300" placeholder="우편번호"><p></p>
-	    <input type="text" id="user_address1" name="user_address1" class="input" placeholder="주소"><p></p>
-	    <input type="text" id="user_address2" name="user_address2" class="input" placeholder="상세주소">
 	   </div>
 
       

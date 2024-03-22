@@ -27,5 +27,20 @@
 		where
 			id = #{value}
 	</select>
+	<!-- 로그인 회원 정보 조회 -->
+	<select id="findUserInfo" parameterType="string" resultType="com.sunflower.domain.UserVO">
+		select 
+			*
+		from
+			hm_user
+		where
+			id = #{value}
+	</select>
+	
+	<update id="update"  parameterType="com.sunflower.domain.UserVO">
+		update hm_user 
+		set name=#{name},mail=#{mail},phone=#{phone},address=#{address}
+		where id=#{id}
+	</update>
 	
 </mapper>

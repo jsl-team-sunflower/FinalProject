@@ -1,5 +1,9 @@
 package com.sunflower.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +15,8 @@ import com.sunflower.common.MailSenderRunner;
 import com.sunflower.domain.UserVO;
 import com.sunflower.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -43,6 +49,12 @@ public class MemberController {
 	public String userMember(UserVO vo, Model model) {
 		userService.saveMember(vo);
 		return "redirect:/login";
+	}
+	@PostMapping("/user/update")
+	public String userUpdateMember(UserVO vo, Model model) {
+		
+		userService.updateMember(vo);
+		return "index";
 	}
 	
 	// 로그인 페이지

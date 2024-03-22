@@ -5,7 +5,7 @@
 	<div class="login__main">
 		<h1 class="login__main__title">로그인</h1>
 		<div class="login__main__inputs">
-			<form id="login-form" method="post">
+			<form name=login id="login-form" method="post" onsubmit="fn_login()">
 				<!-- CSRF 토큰 추가 -->
 				<input type="hidden" name="${_csrf.parameterName}"
 					value="${_csrf.token}" />
@@ -13,14 +13,14 @@
 				<!-- 아이디 입력 -->
 				<div>
 					<label for="username">아이디:</label> <input
-						class="login__main__input" type="text" id="id" name="id"
+						class="login__main__input" type="text" id="id" name="username"
 						placeholder="아이디 입력하기" />
 				</div>
 
 				<!-- 비밀번호 입력 -->
 				<div>
 					<label for="password">비밀번호:</label> <input
-						class="login__main__input" type="password" id="pw" name="pw"
+						class="login__main__input" type="password" id="pw" name="password"
 						placeholder="비밀번호 입력하기" />
 				</div>
 
