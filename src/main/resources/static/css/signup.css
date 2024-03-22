@@ -20,6 +20,7 @@ a {
 	border-bottom: 1px solid #bdbdbd;
 	padding-bottom: 30px;
 	margin-bottom: 20px;
+	font-size: 24px;
 }
 .signup__main > div {
   font-size: 18px;
@@ -32,6 +33,15 @@ a {
   padding: 10px;
   border: 1px solid #bdbdbd;
 }
+
+.signup__main input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #bdbdbd;
+}
+
 .signup__main input[type="text"]:focus {
   outline: 1px solid black;
 }
@@ -42,27 +52,57 @@ a {
 .signup__main div {
   margin-bottom: 15px;
 }
+
+.signup__main__id{
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup__main__id #idCheckBtn{
+ 	width: 140px;
+    background-color: #f6f6f6;
+    border: 1px solid #bdbdbd;
+    font-size: 14px;
+    height: 36px;
+}
+
 .signup__main__email {
   display: flex;
   justify-content: space-between;
 }
-.signup__main__email > button {
-  width: 140px;
-  padding: 10px;
-  background-color: #f6f6f6;
-  border: 1px solid #bdbdbd;
-  font-size: 14px;
+
+.signup__main__email #btn-mail {
+	width: 140px;
+    background-color: #f6f6f6;
+    border: 1px solid #bdbdbd;
+    font-size: 14px;
+    height: 36px;
+    text-align: center;
 }
+
+.signup__main__email #btn-auth {
+	width: 140px;
+    background-color: #f6f6f6;
+    border: 1px solid #bdbdbd;
+    font-size: 14px;
+    height: 36px;
+    text-align: center;
+}
+
+.address{
+	font-size: 16px;
+}
+
 .signup__main__address {
   display: flex;
   justify-content: space-between;
 }
 .signup__main__address > button {
-  width: 140px;
-  padding: 10px;
-  background-color: #f6f6f6;
-  border: 1px solid #bdbdbd;
-  font-size: 14px;
+  	width: 140px;
+    background-color: #f6f6f6;
+    border: 1px solid #bdbdbd;
+    font-size: 14px;
+    height: 36px;
 }
 .signup__main__agree {
   background-color: #f4f4f4;
