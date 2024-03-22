@@ -26,6 +26,7 @@ public class QaController {
 	
 	
 private final QaService qaService;
+
 	
 	//localhost:8066/qa/list
 	@GetMapping("/list")

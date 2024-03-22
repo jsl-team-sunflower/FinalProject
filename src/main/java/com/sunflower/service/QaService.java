@@ -14,7 +14,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class QaService {
 	private final QaMapper qaMapper;
-
+	/* private final AnMapper anhMapper; */
+	
 	public void register(QaVO vo) {
 		qaMapper.register(vo);
 	}
@@ -28,7 +29,7 @@ public class QaService {
 	public List<QaVO> getList() {
 		return qaMapper.list();
 	}
-
+	
 	public QaVO getVo(int bno) {
 		QaVO qvo = qaMapper.getVo(bno); // 질문글
 		if (qvo.getQnaState() == 1) { // 답변글

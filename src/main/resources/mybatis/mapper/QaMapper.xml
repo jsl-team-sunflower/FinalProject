@@ -13,6 +13,56 @@
 		select * from hm_qna order by qnaNum desc
 	</select>
 	
+	
+	<sql id="criteria">
+		<trim prefix="(" suffix=" ) and " prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							qnaTitle like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							qnaContent like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							qnaWriter like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	
+	<select id="getListWithPaging" resultType="com.sunflower.domain.QaVO">
+	<![CDATA[
+		select 
+			*  
+		from (
+			select /*+ index_desc (hm_qna hm_qna_pk) */ 
+				rownum rn, qnaNum,qnaTitle, qnaContent, qnaWriter, qnaRegdate
+				(select count(*) from  where  qnaNum = a.qnaNum) as replycount 
+			from 
+				hm_qna a 
+			where
+	]]>
+	
+	<include refid="criteria"></include>
+	
+	<![CDATA[
+				rownum <= #{pageNum} * #{amount}
+			) 
+		where rn > (#{pageNum}-1) * #{amount}
+	]]>
+		
+	</select>
+	
+	
+	
+	
+	
+	
+	
 	<select id="getVo" resultType="com.sunflower.domain.QaVO">
 		select * from hm_qna where qnaNum = #{qnaNum}
 	</select>
