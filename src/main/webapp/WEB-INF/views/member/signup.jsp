@@ -44,11 +44,7 @@
       <div class="group">
 	    <input type="button" onclick="sample6_execDaumPostcode()" class="button" value="우편번호 찾기" 
 	    style="margin-left: 69%; width: 139px;"><p></p>
-<<<<<<< HEAD
-   		<input type="text" id="user_addressNumber" class="input" name="user_addressNumber" class="w300" placeholder="우편번호"><p></p>
-=======
    		<input type="text" id="user_addressNumber" class="input" name="address" class="w300" placeholder="우편번호"><p></p>
->>>>>>> branch 'feature_login' of https://github.com/jsl-team-sunflower/FinalProject.git
 	   </div>
 
       
