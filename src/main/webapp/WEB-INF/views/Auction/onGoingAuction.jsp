@@ -125,16 +125,11 @@
 					  <div class="blank-height"></div>
 					  	<div class="HWAN__productWrite">
 						  	<c:choose>
-							  	<c:when test="${principal.username}">
+							  	<c:when test="${principal.username!=''}">
 							      	<a href="/auction/regist" role="button" class="btn btn_default btn-block go-bid-btn">
 		     							<span>위탁 신청</span>
 		   							</a>
 		  						</c:when>
-		  						<c:otherwise>
-		  							<a href="/login" role="button" class="btn btn_default btn-block go-bid-btn" onclick="return confirm('로그인 후 이용해주세요.');">
-		     							<span>위탁 신청</span>
-		   							</a>
-		  						</c:otherwise>
 	  						</c:choose>
 						</div>
 					</div>
