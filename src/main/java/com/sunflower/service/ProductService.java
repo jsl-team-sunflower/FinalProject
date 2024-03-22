@@ -78,4 +78,10 @@ public class ProductService {
 	public void tenderPrice(ProductVO vo) {
 		productmapper.tenderPrice(vo);
 	}//tenderPrice()
+	
+	
+	public List<ProductVO> getList() { //페이지처리 및 모든글 가져오기
+		List<ProductVO> list = productmapper.getList();
+		return list;
+	}
 }

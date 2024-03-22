@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.himawari.mapper.ProductMapper">
+<mapper namespace="com.sunflower.mapper.ProductMapper">
 
 <sql id = "criteria">
 		<trim prefix="(" suffix=") and " prefixOverrides="OR"> <!-- 조건 중 OR이 붙으면 뒤에 거 버려라 -->
@@ -26,7 +26,7 @@
 </insert>
 
 <!-- 상세정보 -->
-<select id="selectView" resultType="com.himawari.domain.ProductVO">
+<select id="selectView" resultType="com.sunflower.domain.ProductVO">
 	SELECT *
 	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount, tn.tenderPrice, ROW_NUMBER() OVER (PARTITION BY pro.productNum ORDER BY tn.tenderNum DESC) AS rn_product
 	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount
@@ -41,7 +41,7 @@
 </update>
 
 <!-- 진행경매 리스트 -->
-<select id="onAuctionList" resultType="com.himawari.domain.ProductVO">
+<select id="onAuctionList" resultType="com.sunflower.domain.ProductVO">
 	SELECT *
 	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount, tn.tenderPrice as tenderPrice, ROW_NUMBER() OVER (PARTITION BY pro.productNum ORDER BY tn.tenderNum DESC) AS rn_product
 	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount
@@ -65,7 +65,7 @@
 </select>
 
 <!-- 경매결과 리스트 -->
-<select id="resultAuctionList" resultType="com.himawari.domain.ProductVO">
+<select id="resultAuctionList" resultType="com.sunflower.domain.ProductVO">
 	SELECT *
 	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount, tn.tenderPrice as tenderPrice, ROW_NUMBER() OVER (PARTITION BY pro.productNum ORDER BY tn.tenderNum DESC) AS rn_product
 	FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount
@@ -94,5 +94,9 @@
 	(hm_tender_seq.nextval(), (select productNum from hm_product where productNum=#{productNum}), 
 	#{tenderPrice}, (select id from hm_user where id=#{id}))
 </insert>
+
+<select id="getList" resultType="com.sunflower.domain.ProductVO">
+		select  * from  hm_product
+	</select>
 
 </mapper>

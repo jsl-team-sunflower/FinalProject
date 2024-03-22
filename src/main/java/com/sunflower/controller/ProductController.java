@@ -29,6 +29,11 @@ public class ProductController {
 	private final ProductService productService;
 	private final FileUploadUtils fileUploadUtils;
 	
+	
+	@GetMapping("/main")
+	public String main() { 
+		return "index";
+	}
 	//의뢰 신청 페이지
 	@GetMapping("/regist")
 	public String registProduct() {
