@@ -41,10 +41,14 @@
 		from (
 			select /*+ index_desc (hm_qna hm_qna_pk) */ 
 				rownum rn, qnaNum,qnaTitle, qnaContent, qnaWriter, qnaRegdate
-				(select count(*) from hm_comment where  comNum = a.qnaNum) as replycount 
+	]]>			
+				<!-- 
+				(select count(*) from hm_comment where  comNum = a.qnaNum) as replycount
+				 -->
+	<![CDATA[			
 			from 
 				hm_qna a 
-			where
+	 		where
 	]]>
 	
 	<include refid="criteria"></include>
@@ -53,9 +57,13 @@
 				rownum <= #{pageNum} * #{amount}
 			) 
 		where rn > (#{pageNum}-1) * #{amount}
-	]]>
+	]]> 
 		
 	</select>
+
+
+
+
 
 	<select id="getTotalCount" resultType="int">
 

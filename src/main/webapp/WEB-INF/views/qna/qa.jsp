@@ -60,16 +60,20 @@
 			</p>
 		</div>
 		<div class="search_group">
-			<form name="myform" action="">
-				<select name="sel" class="select">
-					<option value="1">제목</option>
-					<option value="2">내용</option>
-				</select> <input type="text" name="search" class="search_word">
-				<button class="btn_search">
-					<i class="fa fa-search"></i><span class="sr-only">검색버튼</span>
-				</button>
+			<form name="myform" action="/qa/list">
+				<select name="type" class="select">
+					<option value="T" ${pageMaker.cri.type == 'T'?'selected':''}>제목</option>
+					<option value="C"  ${pageMaker.cri.type == 'C'?'selected':''}>내용</option>
+					<option value="W" ${pageMaker.cri.type == 'W'?'selected':''}>글쓴이</option>
+					<option value="TC" ${pageMaker.cri.type == 'TC'?'selected':''}>제목/내용</option>
+				</select>
+				<input type="text" name="keyword" class="search_word" value="${pageMaker.cri.keyword }">
+				<button class="btn_search"><i class="fa fa-search"></i><span class="sr-only">검색버튼</span></button>
+				<input type="hidden" name="pageNum" value="1">
+				<input type="hidden" name="amount" value="10">
 			</form>
 		</div>
+		
 	</div>
 	<!-- search end -->
 	<div class="bord_list">
@@ -98,19 +102,21 @@
 				<c:forEach var="list" items="${list}">
 					<tr>
 						<td>${list.qnaNum }</td>
-						<td class="title"><a href="/qa/view?qnaNum=${list.qnaNum }">${list.qnaTitle }</a></td>
-						<td><c:choose>
-								<c:when test="${list.qnaState == 0 }">
-									<span class="waiting">답변대기</span></td>
-						</c:when>
-						<c:otherwise>
-							<span class="complet">답변완료</span>
+							<td class="title">
+								<a href="/qa/view?qnaNum=${list.qnaNum }">${list.qnaTitle }</a>
 							</td>
-						</c:otherwise>
-						</c:choose>
+							<td>
+							<c:choose>
+								<c:when test="${list.qnaState == 0 }">
+									<span class="waiting">답변대기</span>
+								</c:when>
+								<c:otherwise>
+									<span class="complet">답변완료</span>
+								</c:otherwise>
+							</c:choose>
+							</td>
 						<td>${list.qnaWriter }</td>
-						<td><fmt:formatDate value="${list.qnaRegdate }"
-								pattern="yyyy-MM-dd" /></td>
+						<td><fmt:formatDate value="${list.qnaRegdate }"	pattern="yyyy-MM-dd" /></td>
 						<td>${list.qnaViewcount }</td>
 					</tr>
 				</c:forEach>
@@ -127,11 +133,8 @@
 				</c:when>
 			</c:choose>
 
-			<c:forEach var="num" begin="${pageMaker.startPage}"
-				end="${pageMaker.endPage}">
-				<a
-					href="/board/list.do?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount}"
-					class="${pageMaker.cri.pageNum == num ?'active':''}">${num}</a>
+			<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+				<a	href="/qa/list?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount}"	class="${pageMaker.cri.pageNum == num ?'active':''}">${num}</a>
 			</c:forEach>
 
 

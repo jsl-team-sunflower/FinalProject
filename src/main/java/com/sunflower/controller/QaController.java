@@ -33,9 +33,10 @@ private final QaService qaService;
 	//localhost:8066/qa/list
 	@GetMapping("/list")
 	public String qaList(Criteria cri, Model model) {
-		List<QaVO> list = qaService.getList();
+		List<QaVO> list = qaService.getList(cri); // 여기에 cri 넣으면 안됩유 ㅠㅠ
 		
 		int total = qaService.getTotalCount(cri);
+		System.out.print(total);
 		model.addAttribute("list",list);
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		
@@ -78,5 +79,11 @@ private final QaService qaService;
 		qaService.deleteQuestion(qnaNum); 
 		return "redirect:/qa/list"; 
 	}
+	
+	@GetMapping("/chat")
+	public String chat() {
+		return "/chat/chat";
+	}
+	
 }
 

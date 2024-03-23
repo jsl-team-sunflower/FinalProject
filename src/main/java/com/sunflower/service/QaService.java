@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class QaService {
+	
 	private final QaMapper qaMapper;
 	/* private final AnMapper anhMapper; */
 	
@@ -27,8 +28,6 @@ public class QaService {
 		return result;
 	}
 
-	
-	
 	public List<QaVO> getList(Criteria cri) { //페이지처리 및 모든글 가져오기
 		List<QaVO> list = qaMapper.getListWithPaging(cri);
 		return list;
@@ -46,12 +45,17 @@ public class QaService {
 		return qaMapper.list();
 	}
 	
+	
 	public QaVO getVo(int bno) {
 		QaVO qvo = qaMapper.getVo(bno); // 질문글
+		
+		/*
 		if (qvo.getQnaState() == 1) { // 답변글
 			AnVO avo = qaMapper.getSelect(bno);
 			qvo.setAvo(avo);
 		}
+		*/
+		
 		return qvo;
 	}
 

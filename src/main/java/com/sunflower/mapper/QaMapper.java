@@ -14,21 +14,20 @@ public interface QaMapper {
 	public void register(QaVO vo);
 
 	public List<QaVO> list();
-
+	
+	public List<QaVO> getListWithPaging(Criteria cri);
+	public int getTotalCount(Criteria cri);
+			
 	public QaVO getVo(int bno);
 	public QaVO nextRecord(int qnaNum);
 	public QaVO prevRecord(int qnaNum);
 
 	public void anRegister(AnVO vo);
 
-	public AnVO getSelect(int qbno);
-
 	public int setUpdate(int qbno);
 
 	public void deleteQuestion(int qnaNum);
-	
-	public List<QaVO> getListWithPaging(Criteria cri);
-	public int getTotalCount(Criteria cri);
+	public AnVO getSelect(int qbno);
 	
 	
 }
