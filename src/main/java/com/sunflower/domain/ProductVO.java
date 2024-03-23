@@ -1,5 +1,6 @@
 package com.sunflower.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class ProductVO {
 	private String productName;
 	private String productWriter;
 	private String startPrice;
-	private Date startTime; //default
+	private LocalDateTime startTime; //default
 	private int state; //default
 	private int productViewcount; //default
 	private int productTenderCount; //default

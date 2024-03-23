@@ -5,8 +5,8 @@
  <div class="mypage__container">
       <div class="mypage__sidebar">
         <h2 style="font-weight: bold">
-          OOO<span style="font-size: 16px; font-weight: normal">님</span>
-        </h2>
+          ${principal.username}<span style="font-size: 16px; font-weight: normal">님</span>
+        </h2> 
         <h3><b>온라인경매관리</b></h3>
         
         <div><a href="mypage">등록한 상품내역</a></div>
@@ -18,79 +18,31 @@
       <div class="mypage__main">
         <h2 class="mypage__main__title">등록한 상품내역</h2>
         <ul class="myform__main__list">
-        <c:forEach items="${list }" var="item">
+        
+        <c:forEach var="list" items="${list}" varStatus="status">
           <li>
+          	<input id="${list.productNum}" type="hidden" value="${list.startTime.plusDays(7)}">
             <img src="/resources/images/laughter.jpg" alt="" />
-            <span>${item.productName }</span>
-            <div>${item.productWriter }</div>
-            <div>현재가 ${item.presentPrice }</div>
-            <div><input id="qq" type="hidden" value="${item.endTime}"></div>
-            <div id="clock"></div>
+            <div>물건번호: ${list.productNum}</div>
+            <div>물건이름 : ${list.productName}</div>
+            <div>작성자 : ${list.productWriter }</div>
+            <div></div>
+            <div id="productNum:${list.productNum}의EndTime"></div>
           </li>
           </c:forEach>
-          <li>
-            <img src="/resources/images/laughter.jpg" alt="" />
-            <span>1번 상품</span>
-            <div>최영욱</div>
-            <div>가격 100,000,000원</div>
-            <div>3일 20:23:37</div>
-          </li>
-          <li>
-            <img src="/resources/images/laughter.jpg" alt="" />
-            <span>1번 상품</span>
-            <div>최영욱</div>
-            <div>가격 100,000,000원</div>
-            <div>3일 20:23:37</div>
-          </li>
-          <li>
-            <img src="/resources/images/laughter.jpg" alt="" />
-            <span>1번 상품</span>
-            <div>최영욱</div>
-            <div>가격 100,000,000원</div>
-            <div>3일 20:23:37</div>
-          </li>
-        </ul>
-        <ul class="myform__main__list">
-          <li>
-            <img src="/resources/images/laughter.jpg" alt="" />
-            <span>1번 상품</span>
-            <div>최영욱</div>
-            <div>가격 100,000,000원</div>
-            <div>3일 20:23:37</div>
-          </li>
-          <li>
-            <img src="/resources/images/laughter.jpg" alt="" />
-            <span>1번 상품</span>
-            <div>최영욱</div>
-            <div>가격 100,000,000원</div>
-            <div>3일 20:23:37</div>
-          </li>
-          <li>
-            <img src="/resources/images/laughter.jpg" alt="" />
-            <span>1번 상품</span>
-            <div>최영욱</div>
-            <div>가격 100,000,000원</div>
-            <div>3일 20:23:37</div>
-          </li>
-          <li>
-            <img src="/resources/images/laughter.jpg" alt="" />
-            <span>1번 상품</span>
-            <div>최영욱</div>
-            <div>가격 100,000,000원</div>
-            <div>3일 20:23:37</div>
-          </li>
+          
         </ul>
       </div>
     </div>
+
 <script>
-
-var endTime = document.querySelector(${item.productNum}).value
-
-
 function timeCalcul(){
+    <c:forEach items="${list}" var="list" >
+        var Time = document.getElementById("${list.productNum}").value;
+		        
         // 두 개의 날짜 생성
         var date1 = new Date(); 
-        var date2 = new Date(endTime); 
+        var date2 = new Date(Time); 
 
         // 날짜 연산
         var diffInMilliseconds = date2.getTime() - date1.getTime();
@@ -102,10 +54,12 @@ function timeCalcul(){
         var seconds = Math.floor((diffInMilliseconds % (1000 * 60)) / 1000);
 
         // 결과 출력
-        var clockDiv = document.getElementById();
-        clockDiv.innerHTML =  days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초";
+        var findId = "productNum:" + ${list.productNum} + "의EndTime";
+        var clockDiv = document.getElementById(findId);
+        clockDiv.innerHTML =  "남은시간 : " + days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초";
+    </c:forEach>
 }
 setInterval(timeCalcul, 1000);
-    </script>
-
+</script>
+ 
 <%@ include file="../footer.jsp" %>

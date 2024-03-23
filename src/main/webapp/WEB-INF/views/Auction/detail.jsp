@@ -8,7 +8,7 @@
 		<div class="hyeon__row">
 			<div class="hyeon__detail col-lg-12">
 				<div class="hyeon__image col-md-7">
-				
+				<input id="endTime"type="hidden" value="${vo.startTime.plusDays(7) }">
 					<div class="hyeon__carousel">
 						<input type="radio" name="slides" checked="checked" id="slide-1">
 						<input type="radio" name="slides" id="slide-2"> <input
@@ -42,11 +42,11 @@
 					<p>${vo.productName}</p>
 					<div class="hyeon__date">
 						<h2>
-							D-<span class="hyeon__nowdate">10</span>
+							D-<span class="hyeon__nowdate" id="clock"></span>
 						</h2>
 					</div>
 					<div class="hyeon__price">
-						<span class="hyeon__nowprice">현재 가격</span> ${vo.tenderPrice}원
+						<span class="hyeon__nowprice">현재 가격</span> <span id="hyeon__nowprice">${vo.tenderPrice}</span>원
 					</div>
 					<div class="hyeon__line">
 					</div>
@@ -118,16 +118,17 @@ $("#hyeon__tenderbtn").on("click", function(){
 	
 	$.ajax({
 		type:'post',
-		url:'<c:url value="/auction/tender"/>',
+		url:"/auction/tender",
 		data: JSON.stringify(data),
 		contentType: 'application/json',
 		beforeSend: function(xhr){
-			xhr.setRequestHearder(header, token);
+			xhr.setRequestHeader(header, token);
 		},
 		success:function(response) {
+			console.log(response)
 			if(response === 'Success'){
 				alert("입찰이 완료되었습니다.")
-				$(".hyeon__nowprice").val(tenderPrice);
+				$("#hyeon__nowprice").text(tenderPrice);
 			}else{
 				alert("로그인 후 이용해주세요.")
 			}
