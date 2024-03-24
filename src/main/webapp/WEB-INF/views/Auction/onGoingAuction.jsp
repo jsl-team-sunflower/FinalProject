@@ -20,6 +20,7 @@
 					  <div class="col-sm-8 HWAN__onauctionCol2">
 					    <div class="HWAN__thumbnail-onauction">
 						    <c:forEach var="imglist" items="${list.attach}" varStatus="status">
+						    <input id="${list.productNum}" type="hidden" value="${list.startTime.plusDays(7)}">
 						    	<c:choose>
 						    	<c:when test="${status.first}">
 						    	<div class="HWAN__auctionImg">
@@ -47,7 +48,7 @@
 						      	</dl>
 						      </div>
 	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  D-<div id="productNum:${list.productNum}의EndTime"></div></div>
 	      					  <div class="blank-height"></div>
 	      					  	<div class="HWAN__btn_bid">
 							      	<a href="/auction/detail?productNum=${list.productNum}" role="button" class="btn btn_default btn-block go-bid-btn">

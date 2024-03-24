@@ -22,15 +22,14 @@
 </footer>
 
 
+
 <script>
-
-/*var endTime = document.querySelector("#endTime").value
-
-console.log(endTime)
-function timeCalcul(){
+function timeCalculList(){
+    <c:forEach items="${list}" var="list" >
+        var Time = document.getElementById("${list.productNum}").value;
         // 두 개의 날짜 생성
         var date1 = new Date(); 
-        var date2 = new Date(endTime); 
+        var date2 = new Date(Time); 
 
         // 날짜 연산
         var diffInMilliseconds = date2.getTime() - date1.getTime();
@@ -42,10 +41,36 @@ function timeCalcul(){
         var seconds = Math.floor((diffInMilliseconds % (1000 * 60)) / 1000);
 
         // 결과 출력
-        var clockDiv = document.getElementById("clock");
-        clockDiv.innerHTML =  days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초";
+        var findId = "productNum:" + ${list.productNum} + "의EndTime";
+        var clockDiv = document.getElementById(findId);
+        clockDiv.innerHTML = days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초";
+    </c:forEach>
 }
-setInterval(timeCalcul, 1000);*/
+
+function timeCalculOne(){
+        var Time = document.getElementById("${vo.productNum}").value;
+        // 두 개의 날짜 생성
+        var date1 = new Date(); 
+        var date2 = new Date(Time); 
+
+        // 날짜 연산
+        var diffInMilliseconds = date2.getTime() - date1.getTime();
+
+        // 밀리초를 일, 시간, 분, 초로 변환
+        var days = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diffInMilliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((diffInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((diffInMilliseconds % (1000 * 60)) / 1000);
+
+        // 결과 출력
+        var findId = "productNum:" + ${vo.productNum} + "의EndTime";
+        var clockDiv = document.getElementById(findId);
+        clockDiv.innerHTML = days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초";
+}
+
+setInterval(timeCalculList, 1000);
+ setInterval(timeCalculOne, 1000);
+
 </script>
 
 </body>

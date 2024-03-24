@@ -81,9 +81,25 @@ public class ProductService {
 		productmapper.tenderPrice(vo);
 	}//tenderPrice()
 	
-	
+	/*
 	public List<ProductVO> getList() { //페이지처리 및 모든글 가져오기
 		List<ProductVO> list = productmapper.getList();
+		for(ProductVO vo : list) {
+			int productNum = vo.getProductNum();
+			vo.setTenderPrice( productmapper.getTenderList(productNum));  
+		}
 		return list;
 	}
+	*/
+	
+	public List<ProductVO> getList(String id) { //페이지처리 및 모든글 가져오기
+		List<ProductVO> list = productmapper.getListId(id);
+		return list;
+	}
+	
+	public List<ProductVO> getListWriter(String id) { //페이지처리 및 모든글 가져오기
+		List<ProductVO> list = productmapper.getListWriter(id);
+		return list;
+	}
+	
 }

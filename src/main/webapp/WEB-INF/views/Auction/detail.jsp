@@ -8,7 +8,7 @@
 		<div class="hyeon__row">
 			<div class="hyeon__detail col-lg-12">
 				<div class="hyeon__image col-md-7">
-				<input id="endTime"type="hidden" value="${vo.startTime.plusDays(7) }">
+				<input id="${vo.productNum }"type="hidden" value="${vo.startTime.plusDays(7) }">
 					<div class="hyeon__carousel">
 						<input type="radio" name="slides" checked="checked" id="slide-1">
 						<input type="radio" name="slides" id="slide-2"> <input
@@ -42,7 +42,7 @@
 					<p>${vo.productName}</p>
 					<div class="hyeon__date">
 						<h2>
-							D-<span class="hyeon__nowdate" id="clock"></span>
+							D-<span class="hyeon__nowdate" id="productNum:${vo.productNum}의EndTime"></span>
 						</h2>
 					</div>
 					<div class="hyeon__price">

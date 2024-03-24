@@ -34,15 +34,16 @@ public class MyController {
 	
 	//localhost:8067/my/mypage
 	@GetMapping("/mypage")
-	public String myList(Model model) {
-		List<ProductVO> list = service.getList();
+	public String myList(String id,Model model) {
+		List<ProductVO> list = service.getListWriter(id);
 		model.addAttribute("list",list);
 		return "/my/mypage";
 	}
 	
 	@GetMapping("/bidHistory")
-	public String bidList(Model model) {
-		
+	public String bidList(String id, Model model) {
+		List<ProductVO> list = service.getList(id);
+		model.addAttribute("list",list);
 		return "/my/bidHistory";
 	}
 	
