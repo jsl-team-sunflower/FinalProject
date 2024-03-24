@@ -80,10 +80,25 @@ private final QaService qaService;
 		return "redirect:/qa/list"; 
 	}
 	
-	@GetMapping("/chat")
+	@GetMapping("/contact")
 	public String chat() {
-		return "/chat/chat";
+		return "/qna/contactUs";
 	}
 	
+	@PostMapping("/MailSentSuccessfully")
+	public String MailSentSuccessfully() {
+		return "/qna/Mail-Sent-Successfully";
+	}
+	
+	@GetMapping("/delivery")
+	public String delivery(Model model) {
+		model.addAttribute("ds",3);
+		return "/my/delivery";
+	}
+	
+	@GetMapping("/aboutus")
+	public String aboutus() {
+		return "/qna/aboutUs";
+	}
 }
 

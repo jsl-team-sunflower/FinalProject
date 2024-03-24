@@ -4,15 +4,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%-- 
 <%@ taglib uri="http://www.springframework.org/security/tags"	prefix="sec"%>
-
+ --%>
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="_csrf" content="${_csrf.token}">
+<%-- <meta name="_csrf" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
-
+ --%>
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
 <link rel="icon" href="/resources//images/favico.ico">
@@ -56,12 +57,12 @@
 					<li><a href="/auction/onauction" id="AuctionNav">진행경매</a></li>
 					<li><a href="/auction/ScheduleAuction" id="AuctionNav">상시경매</a></li>
 					<li><a href="/auction/ResultAuction" id="AuctionNav">경매결과</a></li>
-					<li class="dropdown"><a href="#" id="AuctionNav"
-						class="dropdown-toggle" data-toggle="dropdown" role="button"
-						aria-haspopup="true" aria-expanded="false">공지사항 <span
-							class="caret"></span></a>
+					<li class="dropdown">
+						<a href="#" id="AuctionNav"	class="dropdown-toggle" data-toggle="dropdown" role="button"aria-haspopup="true" aria-expanded="false">공지사항 <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">QnA</a></li>
+							<li><a href="/qa/list">QnA</a></li>
+							<li><a href="/qa/contact" onclick="window.open(this.href, '_blank', 'width=600, height=750 location=no'); return false;" class="dropdown-toggle" >Contact Us</a><li>
+							<li><a href="/qa/aboutus">About Us</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
