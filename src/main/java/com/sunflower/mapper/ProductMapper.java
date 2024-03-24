@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.sunflower.common.Criteria;
+import com.sunflower.domain.OrderVO;
 import com.sunflower.domain.ProductVO;
 import com.sunflower.domain.TenderVO;
 
@@ -44,6 +45,12 @@ public interface ProductMapper {
 	public List<ProductVO> getListId(String id);
 	
 	public List<ProductVO> getListWriter(String id);
+
+	//order
+	public void insertOrder (OrderVO order);
+	
+	//order 조회
+	public OrderVO orderSelect(int orderNum);
 	
 	
 }

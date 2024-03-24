@@ -123,20 +123,40 @@ where e.productwriter = #{value}
 <select id="getTenderList" resultType="String">
 	select tenderPrice from hm_tender where productNum = #{value}
 </select>
-<!-- 입찰한 사람 찾기 -->
-<!-- 
-<select id="getListId" resultType="com.sunflower.domain.ProductVO">
-		select  * from  hm_product where productWriter = #{value}
-	</select>
-	<select id="getTenderListId" resultType="String">
-	select id from hm_tender where id = #{value}
-</select>
- -->
+
 <select id="getListId" resultType="com.sunflower.domain.ProductVO">
 SELECT *
 FROM hm_product e, hm_tender d
 WHERE d.id = #{value} and not e.productWriter=#{value} and e.productNum = d.productNum
 
 </select>
+
+<!-- insert order -->
+<insert id="insertOrder" >
+  <selectKey keyProperty="orderNum" order="BEFORE" resultType="int">
+    select hm_order_seq.nextval from dual
+  </selectKey>
+  insert into hm_order (
+    productNum,
+    orderNum,
+    orderState,
+    orderName,
+    orderPhone,
+    orderAddress
+  )
+  values (
+    #{productNum},
+    #{orderNum},
+    #{orderState},
+    #{orderName},
+    #{orderPhone},
+    #{orderAddress}
+  )
+</insert>
+
+	<!-- order 조회 -->
 	
+	<select id="orderSelect" resultType="com.sunflower.domain.OrderVO">
+	select * from hm_order where orderNum = #{value}
+	</select>
 </mapper>

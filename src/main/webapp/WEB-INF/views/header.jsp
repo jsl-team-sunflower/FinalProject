@@ -29,6 +29,7 @@
 <link rel="stylesheet" href="/resources/css/pay.css" />
 <link href="/resources/css/common.css" rel="stylesheet" />
 <link href="/resources/css/layout.css" rel="stylesheet" />
+<link href="/resources/css/order.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script

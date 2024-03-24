@@ -7,8 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sunflower.common.Criteria;
 import com.sunflower.domain.AttachVO;
+import com.sunflower.domain.OrderVO;
 import com.sunflower.domain.ProductVO;
 import com.sunflower.domain.TenderVO;
+import com.sunflower.domain.UserVO;
 import com.sunflower.mapper.AttachMapper;
 import com.sunflower.mapper.ProductMapper;
 
@@ -91,15 +93,38 @@ public class ProductService {
 		return list;
 	}
 	*/
-	
+	//응찰내역
 	public List<ProductVO> getList(String id) { //페이지처리 및 모든글 가져오기
 		List<ProductVO> list = productmapper.getListId(id);
+		for(ProductVO vo : list) {
+			int productNum = vo.getProductNum();
+			List<AttachVO> alist=attachmapper.findByNum(productNum);
+			vo.setAttach(alist);
+		}
 		return list;
 	}
-	
+	//등록한 상품내역
 	public List<ProductVO> getListWriter(String id) { //페이지처리 및 모든글 가져오기
 		List<ProductVO> list = productmapper.getListWriter(id);
+		for(ProductVO vo : list) {
+			int productNum = vo.getProductNum();
+			List<AttachVO> alist=attachmapper.findByNum(productNum);
+			vo.setAttach(alist);
+		}
 		return list;
+	}
+	//order 등록
+	@Transactional 
+	public void saveOrder(OrderVO vo) {
+		productmapper.insertOrder(vo);
+		
+	}
+	
+	//order 조회
+	
+	public OrderVO getOrder(int orderNum) {
+		OrderVO vo = productmapper.orderSelect(orderNum);
+		return vo;
 	}
 	
 }

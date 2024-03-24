@@ -1,0 +1,16 @@
+.order__img{
+	margin: 0 auto;
+	margin-top:50px;
+	width: 50%;
+}
+.order__img > img{
+	width: 100%;
+}
+.order__main{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+.order__main > div{
+	padding-bottom: 20px;
+}

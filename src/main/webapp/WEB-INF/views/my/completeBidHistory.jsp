@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-
  <div class="mypage__container">
       <div class="mypage__sidebar">
         <h2 style="font-weight: bold">
           ${principal.username}<span style="font-size: 16px; font-weight: normal">님</span>
-        </h2> 
+        </h2>
         <h3><b>온라인경매관리</b></h3>
         
-        <div><a href="mypage?id=${principal.username}">등록한 상품내역</a></div>
+     <div><a href="mypage?id=${principal.username}">등록한 상품내역</a></div>
         <div><a href="bidHistory?id=${principal.username}">진행중인 응찰내역</a></div>
         <div><a href="completeBidHistory?id=${principal.username}">완료된 응찰내역</a></div>
         <div><a href="payHistory">결제/구매내역</a></div>
@@ -17,12 +16,11 @@
         <div><a href="infoUpdate">회원정보수정</a></div>
       </div>
       <div class="mypage__main">
-        <h2 class="mypage__main__title">등록한 상품내역</h2>
+        <h2 class="mypage__main__title">완료된 응찰내역</h2>
         <ul class="myform__main__list">
-        
         <c:forEach var="list" items="${list}" varStatus="status">
+        <c:if test="${list.state == 0 }">
           <li>
-        <a href="/auction/detail?productNum=${list.productNum}">
           	<input id="${list.productNum}" type="hidden" value="${list.startTime.plusDays(7)}">
             <c:forEach var="imglist" items="${list.attach}" varStatus="status">
 						    <input id="${list.productNum}" type="hidden" value="${list.startTime.plusDays(7)}">
@@ -38,15 +36,14 @@
             <div>물건이름 : ${list.productName}</div>
             <div>작성자 : ${list.productWriter }</div>
             <div>가격: ${list.tenderPrice }</div>
-            <div>남은시간: <span id="productNum:${list.productNum}의EndTime"></span></div>
-          </a>
+            <a href="/pay/page?productNum=${list.productNum}&id=${principal.username}" role="button" class="completeBidHistory__btn btn btn_default btn-block go-bid-btn">
+	        							<span>주문하기</span>
+	      							</a>
           </li>
+          </c:if>
           </c:forEach>
           
         </ul>
       </div>
     </div>
-
-
- 
 <%@ include file="../footer.jsp" %>

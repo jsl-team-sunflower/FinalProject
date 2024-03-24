@@ -4,7 +4,7 @@
   <div class="mypage__container">
       <div class="mypage__sidebar">
       <h2 style="font-weight: bold">
-          OOO<span style="font-size: 16px; font-weight: normal">님</span>
+          ${principal.username}<span style="font-size: 16px; font-weight: normal">님</span>
         </h2>
         <h3><b>온라인경매관리</b></h3>
         
