@@ -99,8 +99,11 @@
 
 <!-- 응찰 -->
 <insert id="tenderPrice">
+	<selectKey keyProperty="tenderNum" order="BEFORE" resultType="int">
+		select hm_tender_seq.nextval from dual
+	</selectKey>
 	insert into hm_tender (tenderNum, productNum, tenderPrice, id) values 
-	(hm_tender_seq.nextval(), (select productNum from hm_product where productNum=#{productNum}), 
+	(${tenderNum}, (select productNum from hm_product where productNum=#{productNum}), 
 	#{tenderPrice}, (select id from hm_user where id=#{id}))
 </insert>
 

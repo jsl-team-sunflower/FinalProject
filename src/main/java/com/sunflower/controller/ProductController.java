@@ -4,12 +4,14 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sunflower.common.Criteria;
@@ -32,7 +34,11 @@ public class ProductController {
 	
 	
 	@GetMapping("/main")
-	public String main() { 
+	public String main(Criteria cri, Model model) { 
+		List<ProductVO> onAuction = productService.onAuctionList(cri);
+		List<ProductVO> resultAuction = productService.resultAuctionList(cri);
+		model.addAttribute("on", onAuction);
+		model.addAttribute("re", resultAuction);
 		return "index";
 	}
 	//의뢰 신청 페이지
@@ -80,6 +86,8 @@ public class ProductController {
 	
 	//입찰
 	@PostMapping("/tender")
+	@Transactional
+	@ResponseBody
 	public String tenderPrice(@RequestBody TenderVO vo, Principal principal) {
 		vo.setId(principal.getName());
 		productService.tenderPrice(vo);

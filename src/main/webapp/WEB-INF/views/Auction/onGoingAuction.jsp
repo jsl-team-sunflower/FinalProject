@@ -62,15 +62,15 @@
 					<!-- paging -->  
 					<div class="blank-height"></div>
 					  <div class="paging">
-						<a href=""><i class="fa  fa-angle-double-left"></i></a>
-						<a href=""><i class="fa fa-angle-left"></i></a>
-						<a href="" class="active">1</a>
-						<a href="">2</a>
-						<a href="">3</a>
-						<a href="">4</a>
-						<a href="">5</a>
-						<a href=""><i class="fa fa-angle-right"></i></a>
-						<a href=""><i class="fa  fa-angle-double-right"></i></a>
+					  <c:if test="${pageMaker.prev}">
+						<a href="/auction/onauction?pageNum=${pageMaker.startPage-1}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}"><i class="fa fa-angle-left"></i></a>
+					  </c:if>
+					  <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<a href="/auction/onauction?pageNum=${num}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}" class="${pageMaker.cri.pageNum==num?'active':''}">${num}</a>
+					  </c:forEach>
+					  <c:if test="${pageMaker.next}">
+						<a href="/auction/onauction?pageNum=${pageMaker.endPage+1}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}"><i class="fa fa-angle-right"></i></a>
+					  </c:if>
 					</div>
 					<!-- //paging -->  
 				
