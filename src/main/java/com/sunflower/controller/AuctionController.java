@@ -30,5 +30,4 @@ public class AuctionController {
 	public String ResultAuction() { 
 		return "/Auction/ResultAuction";
 	}
-	
 }

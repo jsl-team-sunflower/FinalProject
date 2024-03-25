@@ -1,3 +1,4 @@
+/*
 package com.sunflower.controller;
 
 import java.security.Principal;
@@ -73,7 +74,7 @@ public class CommentController {
 	}
 	
 }
-
+*/
 
 
 

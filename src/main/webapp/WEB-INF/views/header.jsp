@@ -64,19 +64,73 @@
 							<li><a href="/qa/contact" onclick="window.open(this.href, '_blank', 'width=600, height=750 location=no'); return false;" class="dropdown-toggle" >Contact Us</a><li>
 							<li><a href="/qa/aboutus">About Us</a></li>
 						</ul></li>
+
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><form class="navbar-form">
+					<!--  
+					<li>
+						<form class="navbar-form">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Search">
 							</div>
 							<button type="submit" class="glyphicon glyphicon-search"></button>
-						</form></li>
-					<li class="dropdown-right"><a href="#"
-						class="glyphicon glyphicon-shopping-cart"></a>
-					<li class="dropdown-right"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false"> <span class="glyphicon glyphicon-user"></span></a>
+						</form>
+					</li>
+					
+					
+					-->
+						<!-- Google 번역 -->
+						<li class="dropdown-right">
+							<div id="google_translate_element" class="hd_lang" style="margin-top:13px; "></div> <script>
+								function googleTranslateElementInit() {
+									new google.translate.TranslateElement(
+											{
+												pageLanguage : 'ko',
+												includedLanguages : 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+												layout : google.translate.TranslateElement.InlineLayout.SIMPLE,
+												autoDisplay : false
+											}, 'google_translate_element');
+								}
+							</script> 
+							<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
+						<!-- //Google 번역 -->
+					</li>
+					
+					<li class="dropdown-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<span style="font-size:25px;">&#8361</span> 
+						</a>
+						
+						
+						
+						<ul  id="exchange" class="dropdown-menu" style="min-width: 65px;" onchange="exchange();">
+							<a href="#">
+								<li id="usd" value="usd" class="glyphicon glyphicon-usd" style="color: #777; font-size:15px; display:inline-block; padding-bottom:10px;"> USD</li>
+							</a>
+							<a href="#">
+								<li class="glyphicon glyphicon-yen" style="color: #777; font-size:15px; display:inline-block;"> YEN</li>
+							</a>
+							<hr>
+							<li>
+								<a href="/exchange" onclick="window.open(this.href, '_blank', 'width=530, height=750 location=no'); return false;">현재 환율</a>
+							</li>
+						</ul>
+						<script>
+						    function exchange();() {
+						        var selectedValue = document.getElementById("exchange").value;
+						        alert("Selected value: " + selectedValue);
+						    }
+						</script>
+						
+						
+						
+						
+					</li>
+					<li class="dropdown-right"><a href="#" class="glyphicon glyphicon-shopping-cart"></a>
+					<li class="dropdown-right">
+						<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true"aria-expanded="false"> 
+							<span class="glyphicon glyphicon-user"></span>
+						</a>
 						<ul class="dropdown-menu">
 							<sec:authorize access="isAnonymous()">
 							<li class="first"><a href="/login">로그인</a></li>
