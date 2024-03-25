@@ -34,16 +34,24 @@ public class MyController {
 	
 	//localhost:8067/my/mypage
 	@GetMapping("/mypage")
-	public String myList(Model model) {
-		List<ProductVO> list = service.getList();
+	public String myList(String id,Model model) {
+		List<ProductVO> list = service.getListWriter(id);
 		model.addAttribute("list",list);
 		return "/my/mypage";
 	}
 	
 	@GetMapping("/bidHistory")
-	public String bidList(Model model) {
-		
+	public String bidList(String id, Model model) {
+		List<ProductVO> list = service.getList(id);
+		model.addAttribute("list",list);
 		return "/my/bidHistory";
+	}
+	
+	@GetMapping("/completeBidHistory")
+	public String completeBidList(String id, Model model) {
+		List<ProductVO> list = service.getList(id);
+		model.addAttribute("list",list);
+		return "/my/completeBidHistory";
 	}
 	
 	@GetMapping("/payHistory")
@@ -60,7 +68,11 @@ public class MyController {
 		return "/my/infoUpdate";
 	}
 	
-	
+	@GetMapping("/delivery")
+	   public String delivery(Model model) {
+	      model.addAttribute("ds",3);
+	      return "/my/delivery";
+	   }
 	@GetMapping("/test")
 	public String test(Model model) {
 		

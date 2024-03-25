@@ -113,7 +113,58 @@
 </update>
 
 <select id="getList" resultType="com.sunflower.domain.ProductVO">
-	select  * from  hm_product
+		select  * from  hm_product
+	</select>
+	
+	<!-- 등록한 상품내역 -->
+	<select id="getListWriter" resultType="com.sunflower.domain.ProductVO">
+		SELECT *
+FROM hm_product e
+inner join (select productNum , max(tenderPrice) as tenderPrice from hm_tender
+group by productNum) t
+on e.productnum = t.productnum
+where e.productwriter = #{value}
+		
+	</select>
+	
+	
+<select id="getTenderList" resultType="String">
+	select tenderPrice from hm_tender where productNum = #{value}
 </select>
 
+<select id="getListId" resultType="com.sunflower.domain.ProductVO">
+SELECT *
+FROM hm_product e, hm_tender d
+WHERE d.id = #{value} and not e.productWriter=#{value} and e.productNum = d.productNum
+
+</select>
+
+<!-- insert order -->
+<insert id="insertOrder" >
+  <selectKey keyProperty="orderNum" order="BEFORE" resultType="int">
+    select hm_order_seq.nextval from dual
+  </selectKey>
+  insert into hm_order (
+    productNum,
+    orderNum,
+    orderState,
+    orderName,
+    orderPhone,
+    orderAddress
+  )
+  values (
+    #{productNum},
+    #{orderNum},
+    #{orderState},
+    #{orderName},
+    #{orderPhone},
+    #{orderAddress}
+  )
+</insert>
+
+	<!-- order 조회 -->
+	
+	<select id="orderSelect" resultType="com.sunflower.domain.OrderVO">
+	select * from hm_order where orderNum = #{value}
+	</select>
 </mapper>

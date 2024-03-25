@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.sunflower.common.Criteria;
+import com.sunflower.domain.OrderVO;
 import com.sunflower.domain.ProductVO;
 import com.sunflower.domain.TenderVO;
 
@@ -35,4 +36,22 @@ public interface ProductMapper {
 	public void productTendercount(TenderVO vo);
 	
 	public List<ProductVO> getList();
+	
+	public String getTenderList(int productNum);
+	
+	//username으로 tender 불러오기
+	public String getTenderListId(String id);
+	
+	//tender의 id로 product 불러오기
+	public List<ProductVO> getListId(String id);
+	
+	public List<ProductVO> getListWriter(String id);
+
+	//order
+	public void insertOrder (OrderVO order);
+	
+	//order 조회
+	public OrderVO orderSelect(int orderNum);
+	
+	
 }
