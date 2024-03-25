@@ -167,4 +167,15 @@ WHERE d.id = #{value} and not e.productWriter=#{value} and e.productNum = d.prod
 	<select id="orderSelect" resultType="com.sunflower.domain.OrderVO">
 	select * from hm_order where orderNum = #{value}
 	</select>
+	
+	<select id="orderPaySelect" resultType="com.sunflower.domain.ProductVO">
+	SELECT *
+FROM hm_product e
+inner join (select productNum , max(tenderPrice) as tenderPrice from hm_tender
+group by productNum) t
+on e.productNum = t.productNum
+inner join hm_order c
+on t.productNum = c.productNum
+where c.orderState >=2 and c.orderName=#{value}
+	</select>
 </mapper>

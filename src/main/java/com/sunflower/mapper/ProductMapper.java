@@ -53,5 +53,7 @@ public interface ProductMapper {
 	//order 조회
 	public OrderVO orderSelect(int orderNum);
 	
+	//order 결제된 주문
+	public List<ProductVO> orderPaySelect(String id);
 	
 }

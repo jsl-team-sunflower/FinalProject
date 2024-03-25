@@ -128,4 +128,15 @@ public class ProductService {
 		return vo;
 	}
 	
+	//결제한 order 조회
+	public List<ProductVO> getOrderPaySelect(String id) {
+		List<ProductVO> list = productmapper.orderPaySelect(id);
+		for(ProductVO vo : list) {
+			int productNum = vo.getProductNum();
+			List<AttachVO> alist=attachmapper.findByNum(productNum);
+			vo.setAttach(alist);
+		}//for문
+		return list;
+	}
+	
 }
