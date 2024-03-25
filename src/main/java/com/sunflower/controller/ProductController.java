@@ -85,7 +85,6 @@ public class ProductController {
 	}//resultList()
 	
 	//입찰
-	@ResponseBody
 	@PostMapping("/tender")
 	@Transactional
 	@ResponseBody

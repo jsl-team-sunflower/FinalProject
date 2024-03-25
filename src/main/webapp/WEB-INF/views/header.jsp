@@ -65,9 +65,11 @@
 						class="dropdown-toggle" data-toggle="dropdown" role="button"
 						aria-haspopup="true" aria-expanded="false">공지사항 <span
 							class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/qa/list">QnA</a></li>
-						</ul></li>
+						  <ul class="dropdown-menu">
+                     <li><a href="/qa/list">QnA</a></li>
+                     <li><a href="/qa/contact" onclick="window.open(this.href, '_blank', 'width=600, height=750 location=no'); return false;" class="dropdown-toggle" >Contact Us</a><li>
+                     <li><a href="/qa/aboutus">About Us</a></li>
+                  </ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><form class="navbar-form">

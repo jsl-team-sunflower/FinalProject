@@ -19,6 +19,7 @@
         <h2 class="mypage__main__title">응찰내역</h2>
         <ul class="myform__main__list">
         <c:forEach var="list" items="${list}" varStatus="status">
+        <c:if test="${list.state == 1 }">
           <li>
           
           <a href="/auction/detail?productNum=${list.productNum}">
@@ -40,6 +41,7 @@
             <div>남은시간: <span id="productNum:${list.productNum}의EndTime"></span></div>
           </a>
           </li>
+          </c:if>
           </c:forEach>
           
         </ul>
