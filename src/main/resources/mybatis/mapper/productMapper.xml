@@ -89,6 +89,8 @@
 	]]>
 </select>
 
+
+
 <!-- 경매결과 수 -->
 <select id="getResultTotal" resultType="int">
 	select count(*) from hm_product
@@ -99,9 +101,14 @@
 
 <!-- 응찰 -->
 <insert id="tenderPrice">
-	insert into hm_tender (tenderNum, productNum, tenderPrice, id) values 
-	(hm_tender_seq.nextval(), (select productNum from hm_product where productNum=#{productNum}), 
-	#{tenderPrice}, (select id from hm_user where id=#{id}))
+	insert into hm_tender (tenderNum, productNum, tenderPrice, id) 
+values 
+    (hm_tender_seq.nextval, 
+    (select productNum from hm_product where productNum = #{productNum}), 
+    #{tenderPrice}, 
+    (select id from hm_user where id = #{id})
+);
+
 </insert>
 
 <select id="getList" resultType="com.sunflower.domain.ProductVO">

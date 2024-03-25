@@ -7,8 +7,8 @@
 	
 		<div class="hyeon__row">
 			<div class="hyeon__detail col-lg-12">
+				<!-- 이미지 -->
 				<div class="hyeon__image col-md-7">
-				
 					<div class="hyeon__carousel">
 						<input type="radio" name="slides" checked="checked" id="slide-1">
 						<input type="radio" name="slides" id="slide-2"> <input
@@ -38,6 +38,9 @@
 						</ul>
 					</div>
 				</div>
+					<!-- //이미지  -->
+					
+					<!-- 상품 가격 등록 -->
 				<div class="hyeon__info col-md-5">
 					<p>${vo.productName}</p>
 					<div class="hyeon__date">
@@ -53,6 +56,7 @@
 					<div class="hyeon__tender">
 						<div class="hyeon__tenderPrice">
 						<form name="tender" method="post" action="/auction/tender" onsubmit="return check()">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 							<input type="text" id="hyeon__insertPrice" name="tenderPrice" placeholder="입찰 금액 입력">
 							<button type="button" class="btn btn-default" id="hyeon__tenderbtn">
 								<i class="glyphicon glyphicon-usd"></i>
@@ -61,6 +65,8 @@
 						</div>
 					</div>
 				</div>
+				<!-- 상품 가격등록 -->
+				
 			</div>
 		</div>
 	</div>

@@ -61,6 +61,7 @@
             
 					<!-- paging -->  
 					<div class="blank-height"></div>
+					
 					  <div class="paging">
 						<a href=""><i class="fa  fa-angle-double-left"></i></a>
 						<a href=""><i class="fa fa-angle-left"></i></a>
