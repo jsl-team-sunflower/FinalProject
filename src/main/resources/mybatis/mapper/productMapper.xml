@@ -108,7 +108,7 @@
 </insert>
 
 <select id="getList" resultType="com.sunflower.domain.ProductVO">
-		select  * from  hm_product
-	</select>
+	select  * from  hm_product
+</select>
 
 </mapper>
