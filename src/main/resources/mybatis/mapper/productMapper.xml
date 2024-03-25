@@ -99,10 +99,18 @@
 
 <!-- 응찰 -->
 <insert id="tenderPrice">
+	<selectKey keyProperty="tenderNum" order="BEFORE" resultType="int">
+		select hm_tender_seq.nextval from dual
+	</selectKey>
 	insert into hm_tender (tenderNum, productNum, tenderPrice, id) values 
-	(hm_tender_seq.nextval, (select productNum from hm_product where productNum=#{productNum}), 
+	(${tenderNum}, (select productNum from hm_product where productNum=#{productNum}), 
 	#{tenderPrice}, (select id from hm_user where id=#{id}))
 </insert>
+
+<!-- 응찰 수 -->
+<update id="productTendercount">
+	update hm_product set productTenderCount=(productTendercount+1) where productNum=#{productNum}
+</update>
 
 <select id="getList" resultType="com.sunflower.domain.ProductVO">
 		select  * from  hm_product

@@ -81,6 +81,7 @@ public class ProductService {
 	//응찰
 	public void tenderPrice(TenderVO vo) {
 		productmapper.tenderPrice(vo);
+		productmapper.productTendercount(vo);
 	}//tenderPrice()
 	
 	/*

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
 <%@ include file="header.jsp"%>
 
 <!-- 영상 스르릉 영역 시작 -->
@@ -69,111 +68,43 @@
 				</div>
 
 				<div class="row HWAN__ContentSectionRow">
+				<c:forEach var="on" items="${on}" varStatus="onAuction">
+				<c:choose>
+				<c:when test="${onAuction.index<=3}">
 					<div class="col-sm-7 col-md-3">
-
 						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test10.jpg" alt="..." id="index__img">
-							</div>
-							<a class="info-img" href="/auction/onauction">
+						<c:forEach var="onimg" items="${on.attach}" varStatus="onstatus">
+							<c:choose>
+								<c:when test="${onstatus.first}">
+									<div class="img-tab">
+										<img src="/photo/${onimg.uploadPath}/${onimg.uuid}_${onimg.uploadFile}" alt="..." id="index__img">
+									</div>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+							<a class="info-img" href="/auction/detail?productNum=${on.productNum}">
 								<div class="info-img_content">
-									<h4>"Don't Go" Series - Things to Keep - #.1.</h4>
+									<h4>${on.productWriter}</h4>
 									<div class="price">
 										<h5>시작가</h5>
-										<p>KRW 8,000,000 ~15,000,000</p>
+										<p>KRW ${on.startPrice}</p>
 									</div>
 									<div class="price" style="color:#f00">
 										<h5>현재가</h5>
-										<p>KRW 8,000,000 ~15,000,000</p>
+										<p>KRW ${on.tenderPrice}</p>
 									</div>
 								</div>
 							</a>
 						</div>
 						<div class="HWAN__caption">
-							<div class="HWAN__productTiltle">박소담</div>
+							<div class="HWAN__productTiltle">${on.productName}</div>
 							<div class="HWAN__close-date glyphicon glyphicon-time">
 	      					  D-3일 21:18:28</div>
 						</div>
 					</div>
-
-					<div class="col-sm-7 col-md-3">
-						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test4.jpg" alt="..." id="index__img">
-							</div>
-							<a class="info-img" href="/">
-								<div class="info-img_content">
-									<h4>"Don't Go" Series - Things to Keep - #.1.</h4>
-									<div class="info-detail">
-										<p class="texture">oil on canvas</p>
-										<p class="size">100×80cm (40)</p>
-									</div>
-									<div class="price">
-										<h5>추정가</h5>
-										<p>KRW 8,000,000 ~15,000,000</p>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="HWAN__caption">
-							<div class="HWAN__productTiltle">김선우</div>
-							<div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
-						</div>
-					</div>
-
-					<div class="col-sm-7 col-md-3">
-						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test1.jpg" alt="..." id="index__img">
-							</div>
-							<a class="info-img" href="/">
-								<div class="info-img_content">
-									<h4>"Don't Go" Series - Things to Keep - #.1.</h4>
-									<div class="info-detail">
-										<p class="texture">oil on canvas</p>
-										<p class="size">100×80cm (40)</p>
-									</div>
-									<div class="price">
-										<h5>추정가</h5>
-										<p>KRW 8,000,000 ~15,000,000</p>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="HWAN__caption">
-							<div class="HWAN__productTiltle">이우한</div>
-							<div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
-						</div>
-					</div>
-
-					<div class="col-sm-7 col-md-3">
-						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test5.jpg" alt="..." id="index__img">
-							</div>
-							<a class="info-img" href="/">
-								<div class="info-img_content">
-									<h4>"Don't Go" Series - Things to Keep - #.1.</h4>
-									<div class="info-detail">
-										<p class="texture">시작가</p>
-										<p class="size">1,000,000</p>
-									</div>
-									<div class="price">
-										<h5>현재가</h5>
-										<p>KRW 8,000,000 ~15,000,000</p>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="HWAN__caption">
-							<div class="HWAN__productTiltle">전지현</div>
-							<div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
-						</div>
-					</div>
-
+					</c:when>
+					</c:choose>
+				</c:forEach>
 				</div>
 				<!-- 진행경매 -->
 
@@ -242,7 +173,7 @@
 					</div>
 
 				</div>
-				<!-- //예정경매 -->
+				<!-- 예정경매 -->
 
 				<div class="HWAN__home-title-section ">
 					<h2 class="HWAN__h2title" id="ResultAuction">
@@ -260,54 +191,43 @@
 				</div>
 
 				<div class="row HWAN__ContentSectionRow">
+					<c:forEach var="re" items="${re}" varStatus="resultAuction">
+					<c:choose>
+					<c:when test="${resultAuction.index<=3}">
 					<div class="col-sm-7 col-md-3">
 						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test1.jpg" alt="..." id="index__img">
-							</div>
-							<div class="HWAN__caption">
-								<div class="HWAN__productTiltle">박소담</div>
-								<div class="HWAN__close-date">3일 21:18:28</div>
-							</div>
+						<c:forEach var="reimg" items="${re.attach}" varStatus="restatus">
+							<c:choose>
+								<c:when test="${restatus.first}">
+									<div class="img-tab">
+										<img src="/photo/${reimg.uploadPath}/${reimg.uuid}_${reimg.uploadFile}" alt="..." id="index__img">
+									</div>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+							<a class="info-img" href="/auction/detail?productNum=${re.productNum}">
+								<div class="info-img_content">
+									<h4>${re.productWriter}</h4>
+									<div class="price">
+										<h5>시작가</h5>
+										<p>KRW ${re.startPrice}</p>
+									</div>
+									<div class="price" style="color:#f00">
+										<h5>현재가</h5>
+										<p>KRW ${re.tenderPrice}</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">${re.productName}</div>
+							<div class="HWAN__close-date glyphicon glyphicon-time">
+	      					  D-3일 21:18:28</div>
 						</div>
 					</div>
-
-					<div class="col-sm-7 col-md-3">
-						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test2.jpg" alt="..." id="index__img">
-							</div>
-							<div class="HWAN__caption">
-								<div class="HWAN__productTiltle">김선우</div>
-								<div class="HWAN__close-date">4일 01:18:28</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-7 col-md-3">
-						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test4.jpg" alt="..." id="index__img">
-							</div>
-							<div class="HWAN__caption">
-								<div class="HWAN__productTiltle">이우한</div>
-								<div class="HWAN__close-date">2일 10:24:28</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-7 col-md-3">
-						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test3.jpg" alt="..." id="index__img">
-							</div>
-							<div class="HWAN__caption">
-								<div class="HWAN__productTiltle">전지현</div>
-								<div class="HWAN__close-date">2일 10:24:28</div>
-							</div>
-						</div>
-					</div>
-
+					</c:when>
+					</c:choose>
+				</c:forEach>
 				</div>
 				<!-- //경매결과 -->
 			</div>

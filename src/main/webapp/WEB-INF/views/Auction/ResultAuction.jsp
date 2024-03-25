@@ -53,6 +53,22 @@
 					  </div>
 					  </c:forEach>
 					</div>
+					
+					<!-- paging -->  
+					<div class="blank-height"></div>
+					  <div class="paging">
+					  <c:if test="${pageMaker.prev}">
+						<a href="/auction/ResultAuction?pageNum=${pageMaker.startPage-1}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}"><i class="fa fa-angle-left"></i></a>
+					  </c:if>
+					  <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<a href="/auction/ResultAuction?pageNum=${num}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}" class="${pageMaker.cri.pageNum==num?'active':''}">${num}</a>
+					  </c:forEach>
+					  <c:if test="${pageMaker.next}">
+						<a href="/auction/ResultAuction?pageNum=${pageMaker.endPage+1}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}"><i class="fa fa-angle-right"></i></a>
+					  </c:if>
+					</div>
+					<!-- //paging -->
+					
    				</div>
    				<!-- //content 영역 -->
    				

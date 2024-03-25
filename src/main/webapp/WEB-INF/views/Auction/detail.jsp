@@ -46,18 +46,37 @@
 						</h2>
 					</div>
 					<div class="hyeon__price">
-						<span class="hyeon__nowprice">현재 가격</span> <span id="hyeon__nowprice">${vo.tenderPrice}</span>원
+					<c:choose>
+						<c:when test="${vo.state==1}">
+							<span class="hyeon__nowprice" >현재 가격</span> <span class="hyeon__pricenow">${vo.tenderPrice}</span>원
+						</c:when>
+						<c:when test="${vo.state==0}">
+							<span class="hyeon__nowprice" >낙찰 가격</span> <span class="hyeon__pricenow">${vo.tenderPrice}</span>원
+						</c:when>
+					</c:choose>
 					</div>
 					<div class="hyeon__line">
 					</div>
 					<div class="hyeon__tender">
 						<div class="hyeon__tenderPrice">
-						<form name="tender" method="post" action="/auction/tender" onsubmit="return check()">
-							<input type="text" id="hyeon__insertPrice" name="tenderPrice" placeholder="입찰 금액 입력">
-							<button type="button" class="btn btn-default" id="hyeon__tenderbtn">
-								<i class="glyphicon glyphicon-usd"></i>
-							</button>
-						</form>
+						<c:choose>
+							<c:when test="${vo.state==1}">
+								<form name="tender" method="post" action="/auction/tender">
+									<input type="text" id="hyeon__insertPrice" name="tenderPrice" placeholder="입찰 금액 입력">
+									<button type="button" class="btn btn-default" id="hyeon__tenderbtn">
+										<i class="glyphicon glyphicon-usd"></i>
+									</button>
+								</form>
+							</c:when>
+							<c:when test="${vo.state==0}">
+								<form name="tender" method="post">
+									<input type="text" id="hyeon__insertPrice" name="tenderPrice" placeholder="종료된 경매입니다." readonly>
+									<button type="button" class="btn btn-default" id="hyeon__tenderbtn" disabled='disabled'>
+										<i class="glyphicon glyphicon-usd"></i>
+									</button>
+								</form>
+							</c:when>
+						</c:choose>
 						</div>
 					</div>
 				</div>
@@ -81,17 +100,23 @@
 		}
 	})
 	
-	function check() {
-		const insertPrice = document.querySelector('#hyeon__insertPrice');
-		const nowPrice = document.querySelector('.hyeon__nowprice');
+	function check(tenderPrice){
+		var nowPrice = "${vo.tenderPrice}";
 		
-		if(tender.tenderPrice.value=="") {
-			alert("입찰 금액을 입력해주세요.");
-		}
-		if(parseInt(insertPrice)<=parseInt(nowPrice)) {
+		tenderPrice=tenderPrice.replace(',','');
+		nowPrice= nowPrice.replace(',','');
+		
+		tenderPirce=parseInt(tenderPrice);
+		nowPrice=parseInt(nowPrice);
+		
+		if(tenderPrice<=nowPrice) {
 			alert("입찰 금액은 현재 가격보다 높아야합니다.");
+			document.querySelector('#hyeon__insertPrice').value = "";
+			return false;
 		}
+		return true;
 	}
+	
 </script>
 
 <script>
@@ -99,15 +124,21 @@ var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
 
 $("#hyeon__tenderbtn").on("click", function(){
-	const productNum = ${vo.productNum}
+	const productNum = ${vo.productNum};
 	const id = '<c:out value="${principal.username}"/>';
 	const tenderPrice = $("#hyeon__insertPrice").val();
 	
-	if(id == '') {
+	if(id === '') {
 		alert("로그인 후 이용해주세요.");
+		$(location).attr('href', 'http://localhost:8067/login');
 		return;
-	}else if(tenderPrice == '') {
+	}else if(tenderPrice === '') {
 		alert("입찰 금액을 입력해주세요.");
+		return;
+	}
+	
+	if(!check(tenderPrice)) {
+		return;
 	}
 	
 	const data={
@@ -127,13 +158,17 @@ $("#hyeon__tenderbtn").on("click", function(){
 		success:function(response) {
 			console.log(response)
 			if(response === 'Success'){
-				alert("입찰이 완료되었습니다.")
-				$("#hyeon__nowprice").text(tenderPrice);
+				alert("입찰이 완료되었습니다.");
+				$(".hyeon__pricenow").html(tenderPrice);
+				$("#hyeon__insertPrice").val(null);
 			}else{
-				alert("로그인 후 이용해주세요.")
+				alert("로그인 후 이용해주세요.");
+				$(location).attr('href', 'http://localhost:8067/login');
+				return;
 			}
-		}, error:function(){
-			alert("통신실패");
+		}, error:function(request, error){
+			alert("fail");
+			alert("code: "+request.status+"\n"+"message: "+request.responseText+"\n"+"error: "+error);
 		}
 	})//
 });
