@@ -1,9 +1,5 @@
 package com.sunflower.controller;
 
-import java.util.List;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import java.util.Map;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

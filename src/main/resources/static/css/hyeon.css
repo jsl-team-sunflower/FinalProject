@@ -115,6 +115,11 @@
 	background: #FDCC00;
 }
 
+.hyeon__tender #hyeon__tenderbtn[disabled]:hover {
+	border: 1px solid #ccc;
+	background: transparent;
+}
+
 .hyeon__tender #hyeon__tenderbtn:focus {
 	background: #FDCC00;
 	outline:0 none;

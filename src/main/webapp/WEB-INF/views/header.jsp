@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="/resources/css/pay.css" />
 <link href="/resources/css/common.css" rel="stylesheet" />
 <link href="/resources/css/layout.css" rel="stylesheet" />
+<link href="/resources/css/order.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script
@@ -91,7 +92,7 @@
 							<sec:authentication property="principal" var="principal" />
 							<li class="first" style="margin: 8px; padding-left: 8px; font-weight: bold;">${principal.username}님</li>
 							<li><a href="/user/logout">로그아웃</a></li>
-							<li><a href="/my/mypage">마이페이지</a></li>
+							<li><a href="/my/mypage?id=${principal.username}">마이페이지</a></li>
 							</sec:authorize>
 						</ul>
 					</li>	

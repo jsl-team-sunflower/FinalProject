@@ -10,8 +10,8 @@
         </h2>
         <h3><b>온라인경매관리</b></h3>
         
-        <div><a href="mypage">등록한 상품내역</a></div>
-        <div><a href="bidHistory">응찰내역</a></div>
+        <div><a href="mypage?id=${principal.username}">등록한 상품내역</a></div>
+        <div><a href="bidHistory?id=${principal.username}">응찰내역</a></div>
         <div><a href="payHistory">결제/구매내역</a></div>
         <h3><b>회원정보관리</b></h3>
         <div><a href="infoUpdate">회원정보수정</a></div>

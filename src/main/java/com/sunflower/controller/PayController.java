@@ -19,6 +19,11 @@ import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 import com.siot.IamportRestClient.response.IamportResponse;
 import com.siot.IamportRestClient.response.Payment;
+import com.sunflower.domain.OrderVO;
+import com.sunflower.domain.ProductVO;
+import com.sunflower.domain.UserVO;
+import com.sunflower.service.ProductService;
+import com.sunflower.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,12 +31,29 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/pay")
 @RequiredArgsConstructor
 public class PayController {
-	//localhost:8066/qa/list
-	@GetMapping("/list")
-	public String qaList(Model model) {
-		
+	private final ProductService productService;
+	private final UserService userService;
+	
+	@GetMapping("/page")
+	public String payList(String id,int productNum,Model model) {
+		ProductVO vo = productService.viewDetail(productNum);
+		UserVO user = userService.findUserInfo(id);
+		model.addAttribute("vo", vo);
+		model.addAttribute("user",user);
 		return "/pay/pay";
 	}
+	
+	@PostMapping("/order")
+	public String orderList(OrderVO order,Model model) {
+		 productService.saveOrder(order);
+		 OrderVO vo =productService.getOrder(order.getOrderNum());
+		 ProductVO product = productService.viewDetail(order.getProductNum());
+		 model.addAttribute("vo",vo);
+		 model.addAttribute("product",product);
+		return "/pay/orderComplete";
+	}
+	
+	
 	
 
 	

@@ -20,6 +20,7 @@
 					  <div class="col-sm-8 HWAN__onauctionCol2">
 					    <div class="HWAN__thumbnail-onauction">
 						    <c:forEach var="imglist" items="${list.attach}" varStatus="status">
+						    <input id="${list.productNum}" type="hidden" value="${list.startTime.plusDays(7)}">
 						    	<c:choose>
 						    	<c:when test="${status.first}">
 						    	<div class="HWAN__auctionImg">
@@ -47,7 +48,7 @@
 						      	</dl>
 						      </div>
 	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  D-3일 21:18:28</div>
+	      					  D-<div id="productNum:${list.productNum}의EndTime"></div></div>
 	      					  <div class="blank-height"></div>
 	      					  	<div class="HWAN__btn_bid">
 							      	<a href="/auction/detail?productNum=${list.productNum}" role="button" class="btn btn_default btn-block go-bid-btn">
@@ -63,15 +64,15 @@
 					<div class="blank-height"></div>
 					
 					  <div class="paging">
-						<a href=""><i class="fa  fa-angle-double-left"></i></a>
-						<a href=""><i class="fa fa-angle-left"></i></a>
-						<a href="" class="active">1</a>
-						<a href="">2</a>
-						<a href="">3</a>
-						<a href="">4</a>
-						<a href="">5</a>
-						<a href=""><i class="fa fa-angle-right"></i></a>
-						<a href=""><i class="fa  fa-angle-double-right"></i></a>
+					  <c:if test="${pageMaker.prev}">
+						<a href="/auction/onauction?pageNum=${pageMaker.startPage-1}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}"><i class="fa fa-angle-left"></i></a>
+					  </c:if>
+					  <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<a href="/auction/onauction?pageNum=${num}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}" class="${pageMaker.cri.pageNum==num?'active':''}">${num}</a>
+					  </c:forEach>
+					  <c:if test="${pageMaker.next}">
+						<a href="/auction/onauction?pageNum=${pageMaker.endPage+1}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}"><i class="fa fa-angle-right"></i></a>
+					  </c:if>
 					</div>
 					<!-- //paging -->  
 				

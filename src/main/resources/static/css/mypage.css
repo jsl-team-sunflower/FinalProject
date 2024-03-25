@@ -100,3 +100,14 @@ li {
   text-align: center;
   margin-top: 50px;
 }
+
+.mypage__img{
+	height: 250px;
+}
+
+.completeBidHistory__btn {
+	border: 1px solid lightgray;
+}
+.completeBidHistory__btn:hover{
+	border: 1px solid black;
+}
