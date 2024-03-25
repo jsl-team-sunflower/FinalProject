@@ -32,6 +32,7 @@ public interface ProductMapper {
 	
 	//tender
 	public void tenderPrice(TenderVO vo);
+	public void productTendercount(TenderVO vo);
 	
 	public List<ProductVO> getList();
 }

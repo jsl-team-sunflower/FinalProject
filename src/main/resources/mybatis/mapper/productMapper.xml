@@ -107,6 +107,11 @@
 	#{tenderPrice}, (select id from hm_user where id=#{id}))
 </insert>
 
+<!-- 응찰 수 -->
+<update id="productTendercount">
+	update hm_product set productTenderCount=(productTendercount+1) where productNum=#{productNum}
+</update>
+
 <select id="getList" resultType="com.sunflower.domain.ProductVO">
 	select  * from  hm_product
 </select>

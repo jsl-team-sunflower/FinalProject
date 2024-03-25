@@ -46,18 +46,37 @@
 						</h2>
 					</div>
 					<div class="hyeon__price">
-						<span class="hyeon__nowprice" >현재 가격</span> <span class="hyeon__pricenow">${vo.tenderPrice}</span>원
+					<c:choose>
+						<c:when test="${vo.state==1}">
+							<span class="hyeon__nowprice" >현재 가격</span> <span class="hyeon__pricenow">${vo.tenderPrice}</span>원
+						</c:when>
+						<c:when test="${vo.state==0}">
+							<span class="hyeon__nowprice" >낙찰 가격</span> <span class="hyeon__pricenow">${vo.tenderPrice}</span>원
+						</c:when>
+					</c:choose>
 					</div>
 					<div class="hyeon__line">
 					</div>
 					<div class="hyeon__tender">
 						<div class="hyeon__tenderPrice">
-						<form name="tender" method="post" action="/auction/tender">
-							<input type="text" id="hyeon__insertPrice" name="tenderPrice" placeholder="입찰 금액 입력">
-							<button type="button" class="btn btn-default" id="hyeon__tenderbtn">
-								<i class="glyphicon glyphicon-usd"></i>
-							</button>
-						</form>
+						<c:choose>
+							<c:when test="${vo.state==1}">
+								<form name="tender" method="post" action="/auction/tender">
+									<input type="text" id="hyeon__insertPrice" name="tenderPrice" placeholder="입찰 금액 입력">
+									<button type="button" class="btn btn-default" id="hyeon__tenderbtn">
+										<i class="glyphicon glyphicon-usd"></i>
+									</button>
+								</form>
+							</c:when>
+							<c:when test="${vo.state==0}">
+								<form name="tender" method="post">
+									<input type="text" id="hyeon__insertPrice" name="tenderPrice" placeholder="종료된 경매입니다." readonly>
+									<button type="button" class="btn btn-default" id="hyeon__tenderbtn" disabled='disabled'>
+										<i class="glyphicon glyphicon-usd"></i>
+									</button>
+								</form>
+							</c:when>
+						</c:choose>
 						</div>
 					</div>
 				</div>
