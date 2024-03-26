@@ -12,6 +12,7 @@ public class UserVO {
 	private String phone;
 	private String address;
 	private String num;
+	private int userNum;
 	
 	private String user_addressNumber;
 	private String user_address1;

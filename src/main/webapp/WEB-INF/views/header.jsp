@@ -66,18 +66,11 @@
 						class="dropdown-toggle" data-toggle="dropdown" role="button"
 						aria-haspopup="true" aria-expanded="false">고객센터<span
 							class="caret"></span></a>
-<<<<<<< HEAD
-						<ul class="dropdown-menu">
-							<li><a href="#">공지사항</a></li>
-							<li><a href="/qa/list">QnA</a></li>
-						</ul></li>
-=======
 						  <ul class="dropdown-menu">
                      <li><a href="/qa/list">QnA</a></li>
                      <li><a href="/qa/contact" onclick="window.open(this.href, '_blank', 'width=600, height=750 location=no'); return false;" class="dropdown-toggle" >Contact Us</a><li>
                      <li><a href="/qa/aboutus">About Us</a></li>
                   </ul></li>
->>>>>>> branch 'develop' of https://github.com/jsl-team-sunflower/FinalProject.git
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><form class="navbar-form">
@@ -98,9 +91,19 @@
 							</sec:authorize> 
 							<sec:authorize access="isAuthenticated()">
 							<sec:authentication property="principal" var="principal" />
-							<li class="first" style="margin: 8px; padding-left: 8px; font-weight: bold;">${principal.username}님</li>
+							<li class="first">${principal.username}님</li>
+							<c:choose>
+							<c:when test="${principal.username eq 'admin'  }">
+							<li><a href="/user/logout">로그아웃</a></li>
+							<li><a href="/admin/admin">관리자페이지</a></li>
+							</c:when>
+							<c:otherwise>
 							<li><a href="/user/logout">로그아웃</a></li>
 							<li><a href="/my/mypage?id=${principal.username}">마이페이지</a></li>
+							</c:otherwise>
+							</c:choose>
+							
+							
 							</sec:authorize>
 						</ul>
 					</li>	
