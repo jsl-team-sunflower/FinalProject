@@ -91,8 +91,18 @@
 							<sec:authorize access="isAuthenticated()">
 							<sec:authentication property="principal" var="principal" />
 							<li class="first">${principal.username}님</li>
+							<c:choose>
+							<c:when test="${principal.username eq 'admin'  }">
+							<li><a href="/user/logout">로그아웃</a></li>
+							<li><a href="/admin/admin">관리자페이지</a></li>
+							</c:when>
+							<c:otherwise>
 							<li><a href="/user/logout">로그아웃</a></li>
 							<li><a href="/my/mypage?id=${principal.username}">마이페이지</a></li>
+							</c:otherwise>
+							</c:choose>
+							
+							
 							</sec:authorize>
 						</ul>
 					</li>	
