@@ -64,7 +64,7 @@
 
 
 <input type="hidden" name="productNum" value="${vo.productNum }"/>
-<input type="hidden" name="orderState" value="1"/>
+<input type="hidden" name="orderState" value="2"/>
           <tr>
             <th>배송지</th>
             <td>

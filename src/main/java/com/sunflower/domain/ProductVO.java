@@ -20,6 +20,8 @@ public class ProductVO {
 	private String tenderPrice; 
 	
 	private int tenderNum;
+	private int orderState;
+	private int orderNum;
 	
 	private List<AttachVO> attach;
 	
