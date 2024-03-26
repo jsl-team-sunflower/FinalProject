@@ -62,6 +62,7 @@
             
 					<!-- paging -->  
 					<div class="blank-height"></div>
+					
 					  <div class="paging">
 					  <c:if test="${pageMaker.prev}">
 						<a href="/auction/onauction?pageNum=${pageMaker.startPage-1}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}"><i class="fa fa-angle-left"></i></a>

@@ -15,6 +15,7 @@ public interface ProductMapper {
 	//의뢰 등록
 	public void insertProduct(ProductVO vo);
 	public void startTender(ProductVO vo);
+	public void startPrice(ProductVO vo);
 	
 	//상세 페이지 불러오기
 	public ProductVO selectView(int productNum);

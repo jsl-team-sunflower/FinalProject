@@ -23,10 +23,12 @@ import com.sunflower.domain.TenderVO;
 import com.sunflower.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/auction")
+@Log4j2
 public class ProductController {
 
 	private final ProductService productService;
