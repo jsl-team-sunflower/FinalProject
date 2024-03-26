@@ -35,7 +35,7 @@
 						      	<span title="HWAN__productTiltle">${list.productName}</span>
 						      </div>
 						      	<div class="HWAN__productContent">${list.productWriter}</div>
-						      	<div class="blank-height" style="border-bottom:1px solid #ccc"></div>
+						      	<div class="blank-height" style="border-bottom:1px solid #ccc;"></div>
 						      <div class="blank-height"></div>
 						      <div class="HWAN__productPrice">
 						      	<dl class="HWAN__startPproduct">
@@ -47,8 +47,9 @@
 						      		<dd><strong>KRW ${list.tenderPrice}</strong></dd>	
 						      	</dl>
 						      </div>
-	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  D-<div id="productNum:${list.productNum}의EndTime"></div></div>
+	      					  <div class="HWAN__close-date">
+	      					  <div class="glyphicon glyphicon-time" id="productNum:${list.productNum}의EndTime"></div>
+	      					  </div>
 	      					  <div class="blank-height"></div>
 	      					  	<div class="HWAN__btn_bid">
 							      	<a href="/auction/detail?productNum=${list.productNum}" role="button" class="btn btn_default btn-block go-bid-btn">
@@ -62,7 +63,7 @@
             
 					<!-- paging -->  
 					<div class="blank-height"></div>
-					  <div class="paging">
+					  <div class="paging" id="onAuctionTest">
 					  <c:if test="${pageMaker.prev}">
 						<a href="/auction/onauction?pageNum=${pageMaker.startPage-1}&amount=${pageMaker.cri.amount}&type=${pageMaker.cri.type}&keyword=${pageMaker.cri.keyword}"><i class="fa fa-angle-left"></i></a>
 					  </c:if>
@@ -125,13 +126,13 @@
 					  </div>
 					  <div class="blank-height"></div>
 					  	<div class="HWAN__productWrite">
-						  	<c:choose>
-							  	<c:when test="${principal.username!=''}">
-							      	<a href="/auction/regist" role="button" class="btn btn_default btn-block go-bid-btn">
-		     							<span>위탁 신청</span>
-		   							</a>
-		  						</c:when>
-	  						</c:choose>
+						   <sec:authorize access="isAuthenticated()">
+						      	<a href="/auction/regist" role="button" class="btn btn_default btn-block go-bid-btn">
+	     							<span>위탁 신청</span>
+	   							</a>
+							</sec:authorize>
+	  						<sec:authorize access="isAnonymous()">
+	  						</sec:authorize>
 						</div>
 					</div>
    				</div>
