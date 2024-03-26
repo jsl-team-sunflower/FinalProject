@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="icon" href="/resources//images/favico.ico">
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
+<link href="/resources/css/hyeon.css" rel='stylesheet'>
 <link href="/resources/css/login.css" rel='stylesheet'>
 <link href="/resources/css/signup.css" rel='stylesheet'>
 <link href="/resources/css/hyeon.css" rel='stylesheet'>
@@ -63,13 +64,20 @@
 					<li><a href="/auction/ResultAuction" id="AuctionNav">경매결과</a></li>
 					<li class="dropdown"><a href="#" id="AuctionNav"
 						class="dropdown-toggle" data-toggle="dropdown" role="button"
-						aria-haspopup="true" aria-expanded="false">공지사항 <span
+						aria-haspopup="true" aria-expanded="false">고객센터<span
 							class="caret"></span></a>
+<<<<<<< HEAD
+						<ul class="dropdown-menu">
+							<li><a href="#">공지사항</a></li>
+							<li><a href="/qa/list">QnA</a></li>
+						</ul></li>
+=======
 						  <ul class="dropdown-menu">
                      <li><a href="/qa/list">QnA</a></li>
                      <li><a href="/qa/contact" onclick="window.open(this.href, '_blank', 'width=600, height=750 location=no'); return false;" class="dropdown-toggle" >Contact Us</a><li>
                      <li><a href="/qa/aboutus">About Us</a></li>
                   </ul></li>
+>>>>>>> branch 'develop' of https://github.com/jsl-team-sunflower/FinalProject.git
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><form class="navbar-form">
@@ -90,7 +98,7 @@
 							</sec:authorize> 
 							<sec:authorize access="isAuthenticated()">
 							<sec:authentication property="principal" var="principal" />
-							<li class="first">${principal.username}님</li>
+							<li class="first" style="margin: 8px; padding-left: 8px; font-weight: bold;">${principal.username}님</li>
 							<li><a href="/user/logout">로그아웃</a></li>
 							<li><a href="/my/mypage?id=${principal.username}">마이페이지</a></li>
 							</sec:authorize>
