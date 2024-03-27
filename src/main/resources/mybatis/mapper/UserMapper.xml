@@ -3,7 +3,7 @@
 <mapper namespace="com.sunflower.mapper.UserMapper">
 
 	<sql id="memberColumns">
-	id,pw,name,mail,phone,address
+	id,pw,name,mail,phone,address,userNum
 	</sql>
 	
 	<select id="countByLoginId" parameterType="string" resultType="int">
@@ -11,10 +11,13 @@
 	</select>
 	
 	<insert id="save">
+	<selectKey keyProperty="userNum" order="BEFORE" resultType="int">
+		select hm_user_seq.nextval from dual
+	</selectKey>
 		insert into hm_user (
 			<include refid="memberColumns"/>
 		) values (
-			#{id},#{pw},#{name},#{mail},#{phone},#{address}
+			#{id},#{pw},#{name},#{mail},#{phone},#{address},#{userNum}
 		)
 	</insert>
 	
@@ -42,5 +45,10 @@
 		set name=#{name},mail=#{mail},phone=#{phone},address=#{address}
 		where id=#{id}
 	</update>
+	
+	<!-- 전체유저찾기 -->
+	<select id="wholeUser" resultType="com.sunflower.domain.UserVO">
+		select * from hm_user where not id = 'admin'
+	</select>
 	
 </mapper>

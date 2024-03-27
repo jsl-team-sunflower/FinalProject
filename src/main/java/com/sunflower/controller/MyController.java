@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sunflower.domain.OrderVO;
 import com.sunflower.domain.ProductVO;
 import com.sunflower.domain.UserVO;
 import com.sunflower.service.ProductService;
@@ -55,8 +56,9 @@ public class MyController {
 	}
 	
 	@GetMapping("/payHistory")
-	public String payList(Model model) {
-		
+	public String payList(String id,Model model) {
+		List<ProductVO> list = service.getOrderPaySelect(id);
+		model.addAttribute("list",list);
 		return "/my/payHistory";
 	}
 	@GetMapping("/infoUpdate")
@@ -69,8 +71,10 @@ public class MyController {
 	}
 	
 	@GetMapping("/delivery")
-	   public String delivery(Model model) {
-	      model.addAttribute("ds",3);
+	   public String delivery(int orderState,int orderNum,Model model) {
+		  OrderVO vo = service.getOrder(orderNum);
+	      model.addAttribute("ds",orderState);
+	      model.addAttribute("vo",vo);
 	      return "/my/delivery";
 	   }
 	@GetMapping("/test")

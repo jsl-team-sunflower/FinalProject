@@ -80,7 +80,8 @@ button {
 }
 
 .navbar-nav {
-	margin: 20px;
+	margin: 19px;
+	font-size: 16px;
 }
 
 .navbar-nav .active {
