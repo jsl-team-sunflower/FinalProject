@@ -20,7 +20,7 @@
 					<span class="hyeon__pwrite">입력하지 않을 시 0원으로 시작합니다.</span>
 					<input type="file" name="uploadfile" id="hyeon__uploadfile" multiple="multiple">
 					<div class="hyeon__product-btn">
-						<button type="button" class="hyeon__regist btn_see">미리보기</button>&nbsp;&nbsp;
+						<button type="button" class="hyeon__regist btn_see" id="hyeon__previewer">미리보기</button>&nbsp;&nbsp;
 						<input type="submit" value="저장" class="hyeon__regist btn_ok">&nbsp;&nbsp;
 					</div>
 				</div>
@@ -117,21 +117,21 @@
 					</div>
 				</div>
 				<div class="hyeon__preview-info col-md-6">
-					<p>여기는 상품명</p>
+					<p class="hyeon__previewer-product">상품명</p>
 					<div class="hyeon__preview-date">
 						<h2>
-							D-<span class="hyeon__preview-nowdate">10</span>
+							<span class="hyeon__preview-nowdate">남은 시간</span>
 						</h2>
 					</div>
 					<div class="hyeon__preview-price">
-						<span class="hyeon__preview-nowprice">현재 가격</span> 137,390원
+						<span class="hyeon__preview-nowprice">현재 가격</span> <span class="hyeon__previewer-price">000,000원</span>
 					</div>
 					<div class="hyeon__preview-line">
 					</div>
 					<div class="hyeon__preview-tender">
 						<div class="hyeon__preview-tenderPrice">
 							<input type="text" id="hyeon__preview-insertPrice" placeholder="입찰 금액 입력" readonly>
-							<button type="submit" class="btn btn-default" id="hyeon__preview-tenderbtn">
+							<button type="submit" class="btn btn-default" id="hyeon__preview-tenderbtn" disabled="disalbed">
 								<i class="glyphicon glyphicon-usd"></i>
 							</button>
 						</div>
@@ -146,7 +146,7 @@
 	function check() {
 
 		if (product.productname.value == "") {
-			alert("물품명을 입력해주세요.");
+			alert("상품명을 입력해주세요.");
 			product.productname.focus();
 			return false;
 		}
@@ -156,12 +156,12 @@
 			return false;
 		}
 		var uploadFile = document.getElementById("uploadfile").value;
-
+		
 		/* if(uploadFile.includes('')){
 			alert("첨부파일 이름에 공백이 포함되어 있습니다. 공백을 제거해 주세요.");
 			return false;
 		} */
-
+		
 		return true;
 	}
 </script>
@@ -195,6 +195,14 @@
 			input.value = formatValue;
 		}
 	});
+	
+	$("#hyeon__previewer").on("click", function(){
+		const productName = $("#hyeon__productname").val();
+		
+		$(".hyeon__previewer-product").html(productName);
+		$(".hyeon__previewer-price").html(input.value+"원");
+        $(".hyeon__preview-nowdate").html("7일 0시간 0분 0초");
+	});//click
 </script>
 
 <%@ include file="../footer.jsp" %>

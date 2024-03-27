@@ -84,6 +84,12 @@ public class ProductService {
 		productmapper.productTendercount(vo);
 	}//tenderPrice()
 	
+	//state 변경
+	public void updateState(ProductVO vo) {
+		productmapper.updateState(vo);
+	}
+	
+	
 	/*
 	public List<ProductVO> getList() { //페이지처리 및 모든글 가져오기
 		List<ProductVO> list = productmapper.getList();

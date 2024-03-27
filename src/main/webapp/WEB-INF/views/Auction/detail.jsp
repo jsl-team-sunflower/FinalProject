@@ -45,7 +45,7 @@
 					<p>${vo.productName}</p>
 					<div class="hyeon__date">
 						<h2>
-							D-<span class="hyeon__nowdate" id="productNum:${vo.productNum}의EndTime"></span>
+							<span class="hyeon__nowdate" id="productNum:${vo.productNum}의EndTime"></span>
 						</h2>
 					</div>
 					<div class="hyeon__price">
@@ -159,7 +159,6 @@ $("#hyeon__tenderbtn").on("click", function(){
 			xhr.setRequestHeader(header, token);
 		},
 		success:function(response) {
-			console.log(response)
 			if(response === 'Success'){
 				alert("입찰이 완료되었습니다.");
 				$(".hyeon__pricenow").html(tenderPrice);
@@ -175,6 +174,55 @@ $("#hyeon__tenderbtn").on("click", function(){
 		}
 	})//
 });
+
+/* function timeCalculOne(){
+    var Time = document.getElementById("${vo.productNum}").value;
+    // 두 개의 날짜 생성
+    var date1 = new Date(); 
+    var date2 = new Date(Time); 
+
+    // 날짜 연산
+    var diffInMilliseconds = date2.getTime() - date1.getTime();
+	var productNum=${vo.productNum};
+	var state=${vo.state};
+	
+    var data={
+    		"productNum":productNum
+    };
+
+    if(diffInMilliseconds==0){
+	    	$.ajax({
+	    		type:'post',
+	    		url:"/auction/tenderState",
+	    		data: JSON.stringify(data),
+	    		contentType:'application/json',
+	    		beforeSend: function(xhr){
+	    			xhr.setRequestHeader(header, token);
+	    		},
+	    		success:function(response){
+	    			$("#hyeon__insertPrice").attr("placeholder", "종료된 경매입니다.");
+	   				$("#hyeon__insertPrice").attr("readonly",true); 
+	   				$("#hyeon__tenderbtn").attr("disabled",true);
+	    		}, error:function(request, error){
+	    			alert("fail");
+	    			alert("code: "+request.status+"\n"+"message: "+request.responseText+"\n"+"error: "+error);
+	    		}
+	    	})//ajax
+    }//if
+    
+    // 밀리초를 일, 시간, 분, 초로 변환
+    var days = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diffInMilliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((diffInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((diffInMilliseconds % (1000 * 60)) / 1000);
+
+    // 결과 출력
+    var findId = "productNum:" + ${vo.productNum} + "의EndTime";
+    var clockDiv = document.getElementById(findId);
+    clockDiv.innerHTML = days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초";
+}
+
+setInterval(timeCalculOne, 1000);  */
 </script>
 
 <%@ include file="../footer.jsp" %>

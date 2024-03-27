@@ -55,7 +55,7 @@ public class ProductController {
 		List<AttachVO> list = fileUploadUtils.uploadFiles(uploadfile);
 		product.setAttach(list);
 		productService.regist(product);
-		return "index";
+		return "redirect:/";
 	}//post.registProduct()
 	
 	//상세정보
@@ -93,6 +93,14 @@ public class ProductController {
 	public String tenderPrice(@RequestBody TenderVO vo, Principal principal) {
 		vo.setId(principal.getName());
 		productService.tenderPrice(vo);
+		return "Success";
+	}//tenderPrice()
+	
+	//state 변경
+	@PostMapping("/tenderState")
+	@ResponseBody
+	public String updateState(@RequestBody ProductVO vo) {
+		productService.updateState(vo);
 		return "Success";
 	}
 	

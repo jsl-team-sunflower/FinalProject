@@ -36,6 +36,9 @@ public interface ProductMapper {
 	public void tenderPrice(TenderVO vo);
 	public void productTendercount(TenderVO vo);
 	
+	//state 변경
+	public void updateState(ProductVO vo);
+	
 	public List<ProductVO> getList();
 	
 	public String getTenderList(int productNum);
