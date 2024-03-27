@@ -85,8 +85,8 @@ public class ExchangeRateController2 {
 	                dlist.add(num);	
 					/* System.out.println(num); */
 	            }    
-	             if(unit.equals("unit=yen") || unit == "unit=yen" ) {   exc = dlist.get(12);	}
-	             if(unit.equals("unit=usd") || unit == "unit=usd")  {   exc = dlist.get(22);    }
+	             if(unit.equals("unit=yen") || unit == "unit=yen" ) {   exc = dlist.get(12);	exc = 100 / exc;}
+	             if(unit.equals("unit=usd") || unit == "unit=usd")  {   exc = dlist.get(22);    exc = 1 / exc;}
 	        } catch (Exception e) {
 	            logger.error("Error fetching exchange data: " + e.getMessage());
 	        }
@@ -94,7 +94,7 @@ public class ExchangeRateController2 {
 	        	model.addAttribute("exc", exc);
 	        }
 	        log.info(exc);
-	        return 1/exc ; 
+	        return exc ; 
 	    }
 	
 	@GetMapping("/header")

@@ -174,10 +174,6 @@ function googleTranslateElementInit() {
 		<!-- /.container-fluid -->
 	</nav>
 	
-	<div style="text-align:center;">
-	<br>
-	<br>
-	<div name="${check}" id="${check}"></div>
 	<p>${check}</p>
 	<br>
 	<br>
