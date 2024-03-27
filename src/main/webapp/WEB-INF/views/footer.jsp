@@ -59,7 +59,7 @@
 		<div class="row">
 			<div class="col-lg-3 footerlogo">
 				<img src="/resources//images/HIMAWARI.png" alt="" id="footer-img">
-				<div class="social" style="margin-right: 100px; font-size: 35px;">
+				<div class="social" style="margin-right: 50px; font-size: 35px;">
 				<br>
 					<a href="#"><i class="fab fa-facebook-f"></i></a>
 					<a href="#"><i class="fab fa-twitter"></i></a>
