@@ -37,7 +37,7 @@ private final QaService qaService;
 		
 		int total = qaService.getTotalCount(cri);
 		System.out.print(total);
-		model.addAttribute("list",list);
+		model.addAttribute("qlist",list);
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		
 		return "/qna/qa";
@@ -59,7 +59,7 @@ private final QaService qaService;
 	@GetMapping("/view")
 	public String qaVo(@RequestParam("qnaNum") int bno, Model model) {
 		QaVO vo = qaService.getVo(bno);
-		model.addAttribute("vo",vo);
+		model.addAttribute("qvo",vo);
 		model.addAttribute("nextRecord",qaService.nextRecord(bno));
 		model.addAttribute("prevRecord",qaService.prevRecord(bno));
 		return "/qna/view";

@@ -1,14 +1,11 @@
 package com.sunflower.controller;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
-
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
@@ -19,7 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.sunflower.service.ExchangeRateService;
 
+import lombok.extern.log4j.Log4j2;
+
 @Controller
+@Log4j2
 public class ExchangeRateController {
 	
 	private static final Logger logger = Logger.getLogger(ExchangeRateController.class.getName());
@@ -30,7 +30,7 @@ public class ExchangeRateController {
 	private ExchangeRateService exchangeRateService;
 
 	@GetMapping("/exchange")
-	public String getExchangeData(Model model) {
+	public String getExchangeData(/* @RequestParam("unit") String unit, */ Model model) {
 	
         String AuthKey = "RYkXsKPfBB9htk7WkwCfszOEFgFxUOUO";
         String SearchDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
@@ -53,7 +53,8 @@ public class ExchangeRateController {
 
             // 데이터를 모델에 추가하여 JSP에서 사용할 수 있도록 함
             model.addAttribute("exchangeData", jsonArray);
-
+            model.addAttribute("date", SearchDate);
+            
         } catch (Exception e) {
             logger.error("Error fetching exchange data: " + e.getMessage());
         }

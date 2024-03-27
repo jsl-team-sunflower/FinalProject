@@ -4,13 +4,14 @@ import lombok.Data;
 
 @Data
 public class Criteria {
-	private int pageNum;
-	private int amount;
-	private String type;
-	private String keyword;
+
+	private int pageNum; //페이지번호
+	private int amount; //한페지에 출력하는 레코드 수
+	private String type; //검색 타입
+	private String keyword; //검색 단어
 	
 	public Criteria() {
-		this(1,15);
+		this(1,10);
 	}
 	
 	public Criteria(int pageNum, int amount) {

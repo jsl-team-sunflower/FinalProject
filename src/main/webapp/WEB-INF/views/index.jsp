@@ -274,15 +274,5 @@
 	</div>
 	<!-- //content  -->
 </div>
-		<div class="scroll_top-box">
-		<div class="chat">
-            <a href="http://192.168.30.100:8090/Anonymous/index.jsp" onclick="window.open(this.href, '_blank', 'width=620, height=535 location=no'); return false;" class="btn btn-primary" >1:1 상담</a>
-         </div>
-			<div class="box-inner">
-				<a href="#" class="btn-scroll_top js-scroll_top show"><i
-					class="icon-scroll_top"></i></a>
-			</div>
-		</div>
-
 
 <%@ include file="footer.jsp"%>
