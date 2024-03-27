@@ -169,6 +169,22 @@ public class ProductService {
 		productmapper.productTendercount(vo);
 	}//tenderPrice()
 	
+	//state 변경
+	public void updateState(ProductVO vo) {
+		productmapper.updateState(vo);
+	}
+	
+	
+	/*
+	public List<ProductVO> getList() { //페이지처리 및 모든글 가져오기
+		List<ProductVO> list = productmapper.getList();
+		for(ProductVO vo : list) {
+			int productNum = vo.getProductNum();
+			vo.setTenderPrice( productmapper.getTenderList(productNum));  
+		}
+		return list;
+	}
+	*/
 	//응찰내역
 	public List<ProductVO> getList(String id) { //페이지처리 및 모든글 가져오기
 		List<ProductVO> list = productmapper.getListId(id);
@@ -201,6 +217,17 @@ public class ProductService {
 	public OrderVO getOrder(int orderNum) {
 		OrderVO vo = productmapper.orderSelect(orderNum);
 		return vo;
+	}
+	
+	//결제한 order 조회
+	public List<ProductVO> getOrderPaySelect(String id) {
+		List<ProductVO> list = productmapper.orderPaySelect(id);
+		for(ProductVO vo : list) {
+			int productNum = vo.getProductNum();
+			List<AttachVO> alist=attachmapper.findByNum(productNum);
+			vo.setAttach(alist);
+		}//for문
+		return list;
 	}
 	
 }

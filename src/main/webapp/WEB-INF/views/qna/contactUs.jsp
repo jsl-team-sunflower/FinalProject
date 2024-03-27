@@ -187,7 +187,12 @@ background:#eee;
 			<div class="col-lg-7">	
 				<div class="contact">
 					<form class="form" name="enq" method="post" action="/qa/MailSentSuccessfully" onsubmit="return validation();">
+	<%-- 
+	<<<<<<< HEAD
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	=======
+	>>>>>>> feature_HF_Edit 
+	--%>
 						<div class="row">
 							<div class="form-group col-md-6">
 								<input type="text" name="name" class="form-control" placeholder="Erum" required="required">

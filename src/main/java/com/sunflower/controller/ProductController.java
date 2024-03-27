@@ -181,6 +181,14 @@ public class ProductController {
 		vo.setId(principal.getName());
 		productService.tenderPrice(vo);
 		return "Success";
+	}//tenderPrice()
+	
+	//state 변경
+	@PostMapping("/tenderState")
+	@ResponseBody
+	public String updateState(@RequestBody ProductVO vo) {
+		productService.updateState(vo);
+		return "Success";
 	}
 
 	

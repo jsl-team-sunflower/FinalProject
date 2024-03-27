@@ -16,6 +16,16 @@
   outline: 0;
 }
 
+.paging a {
+	border: 1px solid transparent !important;
+}
+
+.paging a.active {
+    background: #FDCC00 !important;
+    color: #111 !important;
+    border: 1px solid transparent !important;
+}
+
 /* detail */
 
 .hyeon__detail {
@@ -63,6 +73,7 @@
 
 .hyeon__date .hyeon__nowdate {
 	color:#FDCC00;
+	font-size: 36px;
 }
 
 .hyeon__date h2 {
@@ -468,8 +479,13 @@ input[type=file] {
     border: 1px solid #d0d0d0;
 }
 
-.hyeon__preview-date .preview-nowdate {
+.hyeon__preview-nowdate {
 	color:#FDCC00;
+}
+
+.hyeon__preview-tender #hyeon__preview-tenderbtn[disabled]:hover {
+	border: 1px solid #ccc;
+	background: transparent;
 }
 
 .hyeon__preview-date h2 {

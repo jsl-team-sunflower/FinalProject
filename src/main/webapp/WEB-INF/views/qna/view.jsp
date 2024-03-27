@@ -37,12 +37,12 @@
 	</div>
 
 	<div class="container">
-		<div class="board_view">
-			<span>번호 : ${vo.qnaNum }</span>
-			<h2>질문제목 : ${vo.qnaTitle }</h2>
-			<p class="info"><span class="user">질문자 : ${vo.qnaWriter }</span> | 등록일자 : <fmt:formatDate value="${vo.qnaRegdate}" pattern="yyyy-MM-dd"/> | <i class="fa fa-eye"></i>조회수 : ${vo.qnaViewcount}</p>
-			<div class="board_body">
-				<span style="text-align:left; font-size:18px; font-weight:bold;">질문내용</span> : ${vo.qnaContent }
+		<div class="board_view" >
+			<span>번호 : ${qvo.qnaNum }</span>
+			<h2>질문제목 : ${qvo.qnaTitle }</h2>
+			<p class="info"><span class="user">질문자 : ${qvo.qnaWriter }</span> | 등록일자 : <fmt:formatDate value="${qvo.qnaRegdate}" pattern="yyyy-MM-dd"/> | <i class="fa fa-eye"></i>조회수 : ${qvo.qnaViewcount}</p>
+			<div class="board_body" style="padding: 30px 10px;">
+				<span style="text-align:left; font-size:18px; font-weight:bold;">질문내용</span> : ${qvo.qnaContent }
 			</div>
 		</div>
 		<!-- reply start-->
@@ -81,7 +81,7 @@
 			<div class="btn_3wrap">
 				<a href="/qa/list">목록</a> 
 				<a href="qa_modify.html">수정</a> 
-				<a href="#myModal" class="" data-toggle="modal" id="delete" value="/qa/delete?qnaNum=${vo.qnaNum}">삭제</a>	
+				<a href="#myModal" class="" data-toggle="modal" id="delete" value="/qa/delete?qnaNum=${qvo.qnaNum}">삭제</a>	
 			</div>
 			<c:choose>		
 				<c:when test="${not empty nextRecord}">
@@ -115,11 +115,11 @@
 	      </div>
 	      <div class="modal-body">
 	        <strong><p>정말 삭제하실껀가요?</p></strong>
-	        <p>제목 : ${vo.qnaTitle}</p>
+	        <p>제목 : ${qvo.qnaTitle}</p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">rOLl bAcK</button>
-	        <button type="button" class="btn btn-primary">삭제해버리라규</button>
+	        <button type="button" class="btn btn-primary" style="margin:0px;">삭제해버리라규</button>
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
@@ -157,7 +157,7 @@
 		});
 		
 			 $("#comment_register").on("click", function() {
-					const com_bno = ${vo.qnaNum};
+					const com_bno = ${qvo.qnaNum};
 					const com_writer = '<c:out value="${principal.username}"/>';
 					const com_content = $("#com_content").val();
 					
@@ -203,7 +203,7 @@
 			
 			function getList() {
 				const com_writer = '<c:out value="${principal.username}"/>';
-				const com_bno = ${vo.qnaNum};
+				const com_bno = ${qvo.qnaNum};
 				$.getJSON( //json 형식의 데이터를 가져올 때
 					"<c:out value='/comment/list/'/>"+com_bno, function(data) {
 						

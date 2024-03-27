@@ -56,6 +56,9 @@ public interface ProductMapper {
 	public void tenderPrice(TenderVO vo);
 	public void productTendercount(TenderVO vo);
 	
+	//state 변경
+	public void updateState(ProductVO vo);
+	
 	public List<ProductVO> getList();
 	
 	public String getTenderList(int productNum);
@@ -75,6 +78,8 @@ public interface ProductMapper {
 	//order 조회
 	public OrderVO orderSelect(int orderNum);
 	
+	//order 결제된 주문
+	public List<ProductVO> orderPaySelect(String id);
 	
 	
 }

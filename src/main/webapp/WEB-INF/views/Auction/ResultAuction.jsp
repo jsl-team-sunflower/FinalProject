@@ -127,13 +127,13 @@
 					  </div>
 					  <div class="blank-height"></div>
 					  	<div class="HWAN__productWrite">
-					      	<c:choose>
-							  	<c:when test="${principal.username}">
-							      	<a href="/auction/regist" role="button" class="btn btn_default btn-block go-bid-btn">
-		     							<span>위탁 신청</span>
-		   							</a>
-		  						</c:when>
-	  						</c:choose>
+					      <sec:authorize access="isAuthenticated()">
+						      	<a href="/auction/regist" role="button" class="btn btn_default btn-block go-bid-btn">
+	     							<span>위탁 신청</span>
+	   							</a>
+							</sec:authorize>
+	  						<sec:authorize access="isAnonymous()">
+	  						</sec:authorize>
 						</div>
 					</div>
    				</div>

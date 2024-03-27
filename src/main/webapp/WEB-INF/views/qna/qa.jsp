@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 
 <%@ include file="../header.jsp"%>
 
-	<!-- sub contents -->
-	<div class="sub_title">
-		<h2>질문과답변</h2>
-		<div class="container">
-		  <div class="location">
+<!-- sub contents -->
+<div class="sub_title">
+	<h2>질문과답변</h2>
+	<div class="container">
+		<div class="location">
 			<ul>
-				<li class="btn_home">
-					<a href="index.html"><i class="fa fa-home btn_plus"></i></a>
-				</li>
+				<li class="btn_home"><a href="index.html"><i
+						class="fa fa-home btn_plus"></i></a></li>
 				<!-- 
 				<li class="dropdown">
 					<a href="#">커뮤니티<i class="fa fa-plus btn_plus"></i></a>
@@ -25,36 +24,46 @@
 					</div>
 				</li>
 				 -->
-				<li class="dropdown">
-					<a href="#">공지사항<i class="fa fa-plus btn_plus"></i></a>
+				<li class="dropdown"><a href="#">공지사항<i
+						class="fa fa-plus btn_plus"></i></a>
 					<div class="dropdown_menu">
 						<a href="/qa/list">QnA</a>
-					</div>
-				</li>
+					</div></li>
 			</ul>
-		  </div>
-		</div><!-- container end -->
+		</div>
 	</div>
+	<!-- container end -->
+</div>
 
-	<div class="container">
-	  <div class="search_wrap">
+<div class="container">
+	<div class="search_wrap">
+	
 		<div class="record_group">
-		<c:set var="listSize" value="${fn:length(list)}" />
-			<p>총 게시글<span>${listSize}</span>건</p>
+			<c:set var="listSize" value="${fn:length(qlist)}" />
+			<p>
+				총 게시글<span>${listSize}</span>건
+			</p>
 		</div>
 		<div class="search_group">
-			<form name="myform" action="">
-				<select name="sel" class="select">
-					<option value="1">제목</option>
-					<option value="2">내용</option>
+			<form name="myform" action="/qa/list">
+				<select name="type" class="select">
+					<option value="T" ${pageMaker.cri.type == 'T'?'selected':''}>제목</option>
+					<option value="C"  ${pageMaker.cri.type == 'C'?'selected':''}>내용</option>
+					<option value="W" ${pageMaker.cri.type == 'W'?'selected':''}>글쓴이</option>
+					<option value="TC" ${pageMaker.cri.type == 'TC'?'selected':''}>제목/내용</option>
 				</select>
-				<input type="text" name="search" class="search_word">
+				<input type="text" name="keyword" class="search_word" value="${pageMaker.cri.keyword }">
 				<button class="btn_search"><i class="fa fa-search"></i><span class="sr-only">검색버튼</span></button>
+				<input type="hidden" name="pageNum" value="1">
+				<input type="hidden" name="amount" value="10">
 			</form>
 		</div>
-	  </div> <!-- search end -->
-	  <div class="bord_list">
-		<table class="bord_table" summary="이표는 번호,제목,답변상태, 작성자, 작성일, 조회수로 구성되어 있습니다">
+		
+	</div>
+	<!-- search end -->
+	<div class="bord_list">
+		<table class="bord_table"
+			summary="이표는 번호,제목,답변상태, 작성자, 작성일, 조회수로 구성되어 있습니다">
 			<caption class="sr-only">질문과 답변 리스트</caption>
 			<colgroup>
 				<col width="10%">
@@ -75,43 +84,60 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach var="list" items="${list}">
-				<tr>
-					<td>${list.qnaNum }</td>
-					<td class="title"><a href="/qa/view?qnaNum=${list.qnaNum }">${list.qnaTitle }</a></td>
-					<td>
-						<c:choose>
-							<c:when test="${list.qnaState == 0 }">
-								<span class="waiting">답변대기</span></td>
-							</c:when>
-							<c:otherwise>
-								<span class="complet">답변완료</span></td>
-							</c:otherwise>
-						</c:choose>
-					<td>${list.qnaWriter }</td>
-					<td><fmt:formatDate value="${list.qnaRegdate }" pattern="yyyy-MM-dd"/></td>
-					<td>${list.qnaViewcount }</td>
-				</tr>
-			</c:forEach>
+				<c:forEach var="qlist" items="${qlist}">
+					<tr>
+						<td>${qlist.qnaNum }</td>
+							<td class="title">
+								<a href="/qa/view?qnaNum=${qlist.qnaNum }">${qlist.qnaTitle }</a>
+							</td>
+							<td>
+							<c:choose>
+								<c:when test="${qlist.qnaState == 0 }">
+									<span class="waiting">답변대기</span>
+								</c:when>
+								<c:otherwise>
+									<span class="complet">답변완료</span>
+								</c:otherwise>
+							</c:choose>
+							</td>
+						<td>${qlist.qnaWriter }</td>
+						<td><fmt:formatDate value="${qlist.qnaRegdate }"	pattern="yyyy-MM-dd" /></td>
+						<td>${qlist.qnaViewcount }</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
+
 		<div class="paging">
-			<a href=""><i class="fa  fa-angle-double-left"></i></a>
-			<a href=""><i class="fa fa-angle-left"></i></a>
-			<a href="" class="active">1</a>
-			<a href="">2</a>
-			<a href="">3</a>
-			<a href="">4</a>
-			<a href="">5</a>
-			<a href=""><i class="fa fa-angle-right"></i></a>
-			<a href=""><i class="fa  fa-angle-double-right"></i></a>
+
+			<c:choose>
+				<c:when test="${not empty pageMaker.prev}">
+					<a href="${pageMaker.startPage -1}"> <i
+						class="fa  fa-angle-double-left"></i>
+					</a>
+				</c:when>
+			</c:choose>
+
+			<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+				<a	href="/qa/list?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount}"	class="${pageMaker.cri.pageNum == num ?'active':''}">${num}</a>
+			</c:forEach>
+
+
+			<c:choose>
+				<c:when test="${not empty pageMaker.next}">
+					<a href="${pageMaker.endPage + 1}"> <i
+						class="fa  fa-angle-double-right"></i>
+					</a>
+				</c:when>
+			</c:choose>
+
 			<a href="/qa/write" class="btn_write">글쓰기</a>
 		</div>
-	  </div>
 	</div>
-	<!-- end contents -->
-	
-	<script>
+</div>
+<!-- end contents -->
+
+<script>
 		$(function() {
 			$(".location  .dropdown > a").on("click",function(e) {
 				e.preventDefault();
