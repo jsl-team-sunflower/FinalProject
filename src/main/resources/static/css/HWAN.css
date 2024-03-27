@@ -49,7 +49,6 @@ button {
 }
 
 .footerlogo #footer-img {
-	width: 64%;
 	margin-right: -30px;
 	margin-top: 12px;
 }
@@ -223,7 +222,7 @@ button {
 }
 
 .blank-height {
-	height: 20px;
+	height: 12px;
 	clear: both;
 }
 /* //main 이미지 컨트롤 */
@@ -488,6 +487,7 @@ i.icon-scroll_top {
 /* onauction.jsp */
 .HWAN__onauctionCol2 {
 	width: 20%;
+	margin-bottom: 40px;
 }
 
 .HWAN__thumbnail-onauction {
@@ -503,7 +503,7 @@ i.icon-scroll_top {
 
 .HWAN__sideBar-list {
 	position: sticky;
-	top: 37%;
+	top:20%;
 	padding-left: 28px;
 }
 
@@ -537,6 +537,7 @@ i.icon-scroll_top {
 .HWAN__auctionImg #HWAN__auctionImg {
 	object-fit: cover; /* 이미지가 부모 요소에 맞게 조절되도록 설정 */
 	height: 28%;
+	width: 100%;
 }
 
 .HWAN__productTiltle  span {
