@@ -43,11 +43,6 @@
 	padding:30px;
 }
 
-.hyeon__image {
-	display: flex;
-	justify-content:center;
-}
-
 .hyeon__image img {
 	width:100%;
 	height:370px;
