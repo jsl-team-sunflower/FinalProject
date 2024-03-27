@@ -222,7 +222,7 @@ button {
 }
 
 .blank-height {
-	height: 20px;
+	height: 12px;
 	clear: both;
 }
 /* //main 이미지 컨트롤 */
@@ -487,6 +487,7 @@ i.icon-scroll_top {
 /* onauction.jsp */
 .HWAN__onauctionCol2 {
 	width: 20%;
+	margin-bottom: 40px;
 }
 
 .HWAN__thumbnail-onauction {
@@ -502,7 +503,7 @@ i.icon-scroll_top {
 
 .HWAN__sideBar-list {
 	position: sticky;
-	top: 37%;
+	top:20%;
 	padding-left: 28px;
 }
 
