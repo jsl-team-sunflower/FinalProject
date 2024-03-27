@@ -10,26 +10,21 @@
    		<div class="HWAN__container">
    			<div class="row">
    				<div class="HWAN__home-title-section ">
-   					<h1 class="onauctionTitle" id="onauctionTitle">진행경매 </h1>
+   					<h1 class="onauctionTitle" id="onauctionTitle">라이브경매 </h1>
    				</div>
 	   				
    				<!-- 오른쪽 content 영역 -->
    				<div class="col-lg-10 HWAN__ContentSection">
    					<div class="row HWAN__ContentSectionRow">
-   					<c:forEach var="list" items="${list}">
+   					<c:forEach var="list" items="${livelist}">
 					  <div class="col-sm-8 HWAN__onauctionCol2">
 					    <div class="HWAN__thumbnail-onauction">
-						    <c:forEach var="imglist" items="${list.attach}" varStatus="status">
-						    <input id="${list.productNum}" type="hidden" value="${list.startTime.plusDays(7)}">
-						    	<c:choose>
-						    	<c:when test="${status.first}">
-						    	<div class="HWAN__auctionImg">
-						      		<img src="/photo/${imglist.uploadPath}/${imglist.uuid}_${imglist.uploadFile}" alt="..." id="HWAN__auctionImg">
-						      	</div>
-						      	</c:when>
-						      	</c:choose>
-					      	</c:forEach>
+					    	<div>
+					    	${list.attachVO.productNum }
+					    		<iframe width="30" height="80" src="${list.productNum }" title="애교부리는 고양이" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					    	</div>
 					    </div>
+					    
 					    <div class="HWAN__caption">
 						      <div class="HWAN__productTiltle">
 						      	<span title="HWAN__productTiltle">${list.productName}</span>
@@ -53,7 +48,7 @@
 	      					  </div>
 	      					  <div class="blank-height"></div>
 	      					  	<div class="HWAN__btn_bid">
-							      	<a href="/auction/detail?productNum=${list.productNum}" role="button" class="btn btn_default btn-block go-bid-btn">
+							      	<a href="/auction/liveProductDetail?productNum=${list.productNum}" role="button" class="btn btn_default btn-block go-bid-btn">
 	        							<span>응찰</span>
 	      							</a>
       							</div>
@@ -137,7 +132,7 @@
 					  	<div class="HWAN__productWrite">
 						  	<c:choose>
 							  	<c:when test="${principal.username!=''}">
-							      	<a href="/auction/regist" role="button" class="btn btn_default btn-block go-bid-btn">
+							      	<a href="/auction/live" role="button" class="btn btn_default btn-block go-bid-btn">
 		     							<span>위탁 신청</span>
 		   							</a>
 		  						</c:when>

@@ -15,9 +15,11 @@
 <meta name="_csrf_header" content="${_csrf.headerName}">
 
 <link rel="stylesheet" href="/resources/css/hyeon.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="icon" href="/resources//images/favico.ico">
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
 <link href="/resources/css/hyeon.css" rel='stylesheet'>
@@ -31,7 +33,8 @@
 <link href="/resources/css/common.css" rel="stylesheet" />
 <link href="/resources/css/layout.css" rel="stylesheet" />
 <link href="/resources/css/order.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
@@ -60,24 +63,21 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="/auction/onauction" id="AuctionNav">진행경매</a></li>
-					<li><a href="/auction/ScheduleAuction" id="AuctionNav">상시경매</a></li>
+					<li><a href="/auction/ShortAuction" id="AuctionNav">짧은경매</a></li>
+					<li><a href="/auction/liveAuction" id="AuctionNav">라이브경매</a></li>
 					<li><a href="/auction/ResultAuction" id="AuctionNav">경매결과</a></li>
 					<li class="dropdown"><a href="#" id="AuctionNav"
 						class="dropdown-toggle" data-toggle="dropdown" role="button"
 						aria-haspopup="true" aria-expanded="false">고객센터<span
 							class="caret"></span></a>
-<<<<<<< HEAD
 						<ul class="dropdown-menu">
-							<li><a href="#">공지사항</a></li>
 							<li><a href="/qa/list">QnA</a></li>
+							<li><a href="/qa/contact"
+								onclick="window.open(this.href, '_blank', 'width=600, height=750 location=no'); return false;"
+								class="dropdown-toggle">Contact Us</a>
+							<li>
+							<li><a href="/qa/aboutus">About Us</a></li>
 						</ul></li>
-=======
-						  <ul class="dropdown-menu">
-                     <li><a href="/qa/list">QnA</a></li>
-                     <li><a href="/qa/contact" onclick="window.open(this.href, '_blank', 'width=600, height=750 location=no'); return false;" class="dropdown-toggle" >Contact Us</a><li>
-                     <li><a href="/qa/aboutus">About Us</a></li>
-                  </ul></li>
->>>>>>> branch 'develop' of https://github.com/jsl-team-sunflower/FinalProject.git
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><form class="navbar-form">
@@ -93,17 +93,17 @@
 						aria-expanded="false"> <span class="glyphicon glyphicon-user"></span></a>
 						<ul class="dropdown-menu">
 							<sec:authorize access="isAnonymous()">
-							<li class="first"><a href="/login">로그인</a></li>
-							<li><a href="/signup">회원가입</a></li>
-							</sec:authorize> 
-							<sec:authorize access="isAuthenticated()">
-							<sec:authentication property="principal" var="principal" />
-							<li class="first" style="margin: 8px; padding-left: 8px; font-weight: bold;">${principal.username}님</li>
-							<li><a href="/user/logout">로그아웃</a></li>
-							<li><a href="/my/mypage?id=${principal.username}">마이페이지</a></li>
+								<li class="first"><a href="/login">로그인</a></li>
+								<li><a href="/signup">회원가입</a></li>
 							</sec:authorize>
-						</ul>
-					</li>	
+							<sec:authorize access="isAuthenticated()">
+								<sec:authentication property="principal" var="principal" />
+								<li class="first"
+									style="margin: 8px; padding-left: 8px; font-weight: bold;">${principal.username}님</li>
+								<li><a href="/user/logout">로그아웃</a></li>
+								<li><a href="/my/mypage?id=${principal.username}">마이페이지</a></li>
+							</sec:authorize>
+						</ul></li>
 				</ul>
 			</div>
 			<!-- //네비 -->

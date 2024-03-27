@@ -22,8 +22,12 @@ public class MainController {
 	public String main(Model model, Criteria cri) {
 		List<ProductVO> onAuction = productService.onAuctionList(cri);
 		List<ProductVO> resultAuction = productService.resultAuctionList(cri);
+		List<ProductVO> shortAuctionList = productService.shortAuctionList(cri);
+		List<ProductVO> liveAuctionList = productService.liveAuctionList(cri);
 		model.addAttribute("on", onAuction);
 		model.addAttribute("re", resultAuction);
+		model.addAttribute("sh", shortAuctionList);
+		model.addAttribute("ve", liveAuctionList);
 		return "index";
 	}
 }

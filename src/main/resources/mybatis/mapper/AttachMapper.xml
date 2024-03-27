@@ -11,4 +11,12 @@
 		select * from hm_attach where productNum = #{productNum}
 	</select>
 	
+	<insert id="linkInsert">
+		insert into hm_attach(uploadFile , productNum) values (#{uploadFile}, #{productNum})
+	</insert>
+	
+	<select id="linkNum">
+		select * from hm_attach where productNum = #{productNum}
+	</select>
+	
 </mapper>

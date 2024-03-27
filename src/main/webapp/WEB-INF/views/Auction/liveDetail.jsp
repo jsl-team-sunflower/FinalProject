@@ -19,24 +19,11 @@
 							type="radio" name="slides" id="slide-5"> <input
 							type="radio" name="slides" id="slide-6">
 						<ul class="hyeon__carousel__slides">
-							<c:forEach var="imglist" items="${vo.attach}">
-							<li class="hyeon__carousel__slide">
-								<figure>
-									<div>
-										<img
-											src="/photo/${imglist.uploadPath}/${imglist.uuid}_${imglist.uploadFile}"
-											alt="">
-									</div>
-								</figure>
-							</li>
-							</c:forEach>
 						</ul>
 						<ul class="hyeon__carousel__thumbnails">
-							<c:forEach var="imglist" items="${vo.attach}" varStatus="status">
-							<li><label for="slide-${status.count}">
-							<img src="/photo/${imglist.uploadPath}/${imglist.uuid}_${imglist.uploadFile}"
-									alt=""></label></li>
-							</c:forEach>
+							<iframe width="455" height="809" src="${avo.uploadFile}" 
+							title="애교부리는 고양이" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+							referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 						</ul>
 					</div>
 				</div>
@@ -51,7 +38,7 @@
 					</div>
 					<div class="hyeon__price">
 					<c:choose>
-						<c:when test="${vo.state==1}">
+						<c:when test="${vo.state==3}">
 							<span class="hyeon__nowprice" >현재 가격</span> <span class="hyeon__pricenow">${vo.tenderPrice}</span>원
 						</c:when>
 						<c:when test="${vo.state==0}">
@@ -64,7 +51,7 @@
 					<div class="hyeon__tender">
 						<div class="hyeon__tenderPrice">
 						<c:choose>
-							<c:when test="${vo.state==1}">
+							<c:when test="${vo.state==3}">
 								<form name="tender" method="post" action="/auction/tender">
 									<input type="text" id="hyeon__insertPrice" name="tenderPrice" placeholder="입찰 금액 입력">
 									<button type="button" class="btn btn-default" id="hyeon__tenderbtn">

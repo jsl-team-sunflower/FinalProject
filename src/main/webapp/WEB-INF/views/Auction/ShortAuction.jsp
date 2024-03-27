@@ -10,13 +10,13 @@
    		<div class="HWAN__container">
    			<div class="row">
    				<div class="HWAN__home-title-section ">
-   					<h1 class="onauctionTitle" id="onauctionTitle">진행경매 </h1>
+   					<h1 class="onauctionTitle" id="onauctionTitle">짧은 경매</h1>
    				</div>
-	   				
+   				
    				<!-- 오른쪽 content 영역 -->
    				<div class="col-lg-10 HWAN__ContentSection">
    					<div class="row HWAN__ContentSectionRow">
-   					<c:forEach var="list" items="${list}">
+   					<c:forEach var="list" items="${shortlist}">
 					  <div class="col-sm-8 HWAN__onauctionCol2">
 					    <div class="HWAN__thumbnail-onauction">
 						    <c:forEach var="imglist" items="${list.attach}" varStatus="status">
@@ -48,12 +48,10 @@
 						      	</dl>
 						      </div>
 	      					  <div class="HWAN__close-date glyphicon glyphicon-time">
-	      					  
-	      					 	 D-<div id="productNum:${list.productNum}의EndTime"></div>
-	      					  </div>
+	      					  D-<div id="productNum:${list.productNum}의EndTime"></div></div>
 	      					  <div class="blank-height"></div>
 	      					  	<div class="HWAN__btn_bid">
-							      	<a href="/auction/detail?productNum=${list.productNum}" role="button" class="btn btn_default btn-block go-bid-btn">
+							      	<a href="/auction/shortProductDetail?productNum=${list.productNum}" role="button" class="btn btn_default btn-block go-bid-btn">
 	        							<span>응찰</span>
 	      							</a>
       							</div>
@@ -137,7 +135,7 @@
 					  	<div class="HWAN__productWrite">
 						  	<c:choose>
 							  	<c:when test="${principal.username!=''}">
-							      	<a href="/auction/regist" role="button" class="btn btn_default btn-block go-bid-btn">
+							      	<a href="/auction/short" role="button" class="btn btn_default btn-block go-bid-btn">
 		     							<span>위탁 신청</span>
 		   							</a>
 		  						</c:when>
@@ -168,5 +166,4 @@ function enterkey() {
 	}
 }
 </script>
-
 <%@ include file="../footer.jsp"%>

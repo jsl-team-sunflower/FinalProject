@@ -11,4 +11,5 @@ public class AttachVO {
 	private String uploadFile;
 	private boolean filetype;
 	
+	
 }

@@ -110,7 +110,7 @@
 
 				<div class="HWAN__home-title-section ">
 					<h2 class="HWAN__h2title" id="scheduleAuction">
-						상시경매 <a class="wrap-right" href="/auction/ScheduleAuction"> <span
+						짧은경매 <a class="wrap-right" href="/auction/ShortAuction"> <span
 							class="title-total">전체 작품보기</span> <svg width="18" height="18"
 								viewBox="0 0 18 18" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
@@ -124,57 +124,103 @@
 				</div>
 
 				<div class="row HWAN__ContentSectionRow">
+						<c:forEach var="sh" items="${sh}" varStatus="shortAuctionList">
+					<c:choose>
+					<c:when test="${shortAuctionList.index<=3}">
 					<div class="col-sm-7 col-md-3">
 						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test3.jpg" alt="..." id="index__img">
-							</div>
+						<c:forEach var="reimg" items="${sh.attach}" varStatus="restatus">
+							<c:choose>
+								<c:when test="${restatus.first}">
+									<div class="img-tab">
+										<img src="/photo/${reimg.uploadPath}/${reimg.uuid}_${reimg.uploadFile}" alt="..." id="index__img">
+									</div>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+							<a class="info-img" href="/auction/shortProductDetail?productNum=${sh.productNum}">
+								<div class="info-img_content">
+									<h4>${sh.productWriter}</h4>
+									<div class="price">
+										<h5>시작가</h5>
+										<p>KRW ${sh.startPrice}</p>
+									</div>
+									<div class="price" style="color:#f00">
+										<h5>현재가</h5>
+										<p>KRW ${sh.tenderPrice}</p>
+									</div>
+								</div>
+							</a>
 						</div>
 						<div class="HWAN__caption">
-							<div class="HWAN__productTiltle">박소담</div>
-							<div class="HWAN__close-date">3일 21:18:28</div>
+							<div class="HWAN__productTiltle">${sh.productName}</div>
+							<div class="HWAN__close-date glyphicon glyphicon-time">
+	      					  D-3일 21:18:28</div>
 						</div>
 					</div>
-
-					<div class="col-sm-7 col-md-3">
-						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test2.jpg" alt="..." id="index__img">
-							</div>
-						</div>
-						<div class="HWAN__caption">
-							<div class="HWAN__productTiltle">김선우</div>
-							<div class="HWAN__close-date">4일 01:18:28</div>
-						</div>
-					</div>
-
-					<div class="col-sm-7 col-md-3">
-						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test10.jpg" alt="..." id="index__img">
-							</div>
-						</div>
-						<div class="HWAN__caption">
-							<div class="HWAN__productTiltle">이우한</div>
-							<div class="HWAN__close-date">2일 10:24:28</div>
-						</div>
-					</div>
-
-					<div class="col-sm-7 col-md-3">
-						<div class="HWAN__thumbnail">
-							<div class="img-tab">
-								<img src="/resources/images/test11.jpg" alt="..." id="index__img">
-							</div>
-						</div>
-						<div class="HWAN__caption">
-							<div class="HWAN__productTiltle">전지현</div>
-							<div class="HWAN__close-date">2일 10:24:28</div>
-						</div>
-					</div>
-
+					</c:when>
+					</c:choose>
+				</c:forEach>
 				</div>
 				<!-- 예정경매 -->
-
+				
+				<!-- 라이브 경매 -->
+				<div class="HWAN__home-title-section ">
+					<h2 class="HWAN__h2title" id="liveAuction">
+						라이브경매 <a class="wrap-right" href="/auction/liveAuction"> <span
+							class="title-total">전체 작품보기</span> <svg width="18" height="18"
+								viewBox="0 0 18 18" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+	   							<path d="M13 9L4 9" stroke="#111111"
+									style="transition: all 0.1s ease 0s;"></path>
+	   							<path d="M7 14.25L13 9L7 3.75" stroke="#111111"
+									style="transition: all 0.1s ease 0s;"></path>
+	   						</svg>
+						</a>
+					</h2>
+				</div>
+				
+				<div class="row HWAN__ContentSectionRow">
+						<c:forEach var="ve" items="${ve}" varStatus="liveAuctionList">
+					<c:choose>
+					<c:when test="${liveAuctionList.index<=3}">
+					<div class="col-sm-7 col-md-3">
+						<div class="HWAN__thumbnail">
+						<c:forEach var="reimg" items="${ve.attach}" varStatus="restatus">
+							<c:choose>
+								<c:when test="${restatus.first}">
+									<div class="img-tab">
+										<iframe width="300" height="600" src="${avo.uploadFile}"></iframe>
+									</div>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+							<a class="info-img" href="/auction/liveProductDetail?productNum=${ve.productNum}">
+								<div class="info-img_content">
+									<h4>${ve.productWriter}</h4>
+									<div class="price">
+										<h5>시작가</h5>
+										<p>KRW ${ve.startPrice}</p>
+									</div>
+									<div class="price" style="color:#f00">
+										<h5>현재가</h5>
+										<p>KRW ${ve.tenderPrice}</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="HWAN__caption">
+							<div class="HWAN__productTiltle">${ve.productName}</div>
+							<div class="HWAN__close-date glyphicon glyphicon-time">
+	      					  D-3일 21:18:28</div>
+						</div>
+					</div>
+					</c:when>
+					</c:choose>
+				</c:forEach>
+				</div>
+				<!-- 라이브 경매 -->
+				
 				<div class="HWAN__home-title-section ">
 					<h2 class="HWAN__h2title" id="ResultAuction">
 						경매결과 <a class="wrap-right" href="/auction/ResultAuction"> <span
@@ -250,7 +296,14 @@
 					<div class="panel HWAN__panel-default">
 						<div class="HWAN__panel-heading" role="tab" id="headingTwo">
 							<a type="button" class="__category-on" href="#scheduleAuction">
-								<p>상시경매</p>
+								<p>짧은경매</p>
+							</a>
+						</div>
+					</div>
+					<div class="panel HWAN__panel-default">
+						<div class="HWAN__panel-heading" role="tab" id="headingTwo">
+							<a type="button" class="__category-on" href="#liveAuction">
+								<p>라이브경매</p>
 							</a>
 						</div>
 					</div>
@@ -276,7 +329,8 @@
 </div>
 		<div class="scroll_top-box">
 		<div class="chat">
-            <a href="http://192.168.30.100:8090/Anonymous/index.jsp" onclick="window.open(this.href, '_blank', 'width=620, height=535 location=no'); return false;" class="btn btn-primary" >1:1 상담</a>
+            <a href="http://192.168.30.100:8090/Anonymous/index.jsp" onclick="window.open(this.href, '_blank', 'width=620, height=535 location=no'); return false;" 
+            class="btn btn-primary" style="color: #fff;">1:1 상담</a>
          </div>
 			<div class="box-inner">
 				<a href="#" class="btn-scroll_top js-scroll_top show"><i

@@ -23,4 +23,5 @@ public class ProductVO {
 	
 	private List<AttachVO> attach;
 	
+	private AttachVO attachVO; 
 }
