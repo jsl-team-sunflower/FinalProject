@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
 <%-- 
 <%@ taglib uri="http://www.springframework.org/security/tags"	prefix="sec"%>
  --%>
@@ -12,8 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<%-- 
-<meta name="_csrf" content="${_csrf.token}">
+<%-- <meta name="_csrf" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
  --%>
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
@@ -22,17 +20,14 @@
 <link rel="icon" href="/resources//images/favicon.png">
 
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
-<link href="/resources/css/hyeon.css" rel='stylesheet'>
 <link href="/resources/css/login.css" rel='stylesheet'>
 <link href="/resources/css/signup.css" rel='stylesheet'>
-<link href="/resources/css/hyeon.css" rel='stylesheet'>
 <link rel="stylesheet" href="/resources/css/admin.css" />
 <link href="/resources/css/font-awesome.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/css/mypage.css" />
 <link rel="stylesheet" href="/resources/css/pay.css" />
 <link href="/resources/css/common.css" rel="stylesheet" />
 <link href="/resources/css/layout.css" rel="stylesheet" />
-<link href="/resources/css/order.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script
@@ -169,16 +164,8 @@ function googleTranslateElementInit() {
 							<sec:authorize access="isAuthenticated()">
 							<sec:authentication property="principal" var="principal" />
 							<li class="first">${principal.username}님</li>
-								<c:choose>
-									<c:when test="${principal.username eq 'admin'  }">
-										<li><a href="/user/logout">로그아웃</a></li>
-										<li><a href="/admin/admin">관리자페이지</a></li>
-									</c:when>
-									<c:otherwise>
-										<li><a href="/user/logout">로그아웃</a></li>
-										<li><a href="/my/mypage?id=${principal.username}">마이페이지</a></li>
-									</c:otherwise>
-								</c:choose>
+							<li><a href="/user/logout">로그아웃</a></li>
+							<li><a href="/my/mypage">마이페이지</a></li>
 							</sec:authorize>
 						</ul>
 					</li>	

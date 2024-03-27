@@ -35,17 +35,16 @@ public class ExchangeRateController2 {
 
 	@Autowired
 	private ExchangeRateService exchangeRateService;
-	 @PostMapping("/exchange")
-	    @ResponseBody
+	 
+	@ResponseBody
+	@PostMapping("/exchange")
 	    public Double getExchangeData(@RequestBody String unit,  Model model) {
 	    
 	        String AuthKey = "RYkXsKPfBB9htk7WkwCfszOEFgFxUOUO";
-	        String SearchDate = "20240321";
-	        /*
 	        String SearchDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-	        */
 	        String dataType = "AP01";
 	        String apiURL = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=" + AuthKey + "&searchdate=" + SearchDate + "&data=" + dataType ;
+	        
 	        JSONArray jsonArray = new JSONArray();
 	        
 	        ArrayList<String> slist = new ArrayList<>();
@@ -83,8 +82,8 @@ public class ExchangeRateController2 {
 	                
 	                double num = Double.parseDouble(key.replaceAll(",", "").trim());
 	                dlist.add(num);	
-					/* System.out.println(num); */
 	            }    
+	            
 	             if(unit.equals("unit=yen") || unit == "unit=yen" ) {   exc = dlist.get(12);	exc = 100 / exc;}
 	             if(unit.equals("unit=usd") || unit == "unit=usd")  {   exc = dlist.get(22);    exc = 1 / exc;}
 	        } catch (Exception e) {
