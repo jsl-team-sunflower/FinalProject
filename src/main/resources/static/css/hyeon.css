@@ -16,6 +16,16 @@
   outline: 0;
 }
 
+.paging a {
+	border: 1px solid transparent !important;
+}
+
+.paging a.active {
+    background: #FDCC00 !important;
+    color: #111 !important;
+    border: 1px solid transparent !important;
+}
+
 /* detail */
 
 .hyeon__detail {
@@ -31,6 +41,11 @@
 	width:100%;
 	margin-top:20px;
 	padding:30px;
+}
+
+.hyeon__image {
+	display: flex;
+	justify-content:center;
 }
 
 .hyeon__image img {
