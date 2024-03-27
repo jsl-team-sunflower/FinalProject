@@ -38,11 +38,18 @@
                 </tr>
             </c:forEach>
             
-            
+            <%-- ${unit} --%>
               <c:forEach items="${exchangeData}" var="data" varStatus="loop">
-					 <c:if test="${ loop.index + 1 == 13}">
-						<p>${data.deal_bas_r}</p>          
-					</c:if>	    	
+					 <%-- <c:if test="${unit eq yen}">		<!-- 엔화 --> --%>
+						 <c:if test="${ loop.index + 1 == 13}">		<!-- 엔화 -->
+							<p>${data.deal_bas_r}</p>          
+						</c:if>
+					<%-- </c:if>		 --%>
+<%-- 					<c:if test="${unit eq usd}">		<!-- usd --> --%>
+						<c:if test="${ loop.index + 1 == 23}">		<!-- usd -->
+							<p>${data.deal_bas_r}</p>          
+						</c:if>
+					<%-- </c:if>		    	    	 --%>
               </c:forEach>
             
         </tbody>

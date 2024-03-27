@@ -16,7 +16,7 @@
  --%>
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
-<link rel="icon" href="/resources//images/favico.ico">
+<link rel="icon" href="/resources//images/favicon.png">
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
 <link href="/resources/css/login.css" rel='stylesheet'>
 <link href="/resources/css/signup.css" rel='stylesheet'>
@@ -31,7 +31,65 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
 <title>HIMAWARI</title>
+<script>
+    var exc = 1; // 기본값으로 1 설정
+    var value = "원"; // 기본값으로 빈 문자열 설정
 
+    $(document).ready(function() {
+        $('.dropdown-item').click(function(e) {
+            e.preventDefault(); // 기본 이벤트 방지
+            value = $(this).data('unit'); // 선택된 항목의 data-value 값을 가져옴
+            /* alert(value); */
+            $.ajax({
+                type: 'POST', // 요청 방식 (GET, POST 등)
+                url: '/exchange', // 요청할 URL
+                data: {unit: value}, // 전송할 데이터
+                success: function(response) {
+                    exc = response;
+                    /* console.log(exc); */
+                    alert(value+'는 현재' + exc + '입니다');
+                    updateDivs();
+                },
+                error: function(request,status,error) {
+                    console.error("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+            });
+        });
+
+        function updateDivs() {
+            var chlist = ${chlist}; // JSP 표현식은 사용할 수 없음
+            for (var i = 0; i < chlist.length; i++) {
+                var element = chlist[i];
+                var div = $('<div style="text-align:center;"></div>').attr('name', element).attr('id', element); // element 사용
+                var result = element * exc;
+                result = result.toFixed(2); // 소수점 두 자리까지 반올림
+                div.html(result + ' ' + value.toUpperCase()); // 대문자로 변환하여 div의 내부 HTML 설정
+                $('body').append(div);
+            }
+        }
+
+        // 페이지 로드시에도 호출하여 초기화
+        updateDivs();
+    });
+</script>
+
+
+	 
+</script>
+<!-- google 번역  -->
+<script>
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement(
+			{
+				pageLanguage : 'ko',
+				includedLanguages : 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+				layout : google.translate.TranslateElement.InlineLayout.SIMPLE,
+				autoDisplay : false
+			}, 'google_translate_element');
+}
+</script> 
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
+<!-- //Google 번역 -->
 </head>
 
 <body style="padding: 0;">
@@ -67,66 +125,31 @@
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<!--  
-					<li>
-						<form class="navbar-form">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="glyphicon glyphicon-search"></button>
-						</form>
-					</li>
-					
-					
-					-->
-						<!-- Google 번역 -->
-						<li class="dropdown-right">
-							<div id="google_translate_element" class="hd_lang" style="margin-top:13px; "></div> <script>
-								function googleTranslateElementInit() {
-									new google.translate.TranslateElement(
-											{
-												pageLanguage : 'ko',
-												includedLanguages : 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
-												layout : google.translate.TranslateElement.InlineLayout.SIMPLE,
-												autoDisplay : false
-											}, 'google_translate_element');
-								}
-							</script> 
-							<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
-						<!-- //Google 번역 -->
-					</li>
-					
+					<!-- Google 번역 -->
 					<li class="dropdown-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							<span style="font-size:25px;">&#8361</span> 
+						<div id="google_translate_element" class="hd_lang" style="margin-top:13px; "></div> 
+					</li>
+					<li class="dropdown-right">
+						<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+							<span style="font-size: 25px;">&#8361</span>
 						</a>
-						
-						
-						
-						<ul  id="exchange" class="dropdown-menu" style="min-width: 65px;" onchange="exchange();">
-							<a href="#">
-								<li id="usd" value="usd" class="glyphicon glyphicon-usd" style="color: #777; font-size:15px; display:inline-block; padding-bottom:10px;"> USD</li>
+						<ul id="exchange" class="dropdown-menu" style="min-width: 65px; text-align:center;">
+							<a href="#" class="dropdown-item" data-unit="usd">
+								<li id="usd" class="glyphicon glyphicon-usd" style="color: #777; font-size: 15px; display: inline-block; padding-bottom: 10px;"> USD</li>
 							</a>
-							<a href="#">
-								<li class="glyphicon glyphicon-yen" style="color: #777; font-size:15px; display:inline-block;"> YEN</li>
+							<br>
+							<a href="#" class="dropdown-item" data-unit="yen">
+								<li class="glyphicon glyphicon-yen"	style="color: #777; font-size: 15px; display: inline-block;"> YEN</li>
 							</a>
 							<hr>
 							<li>
-								<a href="/exchange" onclick="window.open(this.href, '_blank', 'width=530, height=750 location=no'); return false;">현재 환율</a>
+								<a href="/exchange"	onclick="window.open(this.href, '\_blank', 'width=530, height=750 location=no'); return false;">
+								현재 환율
+								</a>
 							</li>
 						</ul>
-						<script>
-						    function exchange();() {
-						        var selectedValue = document.getElementById("exchange").value;
-						        alert("Selected value: " + selectedValue);
-						    }
-						</script>
-						
-						
-						
-						
 					</li>
-					<li class="dropdown-right"><a href="#" class="glyphicon glyphicon-shopping-cart"></a>
+					<li class="dropdown-right"><a href="#" class="glyphicon glyphicon-shopping-cart"></a></li>
 					<li class="dropdown-right">
 						<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true"aria-expanded="false"> 
 							<span class="glyphicon glyphicon-user"></span>
@@ -150,3 +173,13 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
+	
+	<div style="text-align:center;">
+	<br>
+	<br>
+	<div name="${check}" id="${check}"></div>
+	<p>${check}</p>
+	<br>
+	<br>
+	</div>
+</body>	
