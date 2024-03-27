@@ -1,5 +1,7 @@
 package com.sunflower.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.sunflower.domain.UserVO;
@@ -19,4 +21,5 @@ public interface UserMapper {
 	
 	UserVO findUserInfo(String id);
 	
+	List<UserVO> wholeUser();
 }

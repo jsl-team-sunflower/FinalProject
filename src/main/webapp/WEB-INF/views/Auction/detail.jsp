@@ -7,6 +7,7 @@
 	
 		<div class="hyeon__row">
 			<div class="hyeon__detail col-lg-12">
+			
 				<div class="hyeon__image col-md-7">
 				<input id="${vo.productNum }"type="hidden" value="${vo.startTime.plusDays(7) }">
 					<div class="hyeon__carousel">
@@ -38,6 +39,8 @@
 						</ul>
 					</div>
 				</div>
+				
+				
 				<div class="hyeon__info col-md-5">
 					<p>${vo.productName}</p>
 					<div class="hyeon__date">

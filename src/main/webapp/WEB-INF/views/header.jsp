@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="icon" href="/resources//images/favico.ico">
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
+<link href="/resources/css/hyeon.css" rel='stylesheet'>
 <link href="/resources/css/login.css" rel='stylesheet'>
 <link href="/resources/css/signup.css" rel='stylesheet'>
 <link href="/resources/css/hyeon.css" rel='stylesheet'>
@@ -63,7 +64,7 @@
 					<li><a href="/auction/ResultAuction" id="AuctionNav">경매결과</a></li>
 					<li class="dropdown"><a href="#" id="AuctionNav"
 						class="dropdown-toggle" data-toggle="dropdown" role="button"
-						aria-haspopup="true" aria-expanded="false">공지사항 <span
+						aria-haspopup="true" aria-expanded="false">고객센터<span
 							class="caret"></span></a>
 						  <ul class="dropdown-menu">
                      <li><a href="/qa/list">QnA</a></li>
@@ -91,8 +92,18 @@
 							<sec:authorize access="isAuthenticated()">
 							<sec:authentication property="principal" var="principal" />
 							<li class="first">${principal.username}님</li>
+							<c:choose>
+							<c:when test="${principal.username eq 'admin'  }">
+							<li><a href="/user/logout">로그아웃</a></li>
+							<li><a href="/admin/admin">관리자페이지</a></li>
+							</c:when>
+							<c:otherwise>
 							<li><a href="/user/logout">로그아웃</a></li>
 							<li><a href="/my/mypage?id=${principal.username}">마이페이지</a></li>
+							</c:otherwise>
+							</c:choose>
+							
+							
 							</sec:authorize>
 						</ul>
 					</li>	
