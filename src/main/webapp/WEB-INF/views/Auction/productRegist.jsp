@@ -16,8 +16,8 @@
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 					<input type="text" id="hyeon__productname" name="productName" placeholder="상품명 입력">
 					<input type="text" id="hyeon__writer" name="productWriter" value="${principal.username}" readonly>
-					<input type="text" id="hyeon__startprice" name="startPrice" placeholder="시작가 입력">
-					<span class="hyeon__pwrite">입력하지 않을 시 0원으로 시작합니다.</span>
+					<input type="text" id="hyeon__startprice" name="startPrice" value="0">
+					<span class="hyeon__pwrite">시작가를 입력해주세요.</span>
 					<input type="file" name="uploadfile" id="hyeon__uploadfile" multiple="multiple">
 					<div class="hyeon__product-btn">
 						<button type="button" class="hyeon__regist btn_see" id="hyeon__previewer">미리보기</button>&nbsp;&nbsp;
@@ -155,6 +155,7 @@
 			product.writer.focus();
 			return false;
 		}
+		
 		var uploadFile = document.getElementById("uploadfile").value;
 		
 		/* if(uploadFile.includes('')){

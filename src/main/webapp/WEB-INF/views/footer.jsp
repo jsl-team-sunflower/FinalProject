@@ -24,7 +24,7 @@
 
 
 <script>
-var token = $("meta[name='_csrf']").attr("content");
+/* var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
 
     function timeCalculList(){
@@ -74,7 +74,7 @@ var header = $("meta[name='_csrf_header']").attr("content");
     </c:forEach>
 }
 
-setInterval(timeCalculList, 1000);
+setInterval(timeCalculList, 1000); */
 </script>
 
 </body>
