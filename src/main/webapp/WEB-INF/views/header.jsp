@@ -16,7 +16,9 @@
  --%>
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+
 <link rel="icon" href="/resources//images/favicon.png">
+
 <link href="/resources/css/HWAN.css" rel='stylesheet'>
 <link href="/resources/css/login.css" rel='stylesheet'>
 <link href="/resources/css/signup.css" rel='stylesheet'>
