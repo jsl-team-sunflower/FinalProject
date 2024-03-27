@@ -39,7 +39,7 @@
 	<div class="search_wrap">
 	
 		<div class="record_group">
-			<c:set var="listSize" value="${fn:length(list)}" />
+			<c:set var="listSize" value="${fn:length(qlist)}" />
 			<p>
 				총 게시글<span>${listSize}</span>건
 			</p>
@@ -84,15 +84,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="list" items="${list}">
+				<c:forEach var="qlist" items="${qlist}">
 					<tr>
-						<td>${list.qnaNum }</td>
+						<td>${qlist.qnaNum }</td>
 							<td class="title">
-								<a href="/qa/view?qnaNum=${list.qnaNum }">${list.qnaTitle }</a>
+								<a href="/qa/view?qnaNum=${qlist.qnaNum }">${qlist.qnaTitle }</a>
 							</td>
 							<td>
 							<c:choose>
-								<c:when test="${list.qnaState == 0 }">
+								<c:when test="${qlist.qnaState == 0 }">
 									<span class="waiting">답변대기</span>
 								</c:when>
 								<c:otherwise>
@@ -100,9 +100,9 @@
 								</c:otherwise>
 							</c:choose>
 							</td>
-						<td>${list.qnaWriter }</td>
-						<td><fmt:formatDate value="${list.qnaRegdate }"	pattern="yyyy-MM-dd" /></td>
-						<td>${list.qnaViewcount }</td>
+						<td>${qlist.qnaWriter }</td>
+						<td><fmt:formatDate value="${qlist.qnaRegdate }"	pattern="yyyy-MM-dd" /></td>
+						<td>${qlist.qnaViewcount }</td>
 					</tr>
 				</c:forEach>
 			</tbody>
