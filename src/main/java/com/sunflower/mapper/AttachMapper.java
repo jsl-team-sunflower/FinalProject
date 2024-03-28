@@ -12,4 +12,7 @@ public interface AttachMapper {
 	public void insert(AttachVO vo);
 	public List<AttachVO> findByNum(int productNum);
 	
+	public void linkInsert(AttachVO Avo);
+	
+	public AttachVO linkNum(int productNum);
 }

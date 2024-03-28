@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunflower.mapper.ProductMapper">
 
-<sql id = "criteria">
+	<sql id = "criteria">
 		<trim prefix="(" suffix=") and " prefixOverrides="OR"> <!-- 조건 중 OR이 붙으면 뒤에 거 버려라 -->
 			<!-- spring bean...?에 맞으면 호출되는 거라는데 20240213 IT 1 1시간 쯤~ -->
 				<trim prefix="OR">
@@ -23,7 +23,7 @@
 </selectKey>
 	insert into hm_product (productNum, productName, productWriter, startPrice) values 
 	(#{productNum}, #{productName}, #{productWriter}, #{startPrice})
-</insert>
+</insert> 
 
 <!-- 의뢰 등록시 tender -->
 <insert id="startTender">
@@ -140,10 +140,15 @@ where e.productwriter = #{value}
 		
 	</select>
 	
-	
 <select id="getTenderList" resultType="String">
 	select tenderPrice from hm_tender where productNum = #{value}
 </select>
+
+<!-- tender를 list에 담음 -->
+<select id="TenderList" resultType="com.sunflower.domain.TenderVO">
+	select tenderPrice from hm_tender where productNum = #{value} order by tenderNum asc
+</select>
+
 
 <select id="getListId" resultType="com.sunflower.domain.ProductVO">
 SELECT *
@@ -175,20 +180,112 @@ WHERE d.id = #{value} and not e.productWriter=#{value} and e.productNum = d.prod
   )
 </insert>
 
-	<!-- order 조회 -->
+<!-- order 조회 -->
+<select id="orderSelect" resultType="com.sunflower.domain.OrderVO">
+select * from hm_order where orderNum = #{value}
+</select>
 	
-	<select id="orderSelect" resultType="com.sunflower.domain.OrderVO">
-	select * from hm_order where orderNum = #{value}
+	
+	<!-- 짧은 경매 insert -->
+	<insert id="shortinsertProduct">
+	<selectKey keyProperty="productNum" order="BEFORE" resultType="int">
+		select hm_product_seq.nextval from dual
+	</selectKey>
+		insert into hm_product (productNum, productName, productWriter,state,startPrice) values 
+		(#{productNum}, #{productName}, #{productWriter}, 2, #{startPrice})
+	</insert>
+
+	<!-- 짧은 경매 tender -->
+	<insert id="shortstartTender">
+		<selectKey keyProperty="tenderNum" order="BEFORE" resultType="int">
+			select hm_tender_seq.nextval from dual
+		</selectKey>
+		insert into hm_tender (tenderNum, productNum, tenderPrice, id) values 
+		(#{tenderNum}, #{productNum}, #{startPrice}, #{productWriter})
+	</insert>
+
+	<!-- 짧은경매 리스트 -->
+	<select id="shortAuctionList" resultType="com.sunflower.domain.ProductVO">
+		SELECT *
+		FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount, tn.tenderPrice as tenderPrice, ROW_NUMBER() OVER (PARTITION BY pro.productNum ORDER BY tn.tenderNum DESC) AS rn_product
+		FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount
+		FROM hm_product pro where
+		
+		<include refid="criteria"></include>
+		
+		<![CDATA[
+		rownum <= #{pageNum} * #{amount}) pro 
+		JOIN hm_tender tn ON pro.productNum = tn.productNum and pro.state = 2)
+		where rn_product = 1 and rownum>((#{pageNum}-1) * #{amount})
+		]]>
+		
+		
+	</select>
+
+	<!-- 짧은경매 수 -->
+	<select id="getShortTotal" resultType="int">
+		select count(*) from hm_product
+		where productNum>0 and 
+		<include refid="criteria"></include>
+		state = 2
 	</select>
 	
+	
+	<!-- 라이브 경매 insert -->
+	<insert id="liveinsertProduct">
+	<selectKey keyProperty="productNum" order="BEFORE" resultType="int">
+		select hm_product_seq.nextval from dual
+	</selectKey>
+		insert into hm_product (productNum, productName, productWriter,state,startPrice) values 
+		(#{productNum}, #{productName}, #{productWriter}, 3, #{startPrice})
+	</insert>
+
+	<select id="linkNum">
+		select hm_product_seq.currval from dual
+	</select>
+
+	<!-- 라이브 경매 tender -->
+	<insert id="livestartTender">
+		<selectKey keyProperty="tenderNum" order="BEFORE" resultType="int">
+			select hm_tender_seq.nextval from dual
+		</selectKey>
+		insert into hm_tender (tenderNum, productNum, tenderPrice, id) values 
+		(#{tenderNum}, #{productNum}, #{startPrice}, #{productWriter})
+	</insert>
+
+	<!-- 라이브 경매 리스트 -->
+	<select id="liveAuctionList" resultType="com.sunflower.domain.ProductVO">
+		SELECT *
+		FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount, tn.tenderPrice as tenderPrice, ROW_NUMBER() OVER (PARTITION BY pro.productNum ORDER BY tn.tenderNum DESC) AS rn_product
+		FROM (SELECT pro.productNum, pro.productName, pro.productWriter, pro.startPrice, pro.startTime, pro.state, pro.productViewCount, pro.productTenderCount
+		FROM hm_product pro where
+		
+		<include refid="criteria"></include>
+		
+		<![CDATA[
+		rownum <= #{pageNum} * #{amount}) pro 
+		JOIN hm_tender tn ON pro.productNum = tn.productNum and pro.state = 3)
+		where rn_product = 1 and rownum>((#{pageNum}-1) * #{amount})
+		]]>
+	</select> 
+	
+	<!-- 라이브 경매 수 -->
+	<select id="getLiveTotal" resultType="int">
+		select count(*) from hm_product
+		where productNum>0 and 
+		<include refid="criteria"></include>
+		state = 3
+	</select>	
+		
+		
 	<select id="orderPaySelect" resultType="com.sunflower.domain.ProductVO">
-	SELECT *
-FROM hm_product e
-inner join (select productNum , max(tenderPrice) as tenderPrice from hm_tender
-group by productNum) t
-on e.productNum = t.productNum
-inner join hm_order c
-on t.productNum = c.productNum
-where c.orderState >=2 and c.orderName=#{value}
+		SELECT *
+		FROM hm_product e
+		inner join (select productNum , max(tenderPrice) as tenderPrice from hm_tender
+		group by productNum) t
+		on e.productNum = t.productNum
+		inner join hm_order c
+		on t.productNum = c.productNum
+		where c.orderState >=2 and c.orderName=#{value}
 	</select>
 </mapper>

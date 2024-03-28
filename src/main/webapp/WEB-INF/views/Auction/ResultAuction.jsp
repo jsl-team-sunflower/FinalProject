@@ -106,8 +106,15 @@
 					  </div>
 					  <div class="panel HWAN__panel-default">
 					    <div class="HWAN__panel-heading" role="tab" id="headingTwo" >
-					      <a type="button" class="__category-on" href="/auction/ScheduleAuction">
-					     <p>상시경매</p>
+					      <a type="button" class="__category-on" href="/auction/ShortAuction">
+					     <p>짧은경매</p>
+					     </a>
+					    </div>
+					  </div>
+					  <div class="panel HWAN__panel-default">
+					    <div class="HWAN__panel-heading" role="tab" id="headingTwo" >
+					      <a type="button" class="__category-on" href="/auction/liveAuction">
+					     <p>라이브경매</p>
 					     </a>
 					    </div>
 					  </div>
